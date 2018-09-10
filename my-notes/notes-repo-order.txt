@@ -1,0 +1,20 @@
+Notes for repos
+===============
+
+Java: 
+synchronized-content/git-repositories/java
+	repo-java-examples
+	repo-java-frameworks
+	repo-java-interview-tests
+	repo-personal-development
+
+
+Scala:
+synchronized-content/git-repositories/scala
+	repo-personal-development
+	repo-program-test-scala
+	repo-scala-examples
+
+
+notes:
+synchronized-content/git-repositories/notes/repo-it-notes
