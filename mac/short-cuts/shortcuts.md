@@ -40,3 +40,8 @@
 #### Cursor terminal navigation
 * how to delete all terminal: cmd + K 
 
+#### Cursor terminal navigation
+* refresh: cmd + R 
+
+
+
