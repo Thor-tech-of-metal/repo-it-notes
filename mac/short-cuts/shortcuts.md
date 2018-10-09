@@ -8,7 +8,7 @@
 *  go to upper parent: cmd + Up Arrow  
 *  open a folder: cmd + o
 *  see hidden folders: cmd + Shift + .
-*  see file propertes: select the file and cmd + I
+*  see file propertes: 1) select the file and cmd + I 2) go to the section General-->where
 
 
 #### File system 
