@@ -13,3 +13,4 @@
 * auto complte: option + enter
 * reformat code : option + cmd + L
 * imports : control + option + O 
+* duplicate a line of code : cmd + d
