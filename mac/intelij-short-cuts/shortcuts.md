@@ -14,3 +14,4 @@
 * reformat code : option + cmd + L
 * imports : control + option + O 
 * duplicate a line of code : cmd + d
+* lowercase and uppercase : cmd + shift u
