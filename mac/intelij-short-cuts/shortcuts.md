@@ -15,3 +15,4 @@
 * imports : control + option + O 
 * duplicate a line of code : cmd + d
 * lowercase and uppercase : cmd + shift u
+* colum selection mode : cmd + shift + 8
