@@ -6,6 +6,8 @@
 *  Navigation open files: cmd + [  or cmd + ] 
 *  Find uses: option + Fn + F7
 
+#### Find
+* find code references: F7 (with fn) + option 
 
 #### Edit
 
