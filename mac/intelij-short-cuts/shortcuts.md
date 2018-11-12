@@ -19,3 +19,6 @@
 * duplicate a line of code : cmd + d
 * lowercase and uppercase : cmd + shift u
 * colum selection mode : cmd + shift + 8
+
+####  Generate code
+* surround with : select the code and cmd + option + t 
