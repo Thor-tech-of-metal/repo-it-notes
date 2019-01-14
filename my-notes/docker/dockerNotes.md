@@ -1,5 +1,5 @@
 Container and image
-===============
+====================
 
 * Containers are an abstraction at the app layer that packages code and dependencies together.
 
@@ -29,6 +29,11 @@ RUN chown -R foo:foo /data
 ```
 **EXPOSE :** When writing your Dockerfiles, the instruction EXPOSE tells Docker the running container listens on specific network ports. This acts as a kind of port mapping documentation that can then be used when publishing the ports.
 
+
+
+Docker Container commands 
+=========================
+
 ####Show active containers
 
 `docker ps`
@@ -36,6 +41,39 @@ RUN chown -R foo:foo /data
 ####Show all containers
 
 `docker ps -a`
+
+
+####Stop a container
+
+`docker stop containerID`
+
+#### Stop a container by image id or tagName
+
+`docker rm $(docker stop $(docker ps -a -q --filter ancestor= [imagineID or tagName]  --format="{{.ID}}"))`
+
+for instance:
+`docker rm $(docker stop $(docker ps -a -q --filter ancestor=oraclecoreapp --format="{{.ID}}"))
+`
+
+#### Delete all containers and force
+
+`docker rm $(docker ps -a -q) -f `
+
+#### Connecting to the container and executing  bash commands
+
+`docker exec -it  [CONTAINDER_ID]  bash  `
+
+or  with entry point /bin/bash 
+
+`docker exec -it  [CONTAINDER_ID]  bash /bin/bash `
+
+Docker Images commands 
+========================
+
+#### Check all images
+
+`docker images`
+
 
 #### Build docker images
 
@@ -61,39 +99,34 @@ where 967840b69584 is the number obtained after the build
 
 `docker run -p 8181:8080 [imagineID]`
 
+####Start a image in a map the ports and don't exit 
 
+`docker run -it imagesapplication:v1 -p 9000:9000`
 
-
-
-
-####Stop a container
-
-`docker stop containerID`
-
-#### Stop a container by image id or tagName
-
-`docker rm $(docker stop $(docker ps -a -q --filter ancestor= [imagineID or tagName]  --format="{{.ID}}"))
-`
-
-for instance:
-`docker rm $(docker stop $(docker ps -a -q --filter ancestor=oraclecoreapp --format="{{.ID}}"))
-`
-#### Check all images
-`docker images`
-
-#### delete all images versions
+#### delete a image
 
 docker rmi [docker-image-id]
 
 `docker rmi [tag-name]`
 
-#### Delete all containers and force
-
-`docker rm $(docker ps -a -q) -f `
-
 #### Delete all images
 
 `docker rmi $(docker images -q)`
+
+#### Stop a container by image id or tagName
+
+`docker rm $(docker stop $(docker ps -a -q --filter ancestor= [imagineID or tagName]  --format="{{.ID}}"))`
+
+for instance:
+`docker rm $(docker stop $(docker ps -a -q --filter ancestor=oraclecoreapp --format="{{.ID}}"))
+
+
+Docker general commands 
+========================
+
+#### Find container IP address
+
+`docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)`
 
 
 Docker compose
