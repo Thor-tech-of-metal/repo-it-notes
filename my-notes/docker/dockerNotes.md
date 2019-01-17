@@ -120,6 +120,9 @@ docker rmi [docker-image-id]
 for instance:
 `docker rm $(docker stop $(docker ps -a -q --filter ancestor=oraclecoreapp --format="{{.ID}}"))
 
+#### Pull an image from docker hub
+
+`docker pull cassandra`
 
 Docker general commands 
 ========================
