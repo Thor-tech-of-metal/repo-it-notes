@@ -69,6 +69,11 @@ or  with entry point /bin/bash
 
 `docker exec -it  [CONTAINDER_ID]  bash /bin/bash `
 
+#### See the container logs using docker logs
+
+`docker logs [CONTAINDER_ID]`
+
+
 Docker Images commands 
 ========================
 
