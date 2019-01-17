@@ -12,7 +12,7 @@ cqlsh:jot> DROP KEYSPACE jot;
 
 #####Show all tables
 ```
-cqlsh:jot> describe
+cqlsh:jot> describe tables
 ```
 #####Delete all records in a table
 ```
