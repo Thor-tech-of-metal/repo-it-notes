@@ -9,6 +9,8 @@ Container and image
 
 * Containers take up less space than VMs (container images are typically tens of MBs in size).
 
+* Image name format: [IMAGE_NAME]:[VERSION]
+
 Docker has a contract between the docker image and the container.
 In VM we do not  have that. Every imagine is able to run in the container becuase it has being build based on a predefined contract.
 
