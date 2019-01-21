@@ -1,9 +1,14 @@
 ##### Show all keyspaces
 
+```
 cqlsh> DESCRIBE keyspaces;
+```
 
 ##### Use a keyspcase
+
+```
 cqlsh> use jot;
+```
 
 ##### Drop  a keyspcase
 ```
