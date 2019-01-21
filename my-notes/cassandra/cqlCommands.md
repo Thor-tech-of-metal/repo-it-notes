@@ -1,4 +1,4 @@
-Show all keyspaces
+##### Show all keyspaces
 
 cqlsh> DESCRIBE keyspaces;
 
