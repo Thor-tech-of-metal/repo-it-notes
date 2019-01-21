@@ -9,9 +9,10 @@ Container and image
 
 * Containers take up less space than VMs (container images are typically tens of MBs in size).
 
+* Image name format: [IMAGE_NAME]:[VERSION]
+
 Docker has a contract between the docker image and the container.
 In VM we do not  have that. Every imagine is able to run in the container becuase it has being build based on a predefined contract.
-
 
  Image file
 ========
@@ -68,9 +69,9 @@ or  with entry point /bin/bash
 
 `docker exec -it  [CONTAINDER_ID]  bash /bin/bash `
 
+#### See the container logs using docker logs
 
- Docker internal network for containers
-========
+`docker logs [CONTAINDER_ID]`
 
 
 #### Docker link
@@ -139,7 +140,7 @@ where 967840b69584 is the number obtained after the build
 
 `docker run -it imagesapplication:v1 -p 9000:9000`
 
-####Start a image and map it to another image 
+####Start a image and map it to another container image 
 
 we run a cassandra image and give the name to the container. For example **cassandra**
 
@@ -166,6 +167,9 @@ docker rmi [docker-image-id]
 for instance:
 `docker rm $(docker stop $(docker ps -a -q --filter ancestor=oraclecoreapp --format="{{.ID}}"))
 
+#### Pull an image from docker hub
+
+`docker pull cassandra`
 
 Docker general commands 
 ========================

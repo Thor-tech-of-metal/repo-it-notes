@@ -12,7 +12,7 @@ cqlsh:jot> DROP KEYSPACE jot;
 
 ##### Show all tables
 ```
-cqlsh:jot> describe
+cqlsh:jot> describe tables
 ```
 ##### Delete all records in a table
 ```
@@ -23,7 +23,7 @@ cqlsh:jot> TRUNCATE contextus.auditlogs;
 ```
 cqlsh:jot> delete from  contextus.auditlogs where id=1626h3h18;
 ```
-#####  Drop a table
+##### Drop a table
 ```
 cqlsh:jot> drop table notes;
 ```
@@ -46,7 +46,7 @@ cqlsh:jot> ALTER TABLE users ALTER bio TYPE text;
 ```
 cqlsh:jot>  select * from tasks where assignee ='e69907a8-f487-48bf-ba0c-3b16acf29db2';
 ```
-##### Put  resul in a file
+##### Put  result in a file
 ```
 cqlsh -e "select * from contextus.userwidgets where user = 5842dad3-500d-41f2-b73e-87df08e43dcb" >> out.txt
 ```
