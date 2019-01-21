@@ -12,6 +12,7 @@ Container and image
 Docker has a contract between the docker image and the container.
 In VM we do not  have that. Every imagine is able to run in the container becuase it has being build based on a predefined contract.
 
+
  Image file
 ========
 
@@ -67,6 +68,41 @@ or  with entry point /bin/bash
 
 `docker exec -it  [CONTAINDER_ID]  bash /bin/bash `
 
+
+ Docker internal network for containers
+========
+
+
+#### Docker link
+
+Using --link  we can connect diferents  containers. For example:
+
+1) We can create cassandra container and named it **cassandra** with the --name option
+```
+docker run --name cassandra -d cassandra:latest
+```
+2) We can **link** another docker container using --link 
+
+```
+docker run --link cassandra  -it imagesapplication:v1 -p 9000:9000
+```
+#### Docker network
+
+Another good way to connect containers is by creating a network 
+
+1) create a docker network . It will be called **example**
+
+```
+docker network create example
+```
+
+2) Use --net command to add the network called **example**  to the container
+```
+docker run -d --net example --name container1 [imageName]:[imagineVersion]
+docker run -d --net example --name container2 [imageName]:[imagineVersion]
+```
+ 
+
 Docker Images commands 
 ========================
 
@@ -102,6 +138,16 @@ where 967840b69584 is the number obtained after the build
 ####Start a image in a map the ports and don't exit 
 
 `docker run -it imagesapplication:v1 -p 9000:9000`
+
+####Start a image and map it to another image 
+
+we run a cassandra image and give the name to the container. For example **cassandra**
+
+1)  `docker run --name cassandra -d [imageName]:[imageVersion]`
+
+Using the container name we linked it to another the image name **cassandra**. 
+
+2) `docker run --link cassandra  -it imagesapplication:v1 -p 9000:9000`
 
 #### delete a image
 

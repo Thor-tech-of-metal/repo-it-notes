@@ -39,6 +39,7 @@
 
 #### Cursor terminal navigation
 * how to delete all terminal: cmd + K 
+* how to delete a line: ctrl + ? 
 
 #### Cursor terminal navigation
 * refresh: cmd + R 
