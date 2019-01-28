@@ -174,10 +174,13 @@ for instance:
 Docker general commands 
 ========================
 
-#### Find container IP address
+#### Find container all container Ip address
 
 `docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)`
 
+#### Find a container Ip addres
+
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' [imagineID or tagName]
 
 Docker compose
 =============
