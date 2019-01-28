@@ -180,7 +180,7 @@ Docker general commands
 
 #### Find a container Ip addres
 
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' [imagineID or tagName]
+`docker inspect --format '{{ .NetworkSettings.IPAddress }}' [imagineID or tagName]`
 
 Docker compose
 =============
