@@ -173,7 +173,7 @@ for instance:
 
 #### Login in a docker image registry
 
-`docker login -u SptingBootExampleRegistry -p "FfLG1BJwj8PL=lszQJBXZ+A43BWtt/lD" [IMAGE-NAME]`
+`docker login -u SptingBootExampleRegistry -p "FfLG1BJwj8PL=lszQJBXZ+A43BWtt/lD" [SERVER_URL]`
 
 #### Push in a docker image registry
 
