@@ -171,6 +171,15 @@ for instance:
 
 `docker pull cassandra`
 
+#### Login in a docker image registry
+
+`docker login -u SptingBootExampleRegistry -p "FfLG1BJwj8PL=lszQJBXZ+A43BWtt/lD" [IMAGE-NAME]`
+
+#### Push in a docker image registry
+
+`docker push  [IMAGE-NAME]`
+
+
 Docker general commands 
 ========================
 
