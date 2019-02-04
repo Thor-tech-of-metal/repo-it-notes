@@ -32,8 +32,8 @@ kubectl --context eu-west-1a-nonprod -n payplus-dev describe pod feedback-94fd8d
 ```
 *) Describe pod commands
 ```cpp
-    kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
-    ```
+ kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
+```
 
 *) delete a pop
 
