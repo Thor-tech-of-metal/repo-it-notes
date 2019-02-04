@@ -40,3 +40,9 @@ In this example  each name-space have 3  AvailabilityZones. 1a 1b 1c.
                 eu-west-1b-nonprod
                 eu-west-1c-nonprod
 
+
+General
+========
+* Kubernetes always check the pod health 
+* Kubernates will automatically resurrect killed Pods 
+* Kuberntes keeps restarting pods.  

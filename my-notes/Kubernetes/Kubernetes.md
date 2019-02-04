@@ -158,20 +158,32 @@ Context and name spaces
 =======================
 
 *) Get all context
+```cpp
 kubectl config get-contexts
+```
 
 *) get context and name spaces
+```cpp
 kubectl --context eu-west-1a-nonprod get namespaces
+```
 
 
-Create a mysql clientId
+Create a mysql clientId based on a deployed pod
 =========================
+1)  get the deployed configuation from the other name space and save it in a file  called mysql.yaml
 
+```cpp
 kubectl --context eu-west-1a-nonprod -n payplus-dev get deploy mysql -o yaml > mysql.yaml
-change namespace to payplus in mysql.yaml
 
+```
+2)  Change namespace to payplus  and deploy the generated files form  the other name space  mysql.yaml
+
+```cpp
 kubectl --context eu-west-1a-nonprod -n payplus-dev apply -f mysql.yaml
-kubectl --context eu-west-1c-prod -n payplus get po
+```
+3) Check your pods
+```cpp
+kubectl --context eu-west-1c-prod -n payplus get pod
 
-kubectl --context eu-west-1c-prod -n payplus get secret rds-mysql -o yaml
+```
 
