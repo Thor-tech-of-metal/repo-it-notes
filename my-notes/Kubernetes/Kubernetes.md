@@ -175,10 +175,3 @@ kubectl --context eu-west-1c-prod -n payplus get po
 
 kubectl --context eu-west-1c-prod -n payplus get secret rds-mysql -o yaml
 
-
-ROB questions
-=============
-Que es un contexto y un lable
-Que es replica y como funciona con context
-Que  como funcional el config mapper?
-What is a  ./kubeconfig  file ?
