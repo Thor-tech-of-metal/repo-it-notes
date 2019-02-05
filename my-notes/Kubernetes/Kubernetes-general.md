@@ -18,6 +18,8 @@ In Kubernetes we have AvailabilityZones, Name spaces, Services, Replicas, Deploy
 
 7) Namespace provides an additional qualification to a resource name. 
 
+8) Labels are key-value pairs which are attached to pods, replication controller and services.
+
 A normal kubernetes *.yml file  has the following sections 
 
 * kind: Deployment 
