@@ -6,15 +6,17 @@ In Kubernetes we have AvailabilityZones, Name spaces, Services, Replicas, Deploy
 
 1) A service can be defined as a logical set of pods. It can be defined as an abstraction on the top of the pod which provides a single IP address and DNS name by which pods can be accessed.
 
-1) Pod is a collection of docker containers and its storage inside a node of a Kubernetes cluster. There are two types of Pods. Single container pod and Multi container pod
+2) Pod is a collection of docker containers and its storage inside a node of a Kubernetes cluster. There are two types of Pods. Single container pod and Multi container pod
 
-1) Replica Set ensures how many replica of pod should be running. 
+3) Replica Set ensures how many replica of pod should be running. 
 
-1) Deployments are upgraded and higher version of replication controller. Deployments strategy:  Updating, Deleting and Rollback.
+4) Deployments are upgraded and higher version of replication controller. Deployments strategy:  Updating, Deleting and Rollback.
 
-1) A node is a working machine in Kubernetes cluster which is also known as a minion. They are working units which can be physical, VM, or a cloud instance.
+5) A node is a working machine in Kubernetes cluster which is also known as a minion. They are working units which can be physical, VM, or a cloud instance.
 
-1) Kubernetes cluster is a set of Kubernetes nodes.
+6) Kubernetes cluster is a set of Kubernetes nodes.
+
+7) Namespace provides an additional qualification to a resource name. 
 
 A normal kubernetes *.yml file  has the following sections 
 
