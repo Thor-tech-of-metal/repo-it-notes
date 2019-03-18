@@ -19,7 +19,7 @@
 
 #### search in cask
 
-`brew cask search "java*"`
+`brew search "java*" --casks`
 
 #### search in cask repository
 
