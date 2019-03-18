@@ -24,3 +24,7 @@
 #### search in cask repository
 
 `brew cask info java`
+
+#### install from cask repository
+
+`brew cask install java`
