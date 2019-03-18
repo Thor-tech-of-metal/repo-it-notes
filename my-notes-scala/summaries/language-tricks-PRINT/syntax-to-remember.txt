@@ -1,0 +1,81 @@
+Scala syntax
+============
+
+Function declaration
+====================
+*) : return type
+*) = { body function}
+def  performAnMathOperationToEachElements[T](list: List[T]) : List[T]= { }
+
+
+Function with function as parameter 
+===================================
+
+functionCarlitos(pepe:String) (functionParameterNane:(Type parameters)=> ReturnType)
+
+def  performAnMathOperationToEachElements[T](list: List[T]) (operation:(T)=>T): List[T]={ }
+
+performAnMathOperationToEachElements(tailList)(operation)
+
+
+Scala anonymous function
+========================
+val f = (i: Int) => List(i - 1, i, i + 1)
+def sumInts(a: Int, b: Int) = sum(x => x, a, b)
+val evens = x.filter((i: Int) => i % 2 == 0)
+val evens = x.filter(_ % 2 == 0)
+
+
+Curry
+=====
+def nocurrysum(x:Int, y:Int, z:Int) = x + y + z
+val currysum2 = (x: Int) => (y: Int) => (z: Int) => x + y + z
+val currysum3: Int => Int => Int => Int = x => y => z => x + y + z
+
+val res2 = Currying.currysum2(2)(3)(4)
+val res3 = Currying.currysum3(2)(3)(4)
+val res5 = Currying.nocurrysum(2, 3, 4)
+
+Patter matching
+===============
+
+These 2 are the same:
+Map("key1" -> 1, "key2" -> 2).map { keyValue:(String,Int) => keyValue match { case (key, value) => (key, value*2) } }
+
+Map("key1" -> 1, "key2" -> 2).map { case (key, value) => (key, value*2) }
+
+
+Tuples
+=======
+val accumulator:(Int,Int) = (1,1)
+val x = accumulator._1
+val y = accumulator._2
+
+val accumulatorList: List[ (Int,Int)] = List((1,1))
+
+List 
+====
+val list1 = 1 :: 2 :: 3 :: Nil
+val list2 = List(1,2,3)
+
+val list3 = list1 ::: list2
+
+Maps
+====
+val a = Map("AR" -> "Alabama")
+
+// add one element
+scala> val b = a + ("AK" -> "Alaska")
+
+//Update
+To update a key/value pair with an immutable map, reassign the key and value while using the + method, and the new values replace the old
+val c = b + ("AR" -> "capo")
+
+//Remove
+val removedMap = c - "AR"
+
+//Print map
+
+removedMap foreach (x => println (x._1 + "-->" + x._2))
+
+

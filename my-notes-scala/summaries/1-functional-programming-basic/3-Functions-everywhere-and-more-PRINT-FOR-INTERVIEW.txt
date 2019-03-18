@@ -1,0 +1,142 @@
+
+Call-by-name 
+=============
+The functions are evaluated before evaluating the arguments. Call by name parameters are  evaluated every time when they are used only.
+If the paramter is not used then is not evaluated.
+CBN has the advantage that a function argument is not evaluated if the corresponding parameter is unused in the evaluation of the function body.
+But a CBN parameter is evaluated everytime it is used in the function body.
+
+
+Call-by-value (default in scala)
+=============
+The arguments of the fuction are evaluated before evaluating the function itself. 
+CBV has the advantage that it evaluates every function argument only once.
+
+def first(x: Int, y: Int) = x  and consider the expression first(1, loop).
+Under CBN: first(1, loop) = 1
+Under CBV: first(1, loop) = LOOP ....
+
+=> operator to force call-by-name in a parameter.
+==================================================
+But if the type of a function parameter starts with => it uses call-by-name.
+
+*)	For example: def constOne(x: Int, y: => Int) = 1
+
+constOne(1+2, loop) = CBN constOne(3,loop)--> CBN and ignore loop and return 1
+constOne(loop, 1+2) = CBV evaluates loops and .......................
+
+
+*)call-by-name functions recompute the passed-in expression's value every time it is accessed. It recoumpute the parameter everytime is accessed.
+
+def something() = {
+  println("calling something")
+  1 // return value
+}
+
+def callByValue(x: Int) = {
+  println("x1=" + x)
+  println("x2=" + x)
+}
+
+def callByName(x: => Int) = {
+  println("x1=" + x)
+  println("x2=" + x)
+}
+
+scala> callByValue(something())
+calling something
+x1=1
+x2=1
+
+scala> callByName(something())
+calling something
+x1=1
+calling something
+x2=1
+
+This is because call-by-value functions compute the passed-in expression's value before calling the function, thus the same value is accessed every time. 
+However, call-by-name functions recompute the passed-in expression's value every time it is accessed.
+
+val,var,def lazy val
+====================
+* val attribues are immutable. It can be changed. 
+* var attribues are mutable. It can be changed.
+* def: The def form is “by-name”, its right hand side expression is evaluated everytime it is used. def is also used to define class attributes in abstrac classes. 
+  These are overwritten in the sub classes using val. 
+* lazy val: are defined and evaluated only once at the point that the expression is used only. Then it cannot be changed.
+
+Functions can be any-where
+==========================
+	- "Top-level", i.e. associated with the package
+	- "Static" method in the Object instance instance
+	- "Local method" inside a def method
+	- Return type
+	- function parameter.
+        
+// "Top-level", i.e. associated with the package
+def m1(i : Int) = i + 1  
+object Test {  
+    
+  // "Static" method in the Test instance
+  def m2(i : Int) = i + 2      
+  def main(args: Array[String]): Unit = {    
+    // Local method in the main method
+    def m3(i : Int) = i + 3          
+        println(m1(1))
+        println(m2(1))
+        println(m3(1))
+    }
+}
+
+recursive functions.
+====================
+@tail
+def sqrtIter(guess: Double, x: Double): Double =
+
+if (isGoodEnough(guess, x)) guess
+else sqrtIter(improve(guess, x), x)
+
+* Note that sqrtIter is recursive, its right-hand side calls itself.
+* Recursive functions need an explicit return type in Scala.
+* For non-recursive functions, the return type is optional
+
+Recursive iteration patterns with pattern matching
+===================================================
+
+1) Iterate each list element and perform an operation which is passed ass function parameter. 
+
+ /**
+    * This function is going to perform a math operation to each list parameters.    
+    * @param list this is the list
+    * @param operation this is the operation passed as parameter.It will apply to each parameter.
+    * @return This is the new List that will be returned with all result.
+    */
+ @tail 
+ def  performAnMathOperationToEachElements[T](list: List[T]) (operation:(T)=>T): List[T]={
+
+        list match {
+          case List()=> Nil
+          case (head::tailList)=> 
+            operation(head)::performAnMathOperationToEachElements(tailList)(operation)
+        }
+  }
+
+2) Iterate each element and remove elements base on condition.
+
+  /**
+    * This method will iterate all elements and filter the elements that does fulfill the filter
+    * @param list this the list of elements passed as parameter.
+    * @param filterCriteria this is the filter passed as parameter.
+    * @tparam T this is the list type.
+    * @return this is the new list with all element that fulfill the filter criteria.
+    */
+  @tail  
+  def filterElements[T](list: List[T])(filterCriteria:(T)=>Boolean ): List[T]={
+    list match {
+    	case List()=> Nil
+    	case (head::tailList) => {
+        	if (filterCriteria(head)) head::filterElements(tailList)(filterCriteria)
+        	else filterElements(tailList)(filterCriteria)
+      }
+    }
+  }

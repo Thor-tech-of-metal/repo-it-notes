@@ -1,0 +1,102 @@
+Tail recursion
+==============
+Tail recursion happen If a function f()that calls itself as its last action in the current fuction. It calls itself at the end after the return.  
+the function’s stack frame can be reused (the current stack of memory data set offset code etc). 
+In the byte codes it is translated to a goto line 0 in the same stack.  
+ 
+*Tail recursive functions are iterative processes like a loop.
+
+Tail recursion example
+=======================
+
+Here’s an implementation of gcd using Euclid’s algorithm.
+
+@tailrec
+def gcd(a: Int, b: Int): Int =
+	if (b == 0) a else gcd(b, a % b)
+
+For example: gcd(14, 21) is evaluated as follows:
+
+--gcd(14, 21)
+--if (21 == 0) 14 else gcd(21, 14 % 21)
+--if (false) 14 else gcd(21, 14 % 21)
+--gcd(21, 14 % 21)
+--gcd(21, 14)
+--if (14 == 0) 21 else gcd(14, 21 % 14)
+--gcd(14, 7)
+--gcd(7, 0)
+--if (0 == 0) 7 else gcd(0, 7 % 0)
+--7
+
+Here gcd() is the last call statement [else gcd(b, a % b)] and it can be resolved.In each line. 
+We always come back to the call of gcd() and it can be resolved.
+
+Tail recursion optimization
+===========================
+* @tailrec annotation is done to avoid deeps recursive chains. Only directly recursive calls to the current function are optimized. 
+
+@tailrec 
+def gcd(a: Int, b: Int): Int = ...  
+
+
+No tail recursive function 
+===========================
+Consider factorial: = n! = 1×2×3×4×...×n  when n>0. n×(n-1) ...
+
+
+def factorial(n: Int): Int =
+	if (n == 0) 1 else n * factorial(n - 1) 
+
+here you can see that after the call of factorial(n - 1) there is work to be done "n * ". 
+It happen after the execution of the result of factorial(n - 1). For that reason this is not a  tail recursive. 
+The factorial function is not the last call.
+
+factorial(4)
+--if (4 == 0) 1 else 4 * factorial(4 - 1)
+--4 * factorial(3)
+--4 * (3 * factorial(2))
+--4 * (3 * (2 * factorial(1)))
+--4 * (3 * (2 * (1 * factorial(0)))
+--4 * (3 * (2 * (1 * 1)))
+--120
+
+Make the factorial tail recursive
+===================================
+def factorial(n: Int): Int = {
+
+	@tailrec
+	def loop(acc: Int, n: Int): Int = {
+		if ( n == 0) acc
+		else loop(acc * n, n-1)		
+	}
+	loop (1,n)
+}
+ 
+
+List tail template
+==================
+
+This example iterates a list and apply a operation using the parameter p:T to each element and produce another list with the result of each operation.
+
+*) result: List[T] is always the list that we are buiding in reverse order as result of the iteration.
+*) myListToIterate:List[T] is the orginal list that we will iterate like this myListToIterate.tail.
+*) first call always with result= to Nil. "sumParameterTailRecursion(Nil,list,parameter)(operation)" 
+*) return  result.reverse when we rich the end of the list.
+*) Operation rule: it is always the a combination of function operation and result. "operation(myListToIterate.head,p )::result"  
+
+def sumParameter[T](list: List[T], parameter: T )(operation:(T,T)=>T): List[T] = {
+    
+    @tailrec
+    def sumParameterTailRecursion(result: List[T],myListToIterate:List[T] , p: T) (operation:(T,T)=>T): List[T] = {
+
+      		if (myListToIterate == Nil) result.reverse
+      		else sumParameterTailRecursion( 
+			  								operation(myListToIterate.head,p)::result, 
+											myListToIterate.tail,
+											parameter 
+					      				 )(operation)
+    }
+    
+    sumParameterTailRecursion(Nil,list,parameter)(operation)
+}
+

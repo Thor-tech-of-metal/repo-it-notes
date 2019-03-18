@@ -1,0 +1,86 @@
+Polymorphism 
+============
+Polymorphism that means that a function type / object  type comes “in many types”.  
+
+There are two types of polymorphims:
+1) Subtype : Instances of subclasses can be passed to a base class.
+2) Generics: Type are passed as parameters. Instances of a functions or classes are created by type parameterization.  
+
+Areas to cover Polymorphism
+============================
+**Bounds: subjec type parameters to subtype coinstrains 
+**variance: how parameterizes types behave under subtyping. 
+
+
+*) For Example: assertAllPos method returns the IntSet itself if all its elements are positive. throws an exception otherwise
+
+def assertAllPos[S <: IntSet](r: S): S = ...
+
+Here, “S <: IntSet” It means that S is subtype of IntSet. IntSet is an upper bound of the type parameter S.
+
+Generally, the notation
+=======================
+*)	[S <: T] means: S is a subtype of T,(Upper bound). The name is always chosen based on the right parameter T.  T is a upper bound for S.
+ 
+	[S <: NonEmpty] S is all sub classes of NonEmpty ( BlackTree, RedTree etc)  
+ 
+*)	[S >: T] means: S is all supertype of T. (Lower bound) 
+
+	[S >: NonEmpty] could be one of NonEmpty, IntSet, AnyRef, or Any.
+
+
+Mix a lower bound with an upper bound.
+======================================
+For instance : [S >: NonEmpty <: IntSet] it would restrict S any type on the interval between NonEmpty and IntSet.
+
+
+Playing with list and domains
+==============================
+
+NonEmpty <: IntSet so then we can say  List[NonEmpty] <: List[IntSet]. 
+
+A list of non-empty sets is a special case of a list of arbitrary sets.It means that 
+
+List[NonEmpty] a  = List(new NonEmpty)
+val b: List[IntSet] = a   
+
+
+
+We call types for which this relationship holds covariant because their subtyping relationship varies with the type parameter. 
+
+ 
+In java arrays are covariant
+============================
+** array[object] is super class of array[String]. 
+
+// a is a single-element array of String
+String[] a = new String[1];
+ 
+// b is an array of Object
+Object[] b = a;
+// Assign an Integer to b. This would be possible if b really were an array of Object, but since it really is an array of String,
+
+// we will get a java.lang.ArrayStoreException. In the above example you can read from b safely. 
+It is only trying to write to the array that can lead to trouble.
+
+ b[0] = 1; WAAAAAAAAAAAAAAAAA ERROR!!
+
+In java they store the type of ecah parameter when it is created.
+
+In scala arrays are not covariant
+=================================
+Array[NonEmpty]  is not super class of  Array[IntSet] 
+
+val a: Array[NonEmpty] = Array(new NonEmpty(1, Empty, Empty))
+val b: Array[IntSet] = a --------------------> error !!!!
+b(0) = Empty
+val s: NonEmpty = a(0)
+
+The Rule
+========
+Barbara Liskov, tells us when a type can be A subtype of another.
+
+If A <: B, then everything one can to do with a value of type B one should also be able to do with a value of type A.
+
+The actual definition is bit more formal. 
+"Let q(x) be a property provable about objects x of type B. Then q(y) should be provable for objects y of type A where A <: B."

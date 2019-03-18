@@ -1,0 +1,246 @@
+Referentially transparent or pure function 
+===========================================
+
+The term "referentially transparent" means that the value of expression can depend only on the values of its parts, and not on any other facts about them.
+If all functions involved in the expression are pure functions, then the expression is referentially transparent. 
+
+def square(x:Int) = x * x
+//Prints 25
+println(square(5))
+
+//Prints 36
+println(square(6))
+
+*) This signifies that the function/method evaluates to the same result given the same arguments/values.
+
+This is not an example of a pure function and referentially transparent
+=======================================================================
+var g = 20
+println(mod_rt(10))
+def mod_rt(x:Int) = {
+  //Modifies an external variable
+  g = g+10
+  g + x * x	
+} 
+
+
+
+Closure
+=======
+A closure is a persistent scope which holds on to local variables even after the code execution has moved out of that block.
+function() {
+  var a = 1;
+  var inner = function() {
+    console.log(a);
+  }
+  return inner; // this returns a function
+}
+
+Scala anonymous function
+========================
+val f = (i: Int) => List(i - 1, i, i + 1)
+def sumInts(a: Int, b: Int) = sum(x => x, a, b)
+val evens = x.filter( (i: Int) => i % 2 == 0 )
+val evens = x.filter(_ % 2 == 0)
+
+
+
+Scala higher order
+==================
+
+These are functions that take other functions as parameters values and return the result of function parameter call.  
+*A higher order function is a function that takes a function as a parameter or returns a function as a result
+
+def apply(f: Int => String, v: Int) = f(v)
+
+def layout[A](x: A) = "[" + x.toString() + "]"
+println( apply( layout, 10) )
+
+In the following example, apply () function takes another function ‘f’ and a value ‘v’ . the function apply the  function f in to to v.
+
+
+Currying in Scala
+================= 
+Currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) 
+into evaluating a sequence of functions with a single argument per function. 
+
+*) Currying is the fact of evaluating function arguments one by one, producing a new function with one argument less on each step. 
+
+*) you have to pass all currying parameters in order to obain the result. 
+Currying.currysum2(2)(3)(4) --> result 9 
+Currying.currysum2(2)(3) --> Int => Int = $$Lambda$1073/2111669429@58186f9f
+
+
+For example: f(x, y, z) = x * y + z
+*we may also apply only 3 and get: f(3, y, z) = g(y, z) = 3 * y + z
+*we may apply the arguments 2, 4, 5 at the same time and get: f(3, 4, 5) = 3 * 4 + 5 = 17
+
+Example1:
+def add(x: Int)(y: Int): Int = { x + y  }
+this function can be re-written like this:
+
+def add1(x: Int): (Int => Int) = {   (y: Int) => { x + y }  }
+add1(1).apply(1) ->2
+add1(1)(1)->2
+
+Example2:
+def nocurrysum(x:Int, y:Int, z:Int) = x + y + z
+val currysum2 = (x: Int) => (y: Int) => (z: Int) => x + y + z
+val currysum3: Int => Int => Int => Int = x => y => z => x + y + z
+
+val res2 = Currying.currysum2(2)(3)(4)
+val res3 = Currying.currysum3(2)(3)(4)
+val res5 = Currying.nocurrysum(2, 3, 4)
+
+
+
+Map / flatMap example code
+==========================
+def toInt(s: String): Option[Int] = {
+    try { Some(Integer.parseInt(s.trim))} 
+    catch { case e: Exception => None }
+}
+
+Map
+===
+Map de A[]--> B[] with f() is apply f() to each element of A and produce another a new result B[ each result of f(A element)] 
+where A[].lengh == B[].lengh is true. The result will conaint a list where each element is the result of each operation. One to one cardinality. 
+In scala the result will include None values. 
+
+Example 1:
+scala> val strings = Seq("1", "2", "foo", "3", "bar")
+scala> strings.map(toInt)
+res0: Seq[Option[Int]] = List(Some(1), Some(2), None, Some(3), None)
+
+Example2:
+scala> val fruits = Seq("apple", "banana", "orange")
+scala> fruits.map(_.toUpperCase)
+res0: Seq[java.lang.String] = List(APPLE, BANANA, ORANGE)
+
+
+FlatMap
+=======
+FlatMap A[]--> to B[] with f() is apply f() to each element of A and flattening the results into a new list.
+where A[].lengh == B[].lengh is not always true. All function results will be flatten together in a list where None will not be included.
+When the result is flatten it also means that if a single result in a list all result will be flatten in one list. 
+
+*) If there is not result the element it will not be added will not be added in the result list. In scala the result will not include None values.
+*) FlatMap = map() ̣̣̣̣̣̣̣+ flatten()
+
+
+
+Example above 1:
+scala> strings.flatMap(toInt)
+res1: Seq[Int] = List(1, 2, 3)
+
+scala> strings.flatMap(toInt).sum
+res2: Int = 6
+
+* Equivalent:
+scala> val mapResult = strings.map(toInt)
+mapResult: Seq[Option[Int]] = List(Some(1), Some(2), None, Some(3), None)
+scala> val flattenResult = mapResult.flatten
+flattenResult: Seq[Int] = List(1, 2, 3)
+
+
+Example 2:
+=========
+val list = List(1,2,3)
+def g( value:Int ): =List(value,-value,value+1)
+
+list map { element => g(elemnt) }  ---- => List( List(1,-1,2),List(2,-2,3),List(3,-3,4))
+
+list flatMap { element => g(elemnt) } ---- => List( 1,-1,2, 2,-2,3,3,-3,4 )
+
+
+Example3:
+=========
+scala> val fruits = Seq("apple", "banana", "orange")
+scala> fruits.flatMap(_.toUpperCase)
+res1: Seq[Char] = List(A, P, P, L, E, B, A, N, A, N, A, O, R, A, N, G, E)
+
+scala> val mapResult = fruits.map(_.toUpperCase)
+mapResult: Seq[String] = List(APPLE, BANANA, ORANGE)
+
+scala> val flattenResult = mapResult.flatten
+flattenResult: Seq[Char] = List(A, P, P, L, E, B, A, N, A, N, A, O, R, A, N, G, E)
+
+Example4
+========
+scala> val test ="hola"
+
+scala> test.map(_.toString)
+res5: scala.collection.immutable.IndexedSeq[String] = Vector(h, o, l, a)
+
+scala> test.flatMap(_.toString)
+res6: String = hola
+
+
+Reduce
+======
+Reduce Function: in the reduce step it performs operations with the result of the map/flatMap(f()) using 
+the new keys or data of the result Map/FlatMap A[]--to B[]. In Reduce it normally perform sort,group and other using the new keys
+
+Fold
+====
+//Fold left goes through the list an associate from left to right and put the result in the accumulator
+
+var list = List(1,2,3,4)
+list.foldLeft(0)((b,a) => b+a) = 
+//// ( (1+2) +3 )+4  = 10
+
+list.foldLeft(List[Int]())((b,a) => a :: b)
+//res1: List[Int] = List(4, 3, 2, 1)
+
+(0.to(3).foldLeft(List[Int]()) ( (x, xs) => xs ::x ) )
+
+//Fold Right goes through the list an associate from Right to left and put the result in the accumulator
+//1 + (2 + (3 +4 ) )
+(0.to(3).foldRight(List[Int]()) ( (x, xs) => x :: xs) ) 
+
+
+
+Monad in Scala
+==============
+
+Monads are containers which have several higher order functions defined.   
+Instead of manipulating the object directly.  Monad chooses how to apply the program to the underlying object. Scala Future class is a Monad.
+
+*) Type Constructor:
+A type that has a type parameter. In our case, the type definition is trait Maybe[+A]. 
+An A is a B, then a Maybe[A] is also a Maybe[B]. In other words, an immutable container.
+
+*) Binding Operation:
+
+The binding operation, as a Scala function, would have the following signature: def bind[A, B](Maybe[A])(A => Maybe[B]): Maybe[B]
+From A It returns a B
+
+*) Unit Function:
+
+The unit function is a function from the contained type to the container type, i.e., from A to Maybe[A]. 
+Because apply methods are automatically generated by the compiler for case classes, we get our unit function for free in method Just.apply(A).
+
+
+For example:
+
+sealed trait Maybe[+A] { 
+	
+	def flatMap[B](f: A => Maybe[B]): Maybe[B] 
+
+	def bind[A, B](Maybe[A])(A => Maybe[B]): Maybe[B]
+}
+
+// Nothing
+case object MaybeNot extends Maybe[Nothing] {
+  override def flatMap[B](f: Nothing => Maybe[B]) = MaybeNot
+}
+
+
+case class Just[+A](a: A) extends Maybe[A] {
+
+  def flatMap[B](f: A => Maybe[B]): Maybe[B] = this match {
+    case Just(a) => f(a)
+    case MaybeNot => MaybeNot
+  }
+
+}

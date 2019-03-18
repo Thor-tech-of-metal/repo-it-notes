@@ -1,0 +1,65 @@
+Example binary trees.
+=====================
+* There are two types of possible trees: a tree for the empty set and a tree consisting of an integer and two sub-trees.
+
+* The nodes of the right hand side always have values which are higher than the current node.
+
+* The nodes of the left hand side always have values which are less than the current node.
+
+
+A persistent data structure 
+===========================
+
+In computing, a persistent data structure is a data structure that always preserves the previous version of itself when it is modified. Such data structures are effectively immutable, as their operations do not (visibly) update the structure in-place, but instead always yield a new updated structure. (A persistent data structure is not a data structure committed to persistent storage, such as a disk; this is a different and unrelated sense of the word "persistent.")
+
+Notes:
+=====
+new NonEmpty(elem, left incl x, right)  it will create a new NonEmpty with: 
+1) the current element 2) the result of the function call [left incl x] --> left.incl(x) 3) right class member.
+
+2) left contains x --> left.contains(x)
+
+3) Persistent data structure:
+include means in create a new element of the tree that contains the previous elements of the tree new NonEmpty(elem, left incl x, right).
+
+
+
+Code example:
+
+abstract class IntSet {
+	def incl(x: Int): IntSet
+	def contains(x: Int): Boolean
+	def union(other: IntSet): IntSet
+}
+
+
+object Empty extends IntSet {
+	def contains(x: Int): Boolean = false
+	def incl(x: Int): IntSet = new NonEmpty(x, Empty, Empty)
+	def union(other: IntSet): IntSet = other.
+}
+
+class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
+	
+	def contains(x: Int): Boolean =
+		
+		// if the x is less than elemt we have to look in the left side left.contains(x).
+		if (x < elem) left contains x 
+		// if the x is higher than elemt we have to look in the left right right.contains(x).
+		else if (x > elem) right contains x
+		// if not it is equals.
+		else true
+
+	
+	def incl(x: Int): IntSet =
+		if (x < elem) new NonEmpty(elem, left incl x, right) 
+		else if (x > elem) new NonEmpty(elem, left, right incl x)
+		else this
+	
+	
+	def union(other: IntSet): IntSet = 
+		( left.union(right).union (other) ).include( elemnt)
+	
+
+	overrite def toString ="{" +lelt + elemet + right "}" 
+}

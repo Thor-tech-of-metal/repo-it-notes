@@ -1,0 +1,77 @@
+Higher-Order Functions
+======================
+These are functions that take other functions as parameters and/or values and or return the result of function parameter call.  
+*A higher order function is a function that takes a function as a parameter or returns a function as a result
+
+def apply(f: Int => String, v: Int) = f(v)
+def layout[A](x: A) = "[" + x.toString() + "]"
+println( apply( layout, 10) )
+
+In the following example, apply () function takes another function ‘f’ and a value ‘v’ . the function apply the  function f in to to v.
+
+
+*)	For example: a sun which can sun any other function as parameter (like sum intergers, sum cubes or sum factorials) and sum each values
+between a and b range.
+
+def sum(f: Int => Int, a: Int, b: Int): Int =
+	if (a > b) 0 else f(a) + sum(f, a + 1, b)
+
+=>Here we define the auxiliary  functions which can be sent as parameters:
+
+def id(x: Int): Int = x
+def cube(x: Int): Int = x * x * x 
+def fact(x: Int): Int = 
+	if (x == 0) 1 else fact(x - 1)
+
+=> Here we can define each specific function:
+
+def sumInts(a: Int, b: Int) = sum(id, a, b) 
+def sumCubes(a: Int, b: Int) = sum(cube, a, b) 
+def sumFactorials(a: Int, b: Int) = sum(fact, a, b) 
+
+
+=> Finally we can make the calls to our functions 
+sumInts(1, 3)
+sumCubes(3, 6)
+
+The problem 
+============
+Passing functions as parameters leads to the creation of many small functions.
+=> Sometimes it is tedious to have to deﬁne (and name) these functions using def.
+
+*)	In the example above we have to define these functions. 
+def id(x: Int): Int = x
+def cube(x: Int): Int = x * x * x
+....
+
+Anonymous Function Syntax
+=========================
+Anonymous functions are a functions without a name. Like a string literal.
+
+*)	For Example: A function that raises its argument to a cube: (x: Int) => x * x * x
+    => The type of the parameter can be omitted if it can be inferred by the compiler from the context.
+
+*)	For Example: we can write sums in a shorter way, we pass the Anonymous function as parameter. Like this (x => x * x * x)
+
+def sumInts(a: Int, b: Int) = sum(x => x, a, b) 
+def sumCubes(a: Int, b: Int) = sum(x => x * x * x, a, b)
+
+Higher-order-functions-call
+==========================
+*)  (parameter:Int)=> {body using parameter}
+*) for example sum ( x => x*x, 3,5)  where  x => x*x--> (x:Int)=> {x*x}
+
+Good example
+============
+Given that the rage between a and b can be a lot that could lead to stack overflow. Therefore we can rewrite it as tail recursive functions.
+*)	A tail recursive version of the sun() function that sum fucntion for a range a to b. 
+
+def sum (operationF: Int=>Int, start: Int, end: Int):Int ={
+	@tailrec
+    def loop (a: Int, accumulator : Int ): Int =
+      if ( a> end) accumulator
+      else loop ( a +1, operationF(a) + accumulator)
+
+    loop(start,0)
+}
+sum ( x => x*x, 3,5) 

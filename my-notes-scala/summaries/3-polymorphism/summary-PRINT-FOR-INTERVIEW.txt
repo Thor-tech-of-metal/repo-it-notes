@@ -1,0 +1,57 @@
+There are two types of polymorphims:
+1) Subtype : Instances of subclasses can be passed to a base class.
+2) Generics: Type are passed as parameters. Instances of a functions or classes are created by type parameterization.  
+
+
+Generally, the notation
+=======================
+*)	[S <: T] means: T is a supertype of S. T is (Upper bound). The name is always chosen based on the right parameter T.  T is a upper bound for S.
+ 
+	[S <: NonEmpty] S is all sub classes of NonEmpty ( BlackTree, RedTree etc)  
+ 
+*)	[S >: T] means: T is a subtype od S. T is (Lower bound) 
+
+	[S >: NonEmpty] could be one of NonEmpty, IntSet, AnyRef, or Any.
+
+Mix a lower bound with an upper bound.
+======================================
+For instance : [S >: NonEmpty <: IntSet] it would restrict S any type on the interval between NonEmpty and IntSet.
+
+
+List of tuples using genetics
+==============================
+*) List[(T,Int)] this means that it is a list of tuples using generics
+
+
+The Rule
+========
+Barbara Liskov, tells us when a type can be A subtype of another.
+
+If A <: B, then everything one can to do with a value of type B one should also be able to do with a value of type A.
+
+The actual definition is bit more formal. 
+"Let q(x) be a property provable about objects x of type B. Then q(y) should be provable for objects y of type A where A <: B."
+
+Covariant 
+========= 
+If C[A] <: C[B]  -> C[A] is also subtype of C[B]  then  C is covariant.--> C[+A]
+
+If C[A] >: C[B] -> C[A] super of C[B]  then  C is contra-covariant.--> C[-A]  
+
+* Type that cannot be covariant are:  Types that accepts mutations of its elements should not be covariant. For example Array. 
+
+*Type that can be covariant are:  immutable types can be covariant, if some conditions on the methods are met.
+ For example List (is immutable) should be covariant whereas Array (is mutable) should be not. 
+ 
+The Rule 
+=========
+ 
+*) class C [+A]    method[B>:A] (parameter:B) {}   in C[+A] I can do methods that takes all B which are SUPER  type of A
+
+*) class C [-A]    method[B<:A] (parameter:B) {}   In C [-A] I can do methods that takes all B which are SUB type of A
+
+Get/Put Principle 
+=================
+*) we use covariance when we only intend to GET generic values out of a structure. 
+*) We use contravariance when we only intend to put generic values into a structure
+*) we use an invariant when we intend to do both. 

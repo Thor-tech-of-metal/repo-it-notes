@@ -1,0 +1,21 @@
+if-else
+=======
+
+It looks like a if-else in Java, but is used for expressions, not statements.
+
+For example: def abs(x: Int) = if (x >= 0) x else -x
+
+x >= 0 is a predicate, of type Boolean
+
+rules for Booleans
+==================
+
+!true --> false
+!false --> true
+true && e --> e  
+false && e --> false
+true || e --> true
+false || e --> e
+
+*these expressions use “short-circuit evaluation”. ( && and || do not always need their right operand to be evaluated.)
+

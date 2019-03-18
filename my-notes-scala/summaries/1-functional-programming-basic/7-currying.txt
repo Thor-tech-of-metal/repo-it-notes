@@ -1,0 +1,140 @@
+Haskell Brooks Curry (1900-1982)
+
+currying:
+========
+currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) 
+into evaluating a sequence of functions, each with a single argument. 
+
+Example
+=========
+def add(x: Int)(y: Int): Int = {
+  x + y
+}
+
+This function can be re-written like this:
+
+scala> def add2(x: Int): (Int => Int) = {  	(y: Int) => { x + y }   }
+add2: (x: Int)Int => Int
+
+scala> add2(1).apply(1)
+res4: Int = 2
+
+Example2:
+def nocurrysum(x:Int, y:Int, z:Int) = x + y + z
+val currysum2 = (x: Int) => (y: Int) => (z: Int) => x + y + z
+val currysum3: Int => Int => Int => Int = x => y => z => x + y + z
+
+val res2 = Currying.currysum2(2)(3)(4)
+val res3 = Currying.currysum3(2)(3)(4)
+val res5 = Currying.nocurrysum(2, 3, 4)
+
+Functions that returns another functions 
+=========================================
+
+*) For example: we want to write a function that performs  F(a)+ F(a+1)...F(a+n) for a range of  while a > b
+
+def fact(value: Int): Int =
+	if (value == 0) 1
+    else fact(value - 1)
+
+def sumInts = sum(x => x)
+def sumCubes = sum(x => x * x * x)
+def sumFactorials = sum(fact)
+
+
+def sum(f: Int => Int): (Int, Int) => Int = {
+	
+	def sumF(a: Int, b: Int): Int =
+		if (a > b) 0
+		else f(a) + sumF(a + 1, b)
+	sumF
+}
+
+
+sumInts (1, 3)
+sumCubes (1, 2)
+//it is the same than sumCubes (1, 2)
+sum (x => x * x * x) (1, 2)
+sumFactorials (1, 10)
+
+Explanation:
+------------
+sum(f: Int => Int)is a function that has as parameter another function and return a function (Int, Int) => Int.
+This returned function is defined inside as sumF(a: Int, b: Int). For that reason the return is sumF
+
+sum (cube) (1, 10) -- where (cube) is the parameter for the fucntion and (1, 10) are the paramters for the fucntion that we return.
+f(a) + sumF(a + 1, b) is the same of F(a)+ F(a+1)...F(a+n) until a > b
+
+* sum is now a function that returns another function.
+* The returned function sumF applies the given function parameter f and sums the results.
+
+
+The previous function sum can be written in a shorter way.
+============================================================
+*)	Example: F(a)+ F(a+1)...F(a+n) until a > b
+
+def fact(value: Int): Int =
+    if (value == 0) 1
+    else fact(value - 1)
+
+def sumInts (a: Int, b: Int): Int = sum(x => x) (a,b)
+def sumCubes (a: Int, b: Int): Int = sum(x => x * x * x)(a,b)
+def sumFactorials (a: Int, b: Int): Int = sum(fact)(a,b)
+ 
+def cubes (x:Int) :Int = x*x*x
+
+def sum(f: Int => Int) (a: Int, b: Int): Int =
+	if (a > b) 0 
+        else f(a) + sum(f)(a + 1, b)
+
+
+=>For example, the following definition of sum is equivalent to the one with the nested sumF function.
+
+=>where def sumF is the same as (a: Int, b: Int): Int =if ....else ... (a+1,b). (a: Int, b: Int) is the returned function.
+
+=> def sumInts (a: Int, b: Int): Int = sum(x => x) (a,b) we have to pass (a: Int, b: Int): Int the function that calls sum().
+ As well as the paramters (a,b) in the sum function call. 
+
+sumInts(1, 3)
+sumCubes (1, 2)
+//it is the same than sumCubes (1, 2)
+sum (x => x * x * x) (1, 2)
+//it is the same than sumCubes (1, 2)  
+sum (cubes) (1, 2)
+sumFactorials (1, 10)
+
+
+Example
+=======
+write a function that calculates the product of the values of a function for the points for a given interval.
+write fatorials in term of products 
+write a generic function which represent boths.
+
+
+def mapReduce(f: Int=> Int, combine: (Int,Int)=>Int, zero:Int) (a:Int,b:Int): Int ={
+	if(a>b) zero
+ 	else combine(f(a),mapReduce(f, combine, zero)(a+1, b))
+}
+
+def product(f:Int=> Int) (a: Int,b: Int) : Int=  mapReduce( f, (x, y)=>x * y ,1) (a,b)
+def fact (n: Int) = product (x => x)(1,n)
+
+product (x => x*x )(3,4)
+fact (5)
+
+
+Explanation:
+------------
+1) def mapReduce(f: Int=> Int, combine: (Int,Int)=> Int, zero:Int) 
+
+it takes 2 function as parameters (f: Int=> Int, combine: (Int,Int)=>Int, zero:Int) == 
+(
+   product definition--->for instanse x*x , 
+   how to combine the functions, both function are Int f() and g() --> f(a) * product(f)(a + 1, b),
+   zero--> simple 0
+)
+2) (a:Int,b:Int): Int = is the returned function
+
+3) combine(f(a),mapReduce(f, combine, zero)(a+1, b)) is the same  F(a) combine operation of F(a+1) combine ...F(a+n) until a > b
+
+

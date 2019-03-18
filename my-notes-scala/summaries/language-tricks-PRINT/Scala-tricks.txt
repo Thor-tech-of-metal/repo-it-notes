@@ -1,0 +1,77 @@
+Cases classes
+=============
+Case classes can be seen as plain and immutable data-holding objects that should exclusively depend on their constructor arguments.
+All classes in which wish to be used in pattern maching should be case classes. 
+
+This functional concept allows us to:
+    use a compact initialisation syntax (Node(1, Leaf(2), None)))
+    decompose them using pattern matching
+    have equality comparisons implicitly defined.
+
+A case classes has automatic generated helper method for equality copy apply unapply etc. 
+
+
+Case classes extennsion
+=======================
+
+case class extension should be avoided but you could convert your Edge class into a trait.
+If you want to avoid the private statements you can also mark the variables as override 
+
+trait Edge{
+  def a:Strl
+  def b:Strl
+}
+
+case class EdgeQA(override val a:Strl, override val b:Strl, right:Int, asked:Int ) extends Edge
+
+Implicit classes
+=================
+
+Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implict class.
+
+implicit class ImplictCalssName(val extension : Type) where extension : Type is the type that will be exnteded to use new features.
+
+
+package com.alvinalexander.utils
+
+object StringUtils {
+    implicit class StringImprovements(val s: String) {
+        def increment = s.map(c => (c + 1).toChar)
+	
+	def hideAll: String = s.replaceAll(".", "*")
+    }
+}
+
+How to use it. simply import it and it will add the functionality to the string.
+
+import com.alvinalexander.utils.StringUtils._
+println("HAL".increment)
+
+
+“An implicit class must be defined in a scope where method definitions are allowed (not at the top level).” 
+This means that the implicit class must be defined :
+    A class
+    An object
+    A package object
+
+A major benefit of this approach is that you don’t have to extend existing classes to add the new functionality.
+
+
+What are implicit parameters in Scala?
+======================================
+The implicit parameter is a parameter of method or constructor that is marked as implicit.  This means if a parameter value is not mentioned then
+the compiler will search for an “implicit” value defined within a scope.   
+
+// define a method that takes an implicit String
+scala> def yo(implicit s:String) = println("Yo, " + s)
+yo: (implicit s: String)Unit
+// pass a string to it; it works
+scala> yo("Adrian")
+Yo, Adria
+// create an implicit String field, which is now "in scope"
+scala> implicit val fred = "Fred"
+fred: java.lang.String = Fred
+// call yo without an argument; it magically finds fred(!)
+scala> yo
+Yo, Fred
+

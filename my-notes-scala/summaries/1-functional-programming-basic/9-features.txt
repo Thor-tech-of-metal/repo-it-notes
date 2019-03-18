@@ -1,0 +1,36 @@
+Implicit
+=========
+The implicit parameter is a parameter of method or constructor that is marked as implicit.  This means if a parameter value is not mentioned then the compiler 
+will search for an “implicit” value defined within a scope. It is similar to default parameters, but it has a different mechanism for finding the “default” value.  
+
+Example:
+scala> def p(implicit i:Int) = print(i)
+scala> implicit val v=2
+scala> p               
+2
+scala> p(1)
+1
+*) remember that def pp(implicit i:Int, b:Long) = println(i,b)  define both parameters as implict. 
+scala> def pp(implicit i:Int, b:Long) = println(i,b)  
+pp: (implicit i: Int,implicit b: Long)Unit
+
+Option
+=======
+Option’ is a Scala generic type that can either be ‘some’ generic value or none.  
+
+object Demo {
+   def main(args: Array[String]) {
+      val capitals = Map("France" -> "Paris", "Japan" -> "Tokyo")
+      
+      println("show(capitals.get( \"Japan\")) : " + show(capitals.get( "Japan")) )
+      println("show(capitals.get( \"India\")) : " + show(capitals.get( "India")) )
+   }
+   
+   def show(x: Option[String]) = x match {
+      case Some(s) => s
+      case None => "?"
+   }
+}
+
+show(capitals.get( "Japan")) : Tokyo
+show(capitals.get( "India")) : ?

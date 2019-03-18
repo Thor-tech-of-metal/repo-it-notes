@@ -1,0 +1,133 @@
+Polymorphism 
+============
+Polymorphism that means that a function type / object  type comes “in many types”.  
+
+**The function can be applied to argument of many types. 
+**A type can have instances of many types.
+
+There are two types of polymorphims:
+1) Subtype : Instances of subclasses can be passed to a base class. 
+	*) An object of a supertype can hold a subtype.
+	*) An object of a subtype can hold a supertype. 
+2) Generics: Instances of a functions or classes are created by type parameterization. 
+
+
+Type parameter
+==============
+* This example narrow to define a list with only Int elements.
+
+trait IntList ...
+class Cons (val head: Int, val tail : IntList ) extends IntList ...
+class Nil extends IntList ..
+ 
+* We can generalize the definiton using a type parameter.
+* Type parameter are written in square brackets. [T]. So a List[T] is taking a parameter of T. class Cons[T] is also taking a parameter of T
+
+Better example
+==============
+
+trait List[T] {
+  // This is the list head the actual value
+  def head: T
+  // this is the pointer to another list
+  def tail: List[T]
+  
+  def isEmpty: Boolean
+}
+
+Use and sintax
+==============
+[T]			---> parameter type definition.
+new Cons [T]---> parameter type definition.
+elem: T 	---> parameter type use.
+
+Like classes, functions can have type parameters.
+==================================================
+
+*) For example a List that consist of a single elemnt.
+
+def singleton [T] (elem: T)  = new Cons [T] ( elem, new Nil[T] )
+singleton[Int](1)
+singleton[Boolean](true)
+
+
+** Scala compiler can usually  deduce the correct type parameters from the value argument of a function call. 
+singleton(1)
+singleton(true)
+
+Type erasure
+============
+
+**We can assume that all type parameters and type argument are removed before evaluating the program.
+**Type are only used by the compiler to ensure that the program meet certain properties.
+ 
+Type Tests and Type Casts
+=========================
+
+def isInstanceOf[T]: Boolean // checks whether this object’s type conforms to ‘T‘
+def asInstanceOf[T]: T // treats this object as an instance of type ‘T‘ or throws ‘ClassCastException‘ if it isn’t.
+
+
+
+These correspond to Java’s type tests and casts Scala Java
+
+scacla 			java 
+	
+x.isInstanceOf[T] 	x instanceof T
+
+x.asI	nstanceOf[T] 	(T) x
+
+But their use in Scala is discouraged, because there are better
+alternatives.
+
+
+
+List of tuples using genetics
+==============================
+*) List[(T,Int)] this means that it is a list of tuples using generics
+
+for example: this function returns  List[(T,Int)]
+countHowManyMatches[T] (list:List[T]): List[(T,Int)]={...}
+
+For example:
+============
+package week4
+
+trait List[T] {
+	def isEmpty: Boolean
+	def head: T
+	def tail: List[T]
+}
+
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+	def isEmpty = false
+}
+
+class Nil[T] extends List[T] {
+	
+	def isEmpty: Boolean = true
+	//throw exception is a tyoe of nothing.
+	//Nothing is a sub type of everythings including T and List[T]
+	def head: Nothing = throw new NoSuchElementException(oNil.heado)
+	def tail: Nothing= throw new NoSuchElementException(oNil.tailo)
+}
+
+For example a function that return an specific node.
+====================================================
+
+object nth{
+	def getElement [T] (n: Int, list List [T] ) : T ={
+		if list.isEmpty() throw new IndexOutOfBoundException
+		else if ( n==0) list.head
+		else getElemt ( n-1, list.tail)
+
+	}
+	
+	val list = new Cons(1, new Cons( 2, new Cons( 3, new Nil) ) )
+	getElement[Int](2, list)
+	getElement(4, list)
+	getElement(-1, list)
+}
+
+
+

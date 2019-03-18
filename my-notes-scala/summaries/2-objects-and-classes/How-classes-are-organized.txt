@@ -1,0 +1,33 @@
+Classes and objects 
+====================
+
+* Classes and objects are organized in packages. In the same way that java does.
+
+Imports come in several forms:
+==============================
+
+* import week3.Rational // imports just Rational
+* import week3.{Rational, Hello} // Wildcard import. it imports both Rational and Hello. 
+* import week3._ // imports everything in package week3
+
+
+Require 
+=======
+require(y > 0, ”denominator must be positive”)
+
+* require is used to enforce a precondition on the caller of a function.
+* IllegalArgumentException will be thrown for require.
+
+
+assert
+=======
+val x = sqrt(y)
+assert(x >= 0)
+
+* assert is used as to check the code of the function itself.
+* AssertionError will be thrown  for assert,
+
+
+Sclaca doc
+==========
+www.scala-lang.org/api/current

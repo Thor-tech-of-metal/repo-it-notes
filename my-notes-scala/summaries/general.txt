@@ -1,0 +1,49 @@
+
+Functional programming
+=======================
+Functional programming is a bit like using a calculator. An interactive shell (or REPL, for Read-Eval-Print-Loop) 
+lets one write expressions and responds with their value.
+
+Compiler
+========
+Scala compiler can usually deduce the correct type parameters from the value argument of a function call. In most cases the parameter can be taken out.
+
+Wokrsheet
+=========
+file where you can write scala lines of code which are interpreated not compile. These lines of code are persisted as worksheet file. 
+
+
+scala file 
+==========
+The scala file can contains many classes and object instance declaration. For example /src/package/trees.scala
+Note that package object xxx gives the file name.
+
+package object trees { }
+
+abstract class IntSet { }
+
+object Empty extends IntSet { }
+
+class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet { }
+
+Imports come in several forms:
+==============================
+
+* import week3.Rational // imports just Rational
+* import week3.{Rational, Hello} // Wildcard import. it imports both Rational and Hello. 
+* import week3._ // imports everything in package week3
+ 
+
+Standalone applications 
+=======================
+
+*) Each such application contains an object with a main method. "Hello World!” program in Scala.
+
+object Hello {
+	def main(args: Array[String]) = println(”hello world!”)
+}
+> scala Hello 
+
+scala docs
+==========
+http://www.scala-lang.org/files/archive/api/current/#package

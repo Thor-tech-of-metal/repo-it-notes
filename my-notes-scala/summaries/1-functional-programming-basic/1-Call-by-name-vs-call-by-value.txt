@@ -1,0 +1,92 @@
+
+
+*) Functional programming is a bit like using a calculator. An interactive shell (or REPL, for Read-Eval-Print-Loop) 
+lets one write expressions and responds with their value.
+
+The Scala REPL ( Read-Eval-Print-Loop) can be started by simply typing
+> s c a l a
+
+
+The substitution model
+======================
+The idea underlying this model is that all evaluation does is reduce an expression to a value. 
+It can be applied to all expressions, as long as they have no side effects.
+
+Does every expression reduce to a value (in a finite number of steps)? --> NO NO 
+
+**For Example 1:**
+ 
+def loop: Int = loop
+loop --> loop --> loop ......
+
+
+Substitution
+=============
+here is the defintion:  def f(x1;....,xn) = B; ..program --> f(v1,....,vn)
+
+where x1..xn are the parameters definition (they can be variables,functions or expressions).
+where v1..vn are the values of the parameters when it is called.
+where f(v1,....,vn) is a function call.
+
+This can be simplified in  def f(x1,....,xn) = B; ..program -->  [v1/x1 ,...., vn/xn] B
+B means:
+
+The expression B in which all occurrences of xi have been replaced by vi. [v1/x1 ,...., vn/xn] is called a substitution.
+
+
+Call-by-name 
+=============
+The functions are evaluated before evaluating the arguments.
+CBN has the advantage that a function argument is not evaluated if the corresponding parameter is unused in the evaluation of the function body.
+
+
+Call-by-value
+=============
+The arguments of the fuction are evaluated before evaluating the function itself. 
+CVB has the advantage that it evaluates every function argument only once.
+
+
+*)	Example1: def test(x: Int, y: Int) = x * x
+test(7, 2*4) 
+
+CBV: test(7, 8) = 7*7= 49 -->2 steps
+
+CBN: = 7*7 = 49 --> 1 step the 2*4 was not evaluated because the function definitions was applied before. 
+					It works out that the second parameter was not needed. 
+
+*)	Example2: def test(x: Int, y: Int) = x * x
+test(3+4, 8) 
+
+CBV: test(7, 8) = 7*7= 49 --> 2 steps 
+CBN: (3+4)*(3+4)= 7*7 =49 --> 3 steps
+
+*)	Example3:
+test(2, 3) --> the same result the only way to resolve it is CBN
+
+*Both strategies reduce to the same ﬁnal values as long as the reduced expression consists of pure functions, and both evaluations terminate.
+
+CBN, CBV termination and loops
+===============================
+
+1) If CBV evaluation of an expression terminates, it means that the CBN evaluation of same expression also terminates.
+2) The other direction is not true. 
+
+*)	For example:  an expression that terminates under CBN but not under CBV.
+
+def first(x: Int, y: Int) = x  and consider the expression first(1, loop).
+Under CBN: first(1, loop) = 1
+Under CBV: first(1, loop) = LOOP .... 
+
+Scala uses call by value as default.
+=====================================
+Scala uses call by value as default. Simple because it is more imperative and exponential more efficient. 
+it avoids the repeating computation of agr expresion.
+
+=> operator to force call-by-name in a parameter.
+==================================================
+But if the type of a function parameter starts with => it uses call-by-name.
+
+*)	For example: def constOne(x: Int, y: => Int) = 1
+
+constOne(1+2, loop) = CBN constOne(3,loop)--> CBN and ignore loop and return 1
+constOne(loop, 1+2) = CBV evaluates loops and .......................

@@ -1,0 +1,126 @@
+For-comprehension
+=================
+
+The for-comprehension is used to start some futures running in parallel, then joins them back together in the for-comprehension and then
+read all result. It can be also used to: a) execute futures in parallel and combine their result. b) execute futures where the result is used to execute another.
+
+for { expressions1* } yield { results of expressions* }
+
+expressions1* can be:
+a) asynchronous calls where thier result are assigned to a val  result1 <- futureCall.(parameter)
+b) if statements to filter values of the result of the iterations iteration if result1.name != "Toto".
+c) in the expression clausule value <- funtionRetunFuture() is used for asynch funtions that return a Future 
+d) in the expression clausule val value = funtionRetunNotFuture() is used for synch funtions that does not return a Future 
+
+results of expressions* is an acumulator of all results in from the for {} . In the yield{} there is a guaranty that all asynchronous calls 
+has been processed. In other words their futures are completed with a value.
+
+The for comprehension is always translated in to maps, flatMap and filters.
+============================================================================
+case class Book(author: String, title: String)
+
+for { book <- books 
+      if book.author startsWith "bob"  } 
+yield { book.title }
+
+translated in to --> books.withFilter(book => book.author startsWith "bob").map(book => book.title)
+
+
+Map/flatMap/filter
+==================
+*) any class that wish to be in a for comprehension should implement Map/flatMap/filter
+
+sealed trait MaybeInt {
+    def map(f: Int => Int): MaybeInt
+    def flatMap(f: Int => MaybeInt): MaybeInt
+}
+
+case class SomeInt(i: Int) extends MaybeInt {
+    def map(f: Int => Int): MaybeInt = SomeInt(f(i))
+    def flatMap(f: Int => MaybeInt): MaybeInt = f(i)
+}
+
+case object NoInt extends MaybeInt {
+    def map(f: Int => Int): MaybeInt = NoInt
+    def flatMap(f: Int => MaybeInt): MaybeInt = NoInt
+}
+
+scala> val maybe = SomeInt(1)
+maybe: SomeInt = SomeInt(1)
+
+scala> val no = NoInt
+no: NoInt.type = NoInt
+
+for {
+  a <- maybe
+  b <- no
+} yield a + b
+
+res10: MaybeInt = NoInt
+
+for {
+  a <- maybe
+  b <- maybe
+} yield a + b
+
+res12: MaybeInt = SomeInt(2)
+
+Examples
+========
+
+Example 1:
+
+val result1 = future(...)
+val result2 = future(...)
+
+val res = for {
+   r1 <- result1
+   r2 <- result2(r2.name)
+} yield ( r1+r2 )
+
+
+Example 2:
+object RunningMultipleCalcs extends App {
+
+    // Cloud.runAlgorithm(10) return a future. it is not important.
+    val result1 = Cloud.runAlgorithm(10)
+    val result2 = Cloud.runAlgorithm(20)
+    val result3 = Cloud.runAlgorithm(30)
+
+    // --- before for-comprehension ---
+    val result = for {
+        r1 <- result1
+        r2 <- result2
+        r3 <- result3
+        val formated =  process (r3)
+    } yield (r1 + r2 + r3 + formated)
+
+    result onSuccess { case result => println(s"total = $result") }
+
+    sleep(2000)  // important: keep the jvm alive
+}
+
+When all three futures return, their [T] values are assigned to the variables r1, r2, and r3 (defined in the for).
+then the result of those three values are yield in the yield accumulator expression.
+Finally their are assigned to the result List() variable.
+
+Example 3:
+def store(note:Note): Future[Either[FailResult, SuccessResultWrapper[Note]]]={
+
+    for {
+      // writes in the cassandra DB
+      cassandraNote <- cassandra.notes.storeNote(note)
+      // writes in the cassandra DB
+      elasticNote <- ElasticNote.storeNote(note)
+    } yield {
+
+      val errors = List(cassandraNote, elasticNote) collect { case Invalid(d) => d }
+      if (errors.nonEmpty) {
+        val message = s"Error occurred writing note $note to database"
+        Logger.error(s"$message: ${ errors}")
+        Left(DatabaseError(message))
+      } else {
+        Right(new SuccessResultWrapper(note))
+      }
+    }
+  }

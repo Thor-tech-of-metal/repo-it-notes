@@ -1,0 +1,66 @@
+Infix Notation
+==============
+Any method with a parameter can be used like an infix operator. It is therefore possible to write.
+
+r add s --> it us the same of --> r.add(s)
+r less s--> it us the same of --> r.less(s)
+r max s --> it us the same of --> r.max(s)
+
+
+Overloading operators
+=====================
+In scala we can overload an operator like in C++
+
+For example: 
+============
+* We write x + y, if x and y are integers, but
+* We write r.add(s) if r and s are rational numbers.
+
+In Scala, we can eliminate this difference. Operators can be used as identifiers
+
+Operators can be used as identifiers
+====================================
+
+Operators can be used as identifiers Thus, an identifier can be:
+
+* Alphanumeric: starting with a letter, followed by a sequence of letters or numbers
+* Symbolic: starting with an operator symbol, followed by other operator symbols.
+* Alphanumeric identifiers can also end in an underscore, followed by some operator symbols.
+
+-->we can remplace the add fuention name for + 
+-->we can remplace the sub fuention name for - 
+
+
+//we can use the operator + as def add(that: Rational)	
+def +(that: Rational) = ...
+	
+//we can use the operator - as def sub(that: Rational)
+def -(that: Rational) = ...
+
+
+We can apply the overloading of operations as pure attributes too
+=================================================================
+//attribute 
+def neg: Rationals =  new Rationals(-number,demom)
+
+-- can be written as an operator "-".
+def unary_- : RationalsWithOperators =  new RationalsWithOperators(-number,demom)
+
+Functions and arributes
+========================
+
+used like that: 
+
+1) rational1 - rationals2 - rationals3
+   rational1.-( rationals2).-(rationals3)
+***refer to a function -(RationalsWithOperators)
+
+2) -that
+   - (RationalsWithOperators)
+   refer to an attribute
+   
+3) val rationalsWithOperators new RationalsWithOperators(-number,demom)
+   -number
+   - (Int)
+   refer to an attribute with a diferent data type.
+

@@ -1,0 +1,118 @@
+Functions definitions
+=====================
+1) 
+def functionName (values: Int) : Int ={ body.. }
+
+Remember that ":"
+	* is used to define the funtion type
+	* is used to define the agument type 
+ 
+ Remember that "="
+ 	* is used to define function body
+
+
+2)
+def neg(): Rationals = { new Rationals(-number,demom) }
+Remember that 
+	*	a function without parameters can be defined and used without the ()
+
+def neg : Rationals = new Rationals(-number,demom)
+
+3) Define a function as parameter or return type.
+ 
+def sum (f: Int=> Int) : (Int,Int)=> Int = {
+
+    def sumF (a :Int, b: Int): Int ={
+      if (a > b) 0
+      else f(a) + sumF(a+1,b)
+    }
+    sumF
+  }
+
+Remember that "=>" is used to define the returing type of a fuction that is been defined 
+	*	as function parameter in the sum() function definition 
+	*	as function return type of  function sum() 
+
+3) Function as parameters in calls. Pattern: (parameter:[parameterType]=>{function body..})
+  *Example: (list2) is the data parameter and ( (parameter:Int)=> parameter * parameter) is the f() as parameter
+  
+  listFuctionExamples.performAnMathOperationToEachElements(list2) ( (parameter:Int)=> parameter * parameter)
+
+4) How to write a lamp function in one line or in a separated def function 
+
+Example:  Each value of other.polyTerms map is map to a function. here are  two ways to write it.
+
+  a) 2 functions. The map is called without passing parameter.  "other.polyTerms map adjust"
+
+    def + (other:Poly)= new Poly (polyTerms ++  ( other.polyTerms map adjust ))
+
+    def adjust(term: (Int,Double)):(Int,Double)={
+        val (exp,coeff) = term
+        //key-> value
+        exp-> ( coeff+ polyTerms(exp) )
+      }
+
+  b) In one line map (function())
+
+    def + (other:Poly)= new Poly ( polyTerms ++ (
+
+    other.polyTerms map(
+                        //Function (parameter definition)=>{function body }
+                        (term:(Int,Double) ) => {
+                          val (exp,coeff) = term
+                          exp-> ( coeff+ polyTerms(exp) )
+                         })
+    ))
+
+
+5) Sometimes parameters can be reduced to _ where they are not very important in the operation 
+  *Note: that sortWith use _ to referer to each function parameter. in this case ( leftE,rightE )
+    personList.sortWith{ ( leftE,rightE ) => leftE.age > rightE.age }
+     
+  *More simply: 
+  personList.sortWith(_.age > _.age) 
+
+6) Not need to use (). These twon example are the same.
+
+// apply a groupBy and use as key each element of the result call of wordCode map. 
+//Where each call uses "words[index]" as parameters. wordCode("words[index]")
+val wordsForNum: Map[String, Seq[String]] = words groupBy wordCode withDefaultValue Seq()
+
+// apply a groupBy and use as key each element of the result call of wordCode map. 
+//Where each call uses "words[index]" as parameters. wordCode("words[index]") 
+val wordsForNumMoreLines: Map[String, Seq[String]] = words.groupBy(wordCode) withDefaultValue Seq()
+
+Scala compiler
+==============
+1) The scala compiler can work out the return type. that is why a method declaration can be reduced. 
+ 
+def neg(): Rationals = { new Rationals(-number,demom) }
+
+===> it already know that the return type will be a Rational ===>
+
+def neg: Rationals =  new Rationals(-number,demom)
+
+2) The scala compiler work out the generic parameters too.
+def singleton [T] (elem: T)  = new Cons [T] ( elem, new Nil[T] )
+
+singleton[Int](1)  --> singleton (1) 
+singleton[Boolean](true) --> singleton (true)
+ 
+3)Sometimes the scala compiler cannot perform operation is too genetic methods
+
+In this case it cannot predict the data type of headMatch1 and  headMatch2
+hence it cannot perform headMatch1 < headMatch2 coparison.   
+
+def merge[T] (list1: List[T],list2: List[T]): List[T]={
+
+        (list1,list2) match {          
+          case (headMatch1::tailMatch1,headMatch2::tailMatch2)=> {
+            if (headMatch1 < headMatch2) headMatch1 :: merge(tailMatch1, list2)
+            else headMatch2 :: merge(list1, tailMatch2)
+          }
+        }
+      }
+
+solution1 we have to pass the comparison operator as parameter in the fuction definition.
+
+

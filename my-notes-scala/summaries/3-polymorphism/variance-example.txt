@@ -1,0 +1,40 @@
+For example:
+============
+package week4
+
+trait List[+T] {
+	def isEmpty: Boolean
+	def head: T
+	def tail: List[T]
+	def prepend [U >: T] (elemt U) : List[U] = new Cons(elem, this)
+}
+
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+	def isEmpty = false
+}
+
+//1) object cannot have a type parameter because there is a single instance of them
+//2) Nothing is a good candidate to be a parameter cos it fufill Nothing = throw new NoSuchElementException(oNil.heado)
+
+object Nil extends List[Nothing ] {
+	
+	def isEmpty: Boolean = true
+	//throw exception is a tyoe of nothing.
+	//Nothing is a sub type of everythings including T and List[T]
+	def head: Nothing = throw new NoSuchElementException(oNil.heado)
+	def tail: Nothing= throw new NoSuchElementException(oNil.tailo)
+}
+// Nill is a List of Nothing. Nothing is a subtype of String and List are covariants. List[Nothing] is a subtype Of List[Strings]
+object test {
+
+	val x List[String] = Nill
+	def f ( xs: List[NonEmpty], x: Empty) = xs prepend x
+	// 1)xs will be a List[NonEmpty]
+	// 2)x Empty 
+	// method signature: def prepend [U >: T] (elemt U) : List[U] = new Cons(elem, this)
+	// T is NonEmpty and U will be Empty.  It is not ok cos U=Empty is not super class of T=NonEmpty 
+	// InSet is a super type for NonEmpty and Empty. 
+	
+	// may be def f ( xs: List[InSet], x: Empty) = xs prepend x cos List[InSet] is super class of both NonEmpty and Empty.
+	// It is not ok cos U=Inset is super class of T=Empty
+}

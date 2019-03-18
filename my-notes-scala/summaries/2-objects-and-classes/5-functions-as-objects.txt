@@ -1,0 +1,58 @@
+Functions as Objects
+====================
+
+*) functions are representated as Objects.
+The function type A => B is just an abbreviation for the class scala.Function1[A, B], which is defined as follows.
+
+package scala
+trait Function1[A, B] {
+	def apply(x: A): B
+}
+
+*Function are real object but with apply methods. 
+*There are also traits Function2, Function3, … for functions which take more parameters (currently up to 22).
+
+For example: 
+===========
+
+An anonymous function such as (x: Int) => x * x is expanded to:
+
+class AnonFun extends Function1[Int, Int] {
+	def apply(x: Int) = x * x
+}
+new AnonFun
+
+--> or shorter, using anonymous class syntax:
+
+new Function1[Int, Int] {
+	def apply(x: Int) = x * x
+}
+
+How val functions calls are representated as Objects 
+====================================================
+Functions val example:
+
+val f = (x: Int) => x * x
+f(7)
+
+that would be converted in to: 
+
+val f = new Function1[Int, Int] {
+	def apply(x: Int) = x * x
+}
+f.apply(7)
+
+For instance def fucntion are trated diferent:
+===============================================
+function def example:
+
+def f(x: Int): Boolean = ... is not itself a function value
+
+If it is used in a place where a Function type is expected, it is converted automatically to the function value.
+
+(x: Int) => f(x)
+expanded:
+
+new Function1[Int, Boolean] {
+	def apply(x: Int) = f(x)
+}

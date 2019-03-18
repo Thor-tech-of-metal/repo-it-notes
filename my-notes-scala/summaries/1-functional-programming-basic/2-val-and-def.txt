@@ -1,0 +1,83 @@
+Value Definitions
+=================
+In val the right-hand side expression of a val definition is evaluated only once at the point of the definition itself. 
+val attribues are imutable.  
+
+*	For example:
+expression1:	val x = 2
+expression2:	val y = square(x)
+
+* 	For instance, expression2: refers to 4, not square(2) and x refers to 2.
+
+Definition Def
+==============
+The def form is “by-name”, its right hand side expression is evaluated everytime it is used.
+
+var
+===
+var attribues are mutable. It can be changed.
+*	For example:
+var number = 1;
+number = 33;
+
+Lazy evaluation
+===============
+lazy val are defined and evaluated only once at the point that the expression is used only. Then it cannot be changed.
+
+*	For example: it is not evaluated until the the println(operation1)
+lazy val operation1 = x1 + y1 + number1
+println(operation1)
+
+All together
+============
+/**Example val, var and  def **/
+val x = 3
+val y = 3
+var number=0
+
+def operation = x + y + number
+println(operation)--> 6 operation is evaluated evrytime is used.
+number=1
+println(operation)--> 7 operation is evaluated evrytime is used.
+
+
+/**Example val, var, def and lazy **/
+val x1 = 3
+val y1 = 3
+var number1=0
+
+lazy val operation1 = x1 + y1 + number1
+println(operation1)--> 6 operation is only once when it was first used.
+
+number1=4
+println(operation1)--> 6 operation is only once when it was first used.
+
+Functions def and val
+=======================
+*) A function deﬁnition, like def square(x: Int) = x * x
+*) A value deﬁnition, like val y = square(2)
+
+Parameters 
+===========
+*) A call-by-value parameter, like (x: Int),
+*) A call-by-name parameter, like (y: => Double).
+
+Val and Def in function parameters
+===================================
+
+The difference between val and def becomes apparent when the right hand side does not terminate.
+
+For example: def loop: Boolean = loop 
+
+1)def example:  def x = loop --> it is ok
+2)val example: val x = loop --> infinite loop............ ( becuase it is evaluated as call by value)
+
+* For instance: 
+def and ( x:Booleand, y:Boolean) Boolean = if (x) y else false
+and (true,false)-->false
+and (true, true)-->true
+and (true, loop)--> LOOOPPPPP ............ ( becuase it is evaluated as call by value)
+
+* How to fix it 
+Make it call by name instead to evalute parameters as expressions.
+def and ( x:Booleand, y:=>Boolean) Boolean = if (x) y else false

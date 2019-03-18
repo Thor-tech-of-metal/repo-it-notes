@@ -1,0 +1,14 @@
+Iterate with index
+==================
+
+for(i <- 0 until myArray.length){
+    println("i is: " + i);
+    println("i'th element is: " + myArray(i));
+}
+
+
+Iterate 
+========
+for(myString <- myArray) {
+    println(myString);
+}

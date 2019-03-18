@@ -1,0 +1,2 @@
+1) Print all documents that has the PRINT in their name.
+2) Inside these folders [Functional programming basisc, Polymorphism,FutureAndPromises] there are documents to be printed 

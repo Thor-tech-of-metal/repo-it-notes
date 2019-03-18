@@ -1,0 +1,73 @@
+
+*) Tail recursion : Java doesn't perform tail call optimization. The majority of the Java dev ended resolving it with loop. 
+
+*) Java 8 does not support Implicits etc.
+
+*) Methods (functions!) everywhere. 
+	- "Top-level", i.e. associated with the package
+	- "Static" method in the Object instance instance
+	- "Local method" inside a def method
+	- Return type
+	- function parameter.
+
+*) Patter matching. Scala has Case classes for Patter matching "case class Person(firstName: String, lastName: String)"  Java doesn't
+
+*) Java has not got for and yields statement.
+        
+*) Scala has val, def, lazy. Java everything is not final and it has not gor lazy.
+ 
+*) Scala has trait where a class can mix in any number of traits. It also has simple abstrac classes. 
+
+*) Scala has overloading of operators.  Java hasn't. 
+
+*) Multi-line Strings Scala support and Java doesn't.
+scala> val foo = """This is
+    a multiline
+    String"""
+
+res0:This is
+    a multiline
+    String  
+
+*) scala has an interpreter and java does not. In Scala you can create worksheet and in java not.  
+  
+*) Higher-order function: similar but we always have to use an Function object with apply.
+*) we always have to use apply for currying in java.
+
+Drawbacks of Scala Language:-
+==============================
+
+    Less Readable Code
+    Bit tough to Understand the Code for beginners
+    Complex Syntax to learn
+    Less Backward Compatibility  
+
+Diff
+====
+
+*) 
+Scala is an Expression-Oriented Language: In Scala, everything is a value. All Expressions or Statements evaluates to a Value. 
+We can assign Expression, Function, Closure, Object etc. to a Variable. 
+
+Java is a Statement-Based Language: In Java, Statements are not Expressions or Values. We cannot assign them to a Variable. 
+Java is not an Expression-Oriented Language. 
+
+*) Scala function are first class citizen and in Java Object are first class citizen. 
+
+*) Java Java achieve functional programming features by enclosing thing in objects for example Function 
+
+*) In Scala everything is immutable by default.
+
+*) Java tends to Uses getter and setter accessors to protect the integrity of a private attribute.
+
+-In Scala  classes are immutable by default initialization can be done in the constructor using case Class in pattern matching.
+
+Some features which are supported by Java, but not by Scala
+===========================================================
+    
+* Java has Checked and Unchecked Exceptions, but Scala does not have Checked Exceptions.
+* Scala does not support break and continue statements, but Java uses them.
+* Scala does not have explicit Type casting, but Java supports this feature.    
+* Java uses Primitive Data types, but Scala does not have.
+* Java supports static members, but Scala does not have static members concept.
+ 

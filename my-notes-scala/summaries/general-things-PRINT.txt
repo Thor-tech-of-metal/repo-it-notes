@@ -1,0 +1,66 @@
+Option-Some-None
+=================
+
+The most idiomatic way to use an scala.Option instance is to treat it as a collection or monad and use map, flatMap, filter, or foreach […] 
+A less-idiomatic way to use scala.Option values is via pattern matching
+
+1) Option 1 very bad. Null pointer risk.
+
+val glazedDonutTaste: Option[String] = Some("Very Tasty")
+println(s"Glazed Donut taste = ${glazedDonutTaste.get}")
+
+2) Option 2: get or else quite nice 
+val glazedDonutName: Option[String] = None
+println(s"Glazed Donut name = ${glazedDonutName.getOrElse("Glazed Donut")}")
+
+3) Option 4: Pattern matching: safe but to much code 
+
+val glazedDonutName: Option[String] = Some("Very Tasty")
+glazedDonutName match {
+    case Some(name) => println(s"Received donut name = $name")
+    case None       => println(s"No donut name was found!")
+}
+
+5) Option 5: Map it without getOrElse. I will ignore None 
+val glazedDonutName: Option[String] = Some("Very Tasty")
+val glazedDonutTaste: Option[String] = None
+
+glazedDonutTaste.map(taste => println(s"glazedDonutTaste = $taste"))
+glazedDonutName.map(name => println(s"glazedDonutName = $name"))
+
+6) Option 6: Map it with getOrElse for None cases.
+val opt = Option(1)
+val b = opt map (_ + 1) getOrElse "a"
+
+Implicit classes
+=================
+
+Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implict class.
+
+implicit class ImplictCalssName(val extension : Type) where extension : Type is the type that will be exnteded to use new features.
+
+
+package com.alvinalexander.utils
+
+object StringUtils {
+    implicit class StringImprovements(val s: String) {
+        def increment = s.map(c => (c + 1).toChar)
+	
+	def hideAll: String = s.replaceAll(".", "*")
+    }
+}
+
+How to use it. simply import it and it will add the functionality to the string.
+
+import com.alvinalexander.utils.StringUtils._
+println("HAL".increment)
+
+
+“An implicit class must be defined in a scope where method definitions are allowed (not at the top level).” 
+This means that the implicit class must be defined :
+    A class
+    An object
+    A package object
+
+A major benefit of this approach is that you don’t have to extend existing classes to add the new functionality.
+
