@@ -6,6 +6,7 @@
 *  Navigation open files: cmd + [  or cmd + ] 
 *  Find uses: option + Fn + F7
 *  Bring project tree: cmd + 1
+*  Bring class structure : cmd + 7
 
 #### Find
 * find code references: F7 (with fn) + option 
