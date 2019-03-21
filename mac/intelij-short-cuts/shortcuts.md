@@ -5,6 +5,7 @@
 *  Go to a line: cmd + L 
 *  Navigation open files: cmd + [  or cmd + ] 
 *  Find uses: option + Fn + F7
+*  Bring project tree: cmd + 1
 
 #### Find
 * find code references: F7 (with fn) + option 
