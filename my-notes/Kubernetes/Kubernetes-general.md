@@ -57,6 +57,16 @@ In this example  each name-space have 3  AvailabilityZones. 1a 1b 1c.
                 eu-west-1c-nonprod
 
 
+Name spaces and AvailabilityZones
+===================================
+In this example --context is the AvailabilityZones  and -n is the label
+
+```cpp
+kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
+
+```
+
+
 General
 ========
 * Kubernetes always check the pod health 
