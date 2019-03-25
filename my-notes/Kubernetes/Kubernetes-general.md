@@ -4,7 +4,7 @@ Kubernetes general
 
 In Kubernetes we have AvailabilityZones, Name spaces, Services, Replicas, Deployments and Pods.
 
-1) A service can be defined as a logical set of pods. It can be defined as an abstraction on the top of the pod which provides a single IP address and DNS name by which pods can be accessed.
+1) A service can be defined as a logical set of pods. It can be defined as an abstraction on the top of the pod which provides all network definitions.  For instance load balancer, IP  and port mappings. 
 
 2) Pod is a collection of docker containers and its storage inside a node of a Kubernetes cluster. There are two types of Pods. Single container pod and Multi container pod
 
