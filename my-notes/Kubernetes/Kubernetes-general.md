@@ -71,4 +71,5 @@ General
 ========
 * Kubernetes always check the pod health 
 * Kubernates will automatically resurrect killed Pods 
-* Kuberntes keeps restarting pods.  
+* Kuberntes keeps restarting pods.
+* Controllers take care of Pod scaling and healing
