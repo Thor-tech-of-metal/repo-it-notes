@@ -32,6 +32,7 @@ For example a  vanilla Kubernetes files check the following [file](https://githu
 
 AvailabilityZones
 ==================
+AvailabilityZone are servers around the world. Each AvailabilityZone have pods running. A pod can have many replicas. 
 For example if we have the AvailabilityZones named eu-west-1a-prod, eu-west-1b-prod and eu-west-1c-prod
 
 ```cpp
@@ -40,7 +41,6 @@ eu-west-1b-prod -->  have --> pods
 eu-west-1c-prod -->  have --> pods
 
 ```
-each AvailabilityZone have pods running. A pod can have many replicas.
 
 Name spaces
 ============
