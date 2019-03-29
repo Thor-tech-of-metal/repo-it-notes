@@ -18,6 +18,8 @@
 *  paste: cmd + v
 *  delete:  cmd + backspace
 *  rename a folder: enter
+*  file or folder information and path: cmd + i
+
 
 
 #### Desktop navigation
