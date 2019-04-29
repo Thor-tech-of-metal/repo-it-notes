@@ -7,12 +7,12 @@ read all result. It can be also used to: a) execute futures in parallel and comb
 for { expressions1* } yield { results of expressions* }
 
 expressions1* can be:
-a) asynchronous calls where thier result are assigned to a val  result1 <- futureCall.(parameter)
+a) asynchronous calls where their result are assigned to a val  result1 <- futureCall.(parameter)
 b) if statements to filter values of the result of the iterations iteration if result1.name != "Toto".
-c) in the expression clausule value <- funtionRetunFuture() is used for asynch funtions that return a Future 
-d) in the expression clausule val value = funtionRetunNotFuture() is used for synch funtions that does not return a Future 
+c) in the expression clause value <- funtionRetunFuture() is used for async functions that return a Future
+d) in the expression clause val value = funtionRetunNotFuture() is used for synch functions that does not return a Future
 
-results of expressions* is an acumulator of all results in from the for {} . In the yield{} there is a guaranty that all asynchronous calls 
+results of expressions* is an accumulator of all results in from the for {} . In the yield{} there is a guaranty that all asynchronous calls
 has been processed. In other words their futures are completed with a value.
 
 The for comprehension is always translated in to maps, flatMap and filters.
@@ -75,7 +75,7 @@ val result2 = future(...)
 
 val res = for {
    r1 <- result1
-   r2 <- result2(r2.name)
+   r2 <- result2(r1.name)
 } yield ( r1+r2 )
 
 

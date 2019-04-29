@@ -46,12 +46,12 @@ If C[A] >: C[B] -> C[A] super of C[B]  then  C is contra-covariant.--> C[-A]
 The Rule 
 =========
  
-*) class C [+A]    method[B>:A] (parameter:B) {}   in C[+A] I can do methods that takes all B which are SUPER  type of A
+*) class C [+A]    method[B>:A] (parameter:B) : C[B]   in C[+A] I can do methods that takes all B which are SUPER  type of A
 
 *) class C [-A]    method[B<:A] (parameter:B) {}   In C [-A] I can do methods that takes all B which are SUB type of A
 
 Get/Put Principle 
 =================
 *) we use covariance when we only intend to GET generic values out of a structure. 
-*) We use contravariance when we only intend to put generic values into a structure
+*) We use contra-variance when we only intend to put generic values into a structure
 *) we use an invariant when we intend to do both. 

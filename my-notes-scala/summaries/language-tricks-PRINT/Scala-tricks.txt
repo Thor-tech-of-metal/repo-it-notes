@@ -1,21 +1,9 @@
-Cases classes
-=============
-Case classes can be seen as plain and immutable data-holding objects that should exclusively depend on their constructor arguments.
-All classes in which wish to be used in pattern maching should be case classes. 
 
-This functional concept allows us to:
-    use a compact initialisation syntax (Node(1, Leaf(2), None)))
-    decompose them using pattern matching
-    have equality comparisons implicitly defined.
-
-A case classes has automatic generated helper method for equality copy apply unapply etc. 
-
-
-Case classes extennsion
+Case classes extension
 =======================
 
 case class extension should be avoided but you could convert your Edge class into a trait.
-If you want to avoid the private statements you can also mark the variables as override 
+If you want to avoid the private statements you can also mark the variables as override
 
 trait Edge{
   def a:Strl
@@ -24,12 +12,18 @@ trait Edge{
 
 case class EdgeQA(override val a:Strl, override val b:Strl, right:Int, asked:Int ) extends Edge
 
+
+Case to case classes inheritance
+=================================
+
+* case-to-case inheritance is prohibited.
+
 Implicit classes
 =================
 
-Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implict class.
+Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implicit class.
 
-implicit class ImplictCalssName(val extension : Type) where extension : Type is the type that will be exnteded to use new features.
+implicit class ImplictCalssName(val extension : Type) where extension : Type is the type that will be extended to use new features.
 
 
 package com.alvinalexander.utils

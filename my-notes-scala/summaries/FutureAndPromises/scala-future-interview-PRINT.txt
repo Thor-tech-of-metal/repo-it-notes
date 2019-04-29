@@ -10,7 +10,7 @@ This is the code that will be executed at some point in the future.
 *) Future starts the computation asynchronously and returns a Future[T] that will hold the result of the computation. 
 This is a common way to define methods that return a future.
 
-*) The future runs in a spepared thread.  The result of the computation becomes available once the future completes.
+*) The future runs in a separated thread.  The result of the computation becomes available once the future completes.
 
 *) The ExecutionContext.Implicits.global import statement imports the “default global execution context.” 
 You can think of an execution context as being a thread pool. This is a simple way to get access to a thread pool.
@@ -29,14 +29,14 @@ f.onComplete {
 
 *) onComplete (Try[T] => U) takes a callback function of type Try[T] => U.
 
-*)  onComplete, onSuccess, and onFailure have the result type Unit, so they can’t be chained. This design was intentional, 
+*) onComplete, onSuccess, and onFailure have the result type Unit, so they can’t be chained. This design was intentional,
 to avoid any suggestion that callbacks may be executed in a particular order.
 
-*) A call back method cannot return a value. A callback cannot retuen enclosed method. The values of a callback are not accessable for the enclosed method.
-All of that is becasue a callback is excuted in a seprared thread.
+*) A call back method cannot return a value. A callback cannot return enclosed method. The values of a callback are not assessable for the enclosed method.
+All of that is because a callback is executed in a separated thread.
 
 *) The Await.result method call declares that it will wait for up to one second for the Future to return. 
-If the Future doesn’t return within that time, it throws a java.util.concurrent.TimeoutException.
+If the Future does not return within that time, it throws a java.util.concurrent.TimeoutException.
 
 Tips
 ====
@@ -88,6 +88,21 @@ addTwoAndDouble(4).onComplete(x => println(x))
 def addTwoAddTwo(n:Int):Future[Int] = addTwo(n).flatMap { n2 => addTwo(n2) }
 addTwoAddTwo(2).onComplete(x => println(x))
 --> result Success(6)
+
+
+Futures that depends on other future
+=====================================
+
+when f1(), f2(), f3(), f4() are futures
+
+println("f4 depends on f3 which depends on f2 which depends on f1")
+
+    val futResult: Future[Unit] =
+      f1().flatMap( r1 =>
+        f2().flatMap( r2 =>
+          f3().flatMap( r3 => f4() )
+        )
+      )
 
 
 Map recover

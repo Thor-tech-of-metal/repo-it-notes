@@ -34,6 +34,7 @@ class Poly ()(termsParameter:Map[Int,Double]){
 		  	
 	//overload the constructor.
 	def this(bindings: (Int,Double) *) = this (bindings.toMap)
+
 	// (Int,Double) * This means that it can take a n numbers  of convinations of (Int,Double)
 	//this(bindings.toMap) calls the constructor.
 }
@@ -67,7 +68,7 @@ Single instance
 
 * This defines a singleton object named Empty.
 * Singleton objects are values, so Empty evaluates to itself.
-* The sigleton objects are referred using this name directly.
+* The singleton objects are referred using this name directly.
 
 object Empty extends IntSet {
 	def contains(x: Int): Boolean = false
@@ -129,12 +130,13 @@ object ScalaDiamonProblemTest extends App {
     d display
 }
 
-Here output is “From C.display” form trait C. Scala Compiler reads “extends B with C” 
-from right to left and takes “display” method definition from lest most trait that is C.
+It always takes teh definition of the last one in the Right ! it will prints "From C.display"
+
 
 Sealed
 ======
-A sealed trait can only be extended within the file in which it defined. This allows the compiler to perform exhaustiveness checking for pattern matches on that trait. 
+A sealed trait can only be extended within the file in which it defined.
+This allows the compiler to perform exhaustiveness checking for pattern matches on that trait.
 Why? Because the compiler must know all the possible subtypes to do the checks,
 
 sealed trait Option[+A]
@@ -144,13 +146,14 @@ object None extends Option[Nothing]
 
 Final
 =====
-final class cannot be extended anywhere.final classes do not get exhaustiveness checking. a convination of "sealed" and "final" in the same file is a good practise.
+final class cannot be extended anywhere.final classes do not get exhaustiveness checking.
+a combination of "sealed" and "final" in the same file is a good practise.
 
 
-Self-types 
+Self-types
 ==========
-Self-types are a way to declare that a trait must be mixed into another trait, even though it doesn’t directly extend it. 
-That makes the members of the dependency available without imports.
+Self-types are a way to declare that a trait must be mixed into another trait, even though it does not directly extend it.
+*That makes the members of the dependency available without imports, because all trait should be in the same  file.
 
 A self-type is a way to narrow the type of this or another identifier that aliases this. 
 The syntax looks like normal function syntax but means something entirely different.
@@ -161,7 +164,7 @@ trait User {
 
 trait Tweeter {
   this: User =>  // reassign this
-  def tweet(tweetText: String) = println(s"$username: $tweetText")
+        def tweet(tweetText: String) = println(s"$username: $tweetText")
 }
 ///// Here the idea is that Tweeter is not related with User but it can access to User.username
 
@@ -243,8 +246,8 @@ How to get:
     personAccessorMutable.name
 	
 
-How val functions calls are representated as Objects 
-====================================================
+How val functions calls are represented as Objects
+===================================================
 Functions val example:
 
 val f = (x: Int) => x * x
@@ -257,3 +260,47 @@ val f = new Function1[Int, Int] {
 }
 f.apply(7)
 
+Case classes
+============
+
+Case classes can be seen as plain and immutable data-holding objects
+that should exclusively depend on their constructor arguments.
+
+the case keyword generates for us:
+
+    * toString, equals, and hashCode methods.
+    * The constructor parameters you specify become properties with getters and setters.
+    * You no longer have to use ’new’ to create an instance of your class.
+    * You can use convenient extractors in match/case statements.
+    * apply() and unapply() methods in the companion object.
+    * copy() methods for clone.
+
+This functional concept allows us to
+
+   decompose them using pattern matching
+
+
+Equals
+======
+
+When we compare two instances with ==, Scala calls that object’s equals() method automatically.
+
+
+Case classes extension
+=======================
+
+case class extension should be avoided but you could convert your Edge class into a trait.
+If you want to avoid the private statements you can also mark the variables as override
+
+trait Edge{
+  def a:Strl
+  def b:Strl
+}
+
+case class EdgeQA(override val a:Strl, override val b:Strl, right:Int, asked:Int ) extends Edge
+
+
+Case to case classes inheritance
+=================================
+
+* case-to-case inheritance is prohibited.

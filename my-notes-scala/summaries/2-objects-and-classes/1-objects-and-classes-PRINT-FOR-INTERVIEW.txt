@@ -142,7 +142,7 @@ No static function in the constructor chain
 ===========================================
 * Scala does not have primitive data types and also does not have static members.
 * Functions can be declared any where and used before attributes initialization without the need to be static
-* object singleron can be used as static clases. 
+* object singleton can be used as static classes.
 
 class Rationals (x: Int, y: Int){
   
@@ -177,8 +177,8 @@ myNullRef: Null = null
 
 
 val z: Int = null // error: type mismatch. it is incompatible with subtypes of AnyVal.
-val x = null // x: Null x has not a delacred type therefore it the type is Null.
-val y: String = null // y: String. Y is type String wiht a Null value.
+val x = null // x: Null x has not a declared type therefore it the type is Null.
+val y: String = null // y: String. Y is type String with a Null value.
 
 scala.collection.immutable.Nil.type
 ===================================
@@ -189,7 +189,7 @@ It is defined in “scala.collection.immutable” package as shown below:
 
 * scala.Nothing
 ===============
-* It is a subtype of every other type ins scala. It is at the botton of everything.
+* It is a subtype of every other type ins scala. It is at the bottom of everything.
 * Nothing is a Type (final class).
 * Nothing is never instantiated and is there for the benefit of the type system. 
 

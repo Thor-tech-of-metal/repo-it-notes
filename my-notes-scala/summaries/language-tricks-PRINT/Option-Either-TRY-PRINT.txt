@@ -1,7 +1,9 @@
 Option-Some-None
 =================
 
-The most idiomatic way to use an scala.Option instance is to treat it as a collection or monad and use map, flatMap, filter, or foreach […]. 
+The most idiomatic way to use an scala.Option instance is to treat it as a collection
+or monad and use map, flatMap, filter, or foreach […] and getElse().
+
 A less-idiomatic way to use scala.Option values is via decomposition pattern matching
 
 1) Option 1 very bad. Null pointer risk.
@@ -60,7 +62,8 @@ Option[Nothing] = None
 
 8) Option is normally used to return a found value or not 
 ‘Option’ is a Scala generic type that can either be ‘some’ generic value or none.  
-def findPerson(key: Int): Option[Person]  The method will return Some[Person] if the record is found but None if the record is not found.
+def findPerson(key: Int): Option[Person]  The method will return Some[Person] if the record is found
+but None if the record is not found.
 
 
 Either-Right-Left
@@ -85,7 +88,9 @@ Try[URL] = Try( SOME_THING_THAT_RETURN_AN_EXCEPTIO )
 *) Map a try 
 ============
 
-Map: mapping a result of a Try will only map the successful result. it will only consider Success result and decompose it. Failure will be ignored.
+Map: mapping a result of a Try will only map the successful result.
+it will only consider Success result and decompose it.
+Failure will be ignored.
 
 Example 1
 val input= "xxx" 
@@ -116,7 +121,8 @@ def inputStreamForURL(url: String): Try[InputStream] = parseURL(url).flatMap { u
 
 *) For comprehensions
 ======================
-The support for flatMap, map and filter means that you can also use for comprehensions in order to chain operations on Try instances.
+The support for flatMap, map and filter means that you can also use for comprehensions in order to chain
+operations on Try instances.
 
 def getURLContent(url: String): Try[Iterator[String]] = {
   for {

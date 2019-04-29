@@ -2,9 +2,9 @@
 Call-by-name 
 =============
 The functions are evaluated before evaluating the arguments. Call by name parameters are  evaluated every time when they are used only.
-If the paramter is not used then is not evaluated.
+If the parameter is not used then is not evaluated.
 CBN has the advantage that a function argument is not evaluated if the corresponding parameter is unused in the evaluation of the function body.
-But a CBN parameter is evaluated everytime it is used in the function body.
+But a CBN parameter is evaluated every time it is used in the function body.
 
 
 Call-by-value (default in scala)
@@ -26,7 +26,7 @@ constOne(1+2, loop) = CBN constOne(3,loop)--> CBN and ignore loop and return 1
 constOne(loop, 1+2) = CBV evaluates loops and .......................
 
 
-*)call-by-name functions recompute the passed-in expression's value every time it is accessed. It recoumpute the parameter everytime is accessed.
+*)call-by-name functions recompute the passed-in expression's value every time it is accessed. It recompute the parameter everytime is accessed.
 
 def something() = {
   println("calling something")
@@ -59,9 +59,9 @@ However, call-by-name functions recompute the passed-in expression's value every
 
 val,var,def lazy val
 ====================
-* val attribues are immutable. It can be changed. 
-* var attribues are mutable. It can be changed.
-* def: The def form is “by-name”, its right hand side expression is evaluated everytime it is used. def is also used to define class attributes in abstrac classes. 
+* val attributes are immutable. It can be changed.
+* var attributes are mutable. It can be changed.
+* def: The def form is “by-name”, its right hand side expression is evaluated every time it is used. def is also used to define class attributes in abstract classes.
   These are overwritten in the sub classes using val. 
 * lazy val: are defined and evaluated only once at the point that the expression is used only. Then it cannot be changed.
 
@@ -103,7 +103,7 @@ else sqrtIter(improve(guess, x), x)
 Recursive iteration patterns with pattern matching
 ===================================================
 
-1) Iterate each list element and perform an operation which is passed ass function parameter. 
+1) Iterate each list element and perform an operation which is passed as function parameter.
 
  /**
     * This function is going to perform a math operation to each list parameters.    
