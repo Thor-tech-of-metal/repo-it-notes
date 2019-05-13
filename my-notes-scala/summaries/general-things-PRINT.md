@@ -32,35 +32,31 @@ glazedDonutName.map(name => println(s"glazedDonutName = $name"))
 val opt = Option(1)
 val b = opt map (_ + 1) getOrElse "a"
 
-Implicit classes
-=================
-
-Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implict class.
-
-implicit class ImplictCalssName(val extension : Type) where extension : Type is the type that will be exnteded to use new features.
+Patter matching
+===============
+* use _ to cover all cases and avoid runtime error.
 
 
-package com.alvinalexander.utils
+```
+case list: List[_] => s"thanks for the List: $list"
+case m: Map[_, _] => m.toString
 
-object StringUtils {
-    implicit class StringImprovements(val s: String) {
-        def increment = s.map(c => (c + 1).toChar)
-	
-	def hideAll: String = s.replaceAll(".", "*")
-    }
-}
+could have been written as this instead:
 
-How to use it. simply import it and it will add the functionality to the string.
+case m: Map[a, b] => m.toString
+case list: List[x] => s"thanks for the List: $list"
+```
 
-import com.alvinalexander.utils.StringUtils._
-println("HAL".increment)
+*  type erasure:  the method’s type parameter is not stored but rather converted to its parent type Object 
+if it’s unbound or it’s first bound class when it’s bound.
 
+```
+case l: List[Int] => "List"
+```
+If you’re familiar with type erasure on the Java platform, you may know that this won’t work. 
+The Scala compiler kindly lets you know about this problem with this warning message:
 
-“An implicit class must be defined in a scope where method definitions are allowed (not at the top level).” 
-This means that the implicit class must be defined :
-    A class
-    An object
-    A package object
-
-A major benefit of this approach is that you don’t have to extend existing classes to add the new functionality.
-
+Test1.scala:7: warning: non-variable type argument Int in type pattern ↵
+List[Int] is unchecked since it is eliminated by erasure
+    case l: List[Int] => "List[Int]"
+            ^

@@ -1,14 +1,7 @@
 Scala 
 =====
 
-1) todo sobre type classes 
-https://scalac.io/typeclasses-in-scala/
-
-https://en.wikipedia.org/wiki/Type_class
-
-2) ver como checkiar patter maching at compile time 
-3) Explicar self classes 
-4) ver que es implict context que es ! 
+1) ver que es implict context que es !
 ir leyendo 
 https://github.com/Jarlakxen/Scala-Interview-Questions#general-questions
 https://pedrorijo.com/blog/scala-interview-questions/
