@@ -1,0 +1,22 @@
+Scala 
+=====
+
+1) todo sobre type classes 
+https://scalac.io/typeclasses-in-scala/
+
+https://en.wikipedia.org/wiki/Type_class
+
+2) ver como checkiar patter maching at compile time 
+3) Explicar self classes 
+4) ver que es implict context que es ! 
+ir leyendo 
+https://github.com/Jarlakxen/Scala-Interview-Questions#general-questions
+https://pedrorijo.com/blog/scala-interview-questions/
+
+Akka
+=====
+1) que es el scheduler 
+2) como creo un thread y espero N segundos
+3) como hago que un thread espere un timpo para hacer algo 
+4) commo hago para que un thread que no responde por un timepo lo mate 
+
