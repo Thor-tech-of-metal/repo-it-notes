@@ -7,6 +7,7 @@
 *  Find uses: option + Fn + F7
 *  Bring project tree: cmd + 1
 *  Bring class structure : cmd + 7
+*  Go to class implementation not interface: option + cmd + B
 
 #### Find
 * find code references: F7 (with fn) + option 
