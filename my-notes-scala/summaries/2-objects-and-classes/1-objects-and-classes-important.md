@@ -202,6 +202,14 @@ class Rationals (x: Int, y: Int){
 * scala.AnyVal The base type of all primitive types
 
 
+####  Value classes
+
+Value classes are a new mechanism in Scala to avoid allocating runtime objects. 
+This is accomplished through the definition of new AnyVal subclasses. 
+
+```scala
+class Wrapper(val underlying: Int) extends AnyVal
+```
 #### scala.Null
 
 * The type of Null has a null.

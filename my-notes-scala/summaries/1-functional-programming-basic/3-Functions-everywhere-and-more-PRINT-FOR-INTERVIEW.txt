@@ -9,12 +9,13 @@ But a CBN parameter is evaluated every time it is used in the function body.
 
 Call-by-value (default in scala)
 =============
-The arguments of the fuction are evaluated before evaluating the function itself. 
+The arguments of the function are evaluated before evaluating the function itself.
 CBV has the advantage that it evaluates every function argument only once.
 
 def first(x: Int, y: Int) = x  and consider the expression first(1, loop).
 Under CBN: first(1, loop) = 1
 Under CBV: first(1, loop) = LOOP ....
+
 
 => operator to force call-by-name in a parameter.
 ==================================================
@@ -26,7 +27,7 @@ constOne(1+2, loop) = CBN constOne(3,loop)--> CBN and ignore loop and return 1
 constOne(loop, 1+2) = CBV evaluates loops and .......................
 
 
-*)call-by-name functions recompute the passed-in expression's value every time it is accessed. It recompute the parameter everytime is accessed.
+*)call-by-name functions recompute the passed-in expression's value every time it is accessed. It recompute the parameter every time is accessed.
 
 def something() = {
   println("calling something")

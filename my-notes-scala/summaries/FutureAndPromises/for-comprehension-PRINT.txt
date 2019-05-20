@@ -26,6 +26,17 @@ yield { book.title }
 translated in to --> books.withFilter(book => book.author startsWith "bob").map(book => book.title)
 
 
+for {
+  x <- c1
+  y <- c2
+  z <- c3 if z > 0
+} yield {...}
+
+translated in to :
+
+c1.flatMap(x => c2.flatMap(y => c3.withFilter(z => z > 0).map(z => {...})))
+
+
 Map/flatMap/filter
 ==================
 *) any class that wish to be in a for comprehension should implement Map/flatMap/filter

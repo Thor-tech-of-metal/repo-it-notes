@@ -67,18 +67,15 @@ into evaluating a sequence of functions with a single argument per function.
 Currying.currysum2(2)(3)(4) --> result 9 
 Currying.currysum2(2)(3) --> Int => Int = $$Lambda$1073/2111669429@58186f9f
 
-
-For example: f(x, y, z) = x * y + z
-*we may also apply only 3 and get: f(3, y, z) = g(y, z) = 3 * y + z
-*we may apply the arguments 2, 4, 5 at the same time and get: f(3, 4, 5) = 3 * 4 + 5 = 17
-
 Example1:
-def add(x: Int)(y: Int): Int = { x + y  }
-this function can be re-written like this:
 
-def add1(x: Int): (Int => Int) = {   (y: Int) => { x + y }  }
-add1(1).apply(1) ->2
-add1(1)(1)->2
+def add(a: Int)(b: Int) = a + b
+val add2 = add(2)(_)
+
+scala> add2(3)
+res0: Int = 5
+
+
 
 Example2:
 def nocurrysum(x:Int, y:Int, z:Int) = x + y + z
@@ -91,6 +88,8 @@ val res5 = Currying.nocurrysum(2, 3, 4)
 
 Currying.currysum(2)(3)(4) --> prints the result 9
 Currying.currysum2(2)(3)  -->  prints the partial execution <function1>
+
+
 
 
 
@@ -193,14 +192,14 @@ list.foldLeft(List[Int]())((b,a) => a :: b)
 //res1: List[Int] = List(4, 3, 2, 1)
 
 (0.to(3).foldLeft(List[Int]()) ( (x, xs) => xs ::x ) )
+//List(3, 2, 1, 0): scala.collection.immutable.List
 
 
 //Fold Right goes through the list an associate from Right to left and put the result in the accumulator
 list.foldRight(0)((b,a) => b+a) =
 //1 + (2 + (3 +4 ) )
 
-(0.to(3).foldRight(List[Int]()) ( (x, xs) => x :: xs) )
-
+List(0, 1, 2, 3): scala.collection.immutable.List
 
 
 Monad in Scala

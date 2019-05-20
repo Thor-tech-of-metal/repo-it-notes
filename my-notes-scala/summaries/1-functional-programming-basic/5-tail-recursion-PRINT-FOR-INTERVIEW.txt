@@ -1,6 +1,6 @@
 Tail recursion
 ==============
-Tail recursion happen If a function f()that calls itself as its last action in the current function. It calls itself at the end after the return.
+Tail recursion happen If a function f() that calls itself as its last action in the current function. It calls itself at the end after the return.
 the function’s stack frame can be reused (the current stack of memory data set offset code etc). 
 In the byte codes it is translated to a go to line 0 in the same stack.
  

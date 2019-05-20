@@ -24,11 +24,14 @@ object StringUtils {
 ```
 How to use it. simply import it and it will add the functionality to the string.
 
+**The import add the implicity in the scope**
+
 ```
 import com.thor.utils.StringUtils._
 println("HAL".increment)
 
 ``` 
+
 
 Implicit classes are used to add  own behavior(s) to the T class passed as parameter to the constructor of the implict class.
 
@@ -57,12 +60,17 @@ implicit class LoquaciousInt(x: Int) {
 // Hi!
 ```
 
+**Here there is no import becasue the implicit class has been defined in the scop**
+
 #### Type classes more complex 
 
 In This example we are going to make chat make chat to some Person, Dog and String without:
 1) Adding the chat method in Person, Dog and String. 
 2) Extending trait
-3) just by adding an import ChattyAddons. 
+
+Just by adding an import ChattyAddons.  
+
+**The import ChattyAddons cover all implicit class cases Person, Dog and String**
 
 ```
 

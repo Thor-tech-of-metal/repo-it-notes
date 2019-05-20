@@ -165,9 +165,11 @@ a combination of "sealed" and "final" in the same file is a good practise.
 
 #### Case classes
 
+Immutable and decomposable through pattern matching (because they have an apply and unapply methods). 
+Being decomposable means it is possible to extract its constructors parameters in the pattern matching.
 
-Case classes can be seen as plain and immutable data-holding objects
-that should exclusively depend on their constructor arguments.
+Immutable data-holding objects that should exclusively depend on their constructor arguments.
+Case classes contain a companion object which holds the apply method. 
 
 the case keyword generates for us:
 
@@ -182,6 +184,12 @@ This functional concept allows us to
 
    decompose them using pattern matching
 
+#### apply() and unapply()
+
+* apply()  is used for construct instances without using new 
+
+* unapply() is a method that needs to be implemented by an object in order for it to be an extractor. 
+Extractors are used in pattern matching to access an object constructor parameters. 
 
 #### Equals
 
@@ -192,7 +200,7 @@ When we compare two instances with ==, Scala calls that object’s equals() meth
 #### Case classes extension
 
 
-case class extension should be avoided but you could convert your Edge class into a trait.
+case class extension should be avoided but you could convert your class into a trait for extension proposes.
 If you want to avoid the private statements you can also mark the variables as override
 ```
 trait Edge{
@@ -295,3 +303,9 @@ val f = new Function1[Int, Int] {
 }
 f.apply(7)
 ```
+
+there is not any instance  of NOnthing . 
+
+
+Ansyncroniocs call Futures . Libraris 
+

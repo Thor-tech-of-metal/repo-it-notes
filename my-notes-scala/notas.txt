@@ -1,10 +1,17 @@
 Scala 
 =====
 
-1) ver que es implict context que es !
-ir leyendo 
+1) What is a companion object? in https://pedrorijo.com/blog/scala-interview-questions/
+
 https://github.com/Jarlakxen/Scala-Interview-Questions#general-questions
 https://pedrorijo.com/blog/scala-interview-questions/
+
+2) HACER UN ejemplo de addons type classes menos complicado que solo tenga
+
+un addons implicit object y todas las implicit classes nada mas. Distinto al ejemplo
+
+
+
 
 Akka
 =====
