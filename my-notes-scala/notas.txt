@@ -10,6 +10,8 @@ https://pedrorijo.com/blog/scala-interview-questions/
 
 un addons implicit object y todas las implicit classes nada mas. Distinto al ejemplo
 
+3) Poner que es un object package 
+
 
 
 
