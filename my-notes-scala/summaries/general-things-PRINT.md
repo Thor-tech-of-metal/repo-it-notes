@@ -1,4 +1,51 @@
 
+#### Scala package objects
+
+Make the code you want to be available to all classes within a package in  the package object.
+
+```
+package com.alvinalexander.myapp
+
+package object model {
+
+    // field
+    val MAGIC_NUM = 42
+
+    // method
+    def echo(a: Any) { println(a) }
+
+    // enumeration
+    object Margin extends Enumeration {
+        type Margin = Value
+        val TOP, BOTTOM, LEFT, RIGHT = Value
+    }
+
+    // type definition
+    type MutableMap[K, V] = scala.collection.mutable.Map[K, V]
+    val MutableMap = scala.collection.mutable.Map
+
+}
+```
+
+You can now access this code from within other classes in the package com.alvinalexander.myapp.model
+
+```
+package com.alvinalexander.myapp.model
+
+object MainDriver extends App {
+
+    // access our method, constant, and enumeration
+    echo("Hello, world")
+    echo(MAGIC_NUM)
+    echo(Margin.LEFT)
+
+    // use our MutableMap type (scala.collection.mutable.Map)
+    val mm = MutableMap("name" -> "Al")
+    mm += ("password" -> "123")
+    for ((k,v) <- mm) printf("key: %s, value: %s\n", k, v)
+
+}
+```
 
 #### Streams
 
@@ -6,7 +53,7 @@ The biggest problem is that Scala Streams can be infinite, but your memory isnâ€
 
 One common guideline, is not to assign a stream (head) to a val, but instead, make it a def.
 
-####Patter matching
+#### Patter matching
 
 * use _ to cover all cases and avoid runtime error.
 
