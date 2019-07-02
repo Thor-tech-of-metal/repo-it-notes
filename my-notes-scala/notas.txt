@@ -13,6 +13,7 @@ un addons implicit object y todas las implicit classes nada mas. Distinto al eje
 3) Poner que es un object package 
 
 
+4) live less and ready ness
 
 
 Akka
