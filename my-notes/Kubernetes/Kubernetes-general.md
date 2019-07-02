@@ -65,6 +65,40 @@ In this example --context is the Availability zone  and -n is the name space
 kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
 
 ```
+Liveness and readiness
+========================
+* Readiness: making sure that the application is up and running after warming up start up .
+* Liveness:  Imagine that the application has a deadlock. , Kubernetes detects that the app is no longer serving requests and restarts the offending pod.
+
+* In the yaml pod we have kind: Pod where readinessProbe and  livenessProbe are defined.
+
+```
+kind: Pod
+metadata:
+  spec:
+  containers:
+  - name: goproxy
+    image: k8s.gcr.io/goproxy:0.1
+    ports:
+    - containerPort: 8080
+    readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      timeoutSeconds: 2
+      failureThreshold: 1
+      successThreshold: 1
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      timeoutSeconds: 2
+      failureThreshold: 1
+      successThreshold: 1
+```
+
 
 
 General
