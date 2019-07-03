@@ -1,5 +1,9 @@
+#### install brew 
+```
+ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-#### install
+#### install 
 
 `brew install  kubernetes-helm`
 
@@ -13,13 +17,25 @@
 
 `brew versions kubernetes-helm`
 
+#### Update 
+
+```
+brew update
+```
+
 #### info
 
 `brew info kubernetes-helm`
 
-#### search in cask
+#### search
 
-`brew search "java*" --casks`
+```
+brew search "java11" --casks
+```
+or 
+```
+brew cask info java11
+```
 
 #### search in cask repository
 
