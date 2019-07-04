@@ -46,12 +46,12 @@ Name spaces
 ============
 In this example  each name-space have 3  AvailabilityZones. 1a 1b 1c.
 
-**Name spaces: payplus**
+**Name spaces: lta**
                 eu-west-1a-prod
                 eu-west-1b-prod
                 eu-west-1c-prod
 
-**Name spaces: payplus-dev**
+**Name spaces: lat-dev**
                 eu-west-1a-nonprod
                 eu-west-1b-nonprod
                 eu-west-1c-nonprod
@@ -62,7 +62,7 @@ Name spaces and AvailabilityZones
 In this example --context is the Availability zone  and -n is the name space
 
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
+kubectl --context eu-west-1a-nonprod -n lta-dev describe pods device-service-58c65d99f8-7gjm5
 
 ```
 Liveness and readiness
