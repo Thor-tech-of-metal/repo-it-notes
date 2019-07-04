@@ -97,7 +97,7 @@ rules:
 
   Domains
   =======
-  Domain : dev-deviceservice-payplus.eu-west-1a.nonprod.aurora.tescocloud.com
+  Domain : dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
 
   The domain is defined in service.yaml
 
@@ -106,11 +106,11 @@ rules:
 
 ```
   where:
-  * Values.app.dnsName come from  dev-values.yaml . dnsName: dev-deviceservice-payplus
+  * Values.app.dnsName come from  dev-values.yaml . dnsName: dev-deviceservice-LTA
   * Values.aurora.domainName come from values.yaml. domainName: aurora.tescocloud.com
   * Values.az in defined in the jenkins file "
 
-The following dev-deviceservice-payplus.eu-west-1a.nonprod.aurora.tescocloud.com
+The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
 
   [dns] [context] [aurora domain]
 
