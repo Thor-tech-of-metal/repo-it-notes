@@ -13,49 +13,49 @@ Get pods command
 
 *) get all pods deployments instaces.
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get pods
+kubectl --context eu-west-1a-nonprod -n LTA-dev get pods
 ```
 *) get all pods more information for a namespace.
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get pods -o wide
+kubectl --context eu-west-1a-nonprod -n LTA-dev get pods -o wide
 ```
 
 *) List all pods in the namespace, including uninitialized ones
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get pods --include-uninitialized
+kubectl --context eu-west-1a-nonprod -n LTA-dev get pods --include-uninitialized
 ```
 
 *) decrive a pod
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev describe pod feedback-94fd8d555-5bbch
+kubectl --context eu-west-1a-nonprod -n LTA-dev describe pod feedback-94fd8d555-5bbch
 
 ```
 *) Describe pod commands
 ```cpp
- kubectl --context eu-west-1a-nonprod -n payplus-dev describe pods device-service-58c65d99f8-7gjm5
+ kubectl --context eu-west-1a-nonprod -n LTA-dev describe pods device-service-58c65d99f8-7gjm5
 ```
 
 *) delete a pop
 
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev delete pod device-service-58c65d99f8-7gjm5
+kubectl --context eu-west-1a-nonprod -n LTA-dev delete pod device-service-58c65d99f8-7gjm5
 ```
 *) Bash inside a pod  
 
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev exec -it mysql-69cbd8d889-gwqzk bash
+kubectl --context eu-west-1a-nonprod -n LTA-dev exec -it mysql-69cbd8d889-gwqzk bash
 ```
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev exec -it device-service-6c56ddf486-4qdzl sh
+kubectl --context eu-west-1a-nonprod -n LTA-dev exec -it device-service-6c56ddf486-4qdzl sh
 ```
 *) Edit pod  configmap configuatation
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev edit configmap device-service
+kubectl --context eu-west-1a-nonprod -n LTA-dev edit configmap device-service
 ```
 
 *) get pod secret
 ```cpp
-kubectl --context eu-west-1c-prod -n payplus get secret pods
+kubectl --context eu-west-1c-prod -n LTA get secret pods
 ```
 
 Get services command
@@ -63,34 +63,34 @@ Get services command
 
 *) get all services running.
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get services
+kubectl --context eu-west-1a-nonprod -n LTA-dev get services
 ```
 *) describe a particular service
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev describe service feedback
+kubectl --context eu-west-1a-nonprod -n LTA-dev describe service feedback
 ```
 
 watch events
 =============
 *) get all pods more information for a namespace.
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get events --watch
+kubectl --context eu-west-1a-nonprod -n LTA-dev get events --watch
 ```
 
 *) Delete a particular service
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev  delete service feedback
+kubectl --context eu-west-1a-nonprod -n LTA-dev  delete service feedback
 ```
 
 Deploy a yaml file in kubernetes
 ===============
 *) Deploy a yaml file with diferent kinds (Service,Deploy,Pods etc)
 ```cpp
-kubectl --context eu-west-1c-prod -n payplus apply -f mysql.yaml
+kubectl --context eu-west-1c-prod -n LTA apply -f mysql.yaml
 ```
 *) Undeploy a yaml file with diferent kinds (Service,Deploy,Pods etc)
 ```cpp
-kubectl --context eu-west-1c-prod -n payplus delete  -f mysql.yaml
+kubectl --context eu-west-1c-prod -n LTA delete  -f mysql.yaml
 ```
 
 
@@ -115,25 +115,25 @@ Logs command
 
 *) get all logs  for one pod instance
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev logs device-service-8544d88859-s8n6b
+kubectl --context eu-west-1a-nonprod -n LTA-dev logs device-service-8544d88859-s8n6b
 ```
 *) get all logs for one pod instance with tail.
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev logs device-service-8544d88859-s8n6b -f
+kubectl --context eu-west-1a-nonprod -n LTA-dev logs device-service-8544d88859-s8n6b -f
 ```
 
 Ip commands
 ===========
 *) Get ExternalIPs of all nodes
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+kubectl --context eu-west-1a-nonprod -n LTA-dev get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
 ```
 Connect to mysql machine
 =========================
 
-0) kubectl --context eu-west-1a-nonprod -n payplus-dev get pods ----- > and get the mysql popd name.
-1) kubectl --context eu-west-1a-nonprod -n payplus-dev exec -it mysql-69cbd8d889-gfbrj bash
-2) mysql -h mysql.cx.aurora.tescocloud.com -u payplus-dev -p
+0) kubectl --context eu-west-1a-nonprod -n LTA-dev get pods ----- > and get the mysql popd name.
+1) kubectl --context eu-west-1a-nonprod -n LTA-dev exec -it mysql-69cbd8d889-gfbrj bash
+2) mysql -h mysql.cx.aurora.tescocloud.com -u LTA-dev -p
 
 
 Deployments
@@ -141,16 +141,16 @@ Deployments
 
 *) get all deployments
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get deployments
+kubectl --context eu-west-1a-nonprod -n LTA-dev get deployments
 ```
 *)Delete
 ```cpp
-kubectl --context eu-west-1a-nonprod delete deployment device-service -n payplus-dev
+kubectl --context eu-west-1a-nonprod delete deployment device-service -n LTA-dev
 ```
 
 *)To describe a deployment:
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev describe deployment device-service
+kubectl --context eu-west-1a-nonprod -n LTA-dev describe deployment device-service
 
 ```
 
@@ -173,17 +173,17 @@ Create a mysql clientId based on a deployed pod
 1)  get the deployed configuation from the other name space and save it in a file  called mysql.yaml
 
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev get deploy mysql -o yaml > mysql.yaml
+kubectl --context eu-west-1a-nonprod -n LTA-dev get deploy mysql -o yaml > mysql.yaml
 
 ```
-2)  Change namespace to payplus  and deploy the generated files form  the other name space  mysql.yaml
+2)  Change namespace to LTA  and deploy the generated files form  the other name space  mysql.yaml
 
 ```cpp
-kubectl --context eu-west-1a-nonprod -n payplus-dev apply -f mysql.yaml
+kubectl --context eu-west-1a-nonprod -n LTA-dev apply -f mysql.yaml
 ```
 3) Check your pods
 ```cpp
-kubectl --context eu-west-1c-prod -n payplus get pod
+kubectl --context eu-west-1c-prod -n LTA get pod
 
 ```
 
