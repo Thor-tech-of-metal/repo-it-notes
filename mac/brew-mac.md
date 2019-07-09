@@ -5,11 +5,15 @@
 
 #### install 
 
-```brew install  kubernetes-helm```
+```
+brew install  kubernetes-helm
+```
 
 #### install from cask repository
 
-```brew cask install java```
+```
+brew cask install java
+```
 
 #### install a particular version
 
@@ -29,11 +33,22 @@ brew install "java11"
 
 #### remove
 
-```brew uninstall --ignore-dependencies kubernetes-helm```
+```
+brew uninstall --ignore-dependencies kubernetes-helm
+```
 
 #### versions 
 
-`brew versions kubernetes-helm`
+```
+brew versions kubernetes-helm
+```
+
+#### search in cask repository
+
+```
+brew cask info java
+```
+
 
 #### Update 
 
@@ -43,16 +58,23 @@ brew update
 
 #### info
 
-```brew info kubernetes-helm```
+```
+brew info kubernetes-helm
+```
 
 #### link 
 
 brew always links the program with a current version.  when you do ``` brew search node```  you see the current linked. and available versions. 
 
+```
+sudo chown -R $USER /usr/local
+ 
+brew link --overwrite node
+```
+
 #### unlink 
-```brew unlink node```
+```
+brew unlink node
+```
 
-#### search in cask repository
-
-```brew cask info java```
 
