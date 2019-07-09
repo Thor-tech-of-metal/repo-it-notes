@@ -5,11 +5,11 @@
 
 #### install 
 
-`brew install  kubernetes-helm`
+```brew install  kubernetes-helm```
 
 #### install from cask repository
 
-`brew cask install java`
+```brew cask install java```
 
 #### install a particular version
 
@@ -29,7 +29,7 @@ brew install "java11"
 
 #### remove
 
-`brew uninstall --ignore-dependencies kubernetes-helm`
+```brew uninstall --ignore-dependencies kubernetes-helm```
 
 #### versions 
 
@@ -43,7 +43,7 @@ brew update
 
 #### info
 
-`brew info kubernetes-helm`
+```brew info kubernetes-helm```
 
 #### link 
 
