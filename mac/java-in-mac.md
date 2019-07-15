@@ -32,3 +32,8 @@ brew cask info java11
 ```
 brew cask install java11
 ```
+
+### Java 8 or any SDK nor supported by brew 
+
+* you need to download it from oracle. 
+* install in /Library/Java/JavaVirtualMachines
