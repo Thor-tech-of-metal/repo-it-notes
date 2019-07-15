@@ -14,6 +14,8 @@ brew cask install java
 0) update brew 
 ```
 brew update --cask 
+brew tap caskroom/cask
+brew install brew-cask-completion
 ```
 
 1) search for the available versions 
