@@ -18,9 +18,11 @@ These are the interpolation brackets which can be used to directly evaluate the 
 **This is  used to display content from the model only.**
 
 <br/>
+
 ```
-<imgss src="{{imagepath}}" width="300px" height="150px" alt="image not found">
+<test src=" {{imagepath}} " width="300px" height="150px" alt="image not found">
 ```
+
 <br/>
 
 ###### 2) () (parenthesis) 
