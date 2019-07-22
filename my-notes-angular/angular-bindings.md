@@ -19,7 +19,7 @@ These are the interpolation brackets which can be used to directly evaluate the 
 
 <br/>
 ```
-<img src="{{imagepath}}" width="300px" height="150px" alt="image not found">
+<imgss src="{{imagepath}}" width="300px" height="150px" alt="image not found">
 ```
 <br/>
 
