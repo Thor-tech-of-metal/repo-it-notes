@@ -15,6 +15,8 @@ export class PropertybindingComponent implements OnInit {
 ###### 1) {{ expression }}  or property interpolation 
 
 These are the interpolation brackets which can be used to directly evaluate the expression and insert them into the HTML.
+**This is  used to display content from the model only.**
+
 <br/>
 ```
 <img src="{{imagepath}}" width="300px" height="150px" alt="image not found">
@@ -96,8 +98,25 @@ Email  <input type="Email" #txtEmail><br>
 <button on-click="SendData(txtUserName.value,txtpassword.value,txtEmail.value)">Click to send Data</button>
 
 ```
- 
 
+#txtUsername, #txtpassword are the template reference variables which can be used with Angular to take in values.
+
+
+* **Ng Binding:**
+
+Use the ng-bind directive, which will bind the innerHTML of the element to the specified model property:
+Data binding in AngularJS is the synchronization between the model and the view.
+
+```
+<p ng-bind="firstname"></p> 
+```
+
+Use the ng-model directive to bind data from the model to the view on HTML controls.
+
+```
+ <input ng-model="firstname"> 
+```
+ 
 * **Two-Way Binding:**
 
 ```
@@ -119,3 +138,4 @@ This constantly change: {{showoutput}}
  ```
  
  
+  
