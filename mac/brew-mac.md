@@ -49,17 +49,23 @@ brew versions kubernetes-helm
 brew cask info java
 ```
 
+#### info
+
+```
+brew info kubernetes-helm
+```
+
+#### Find where a package has been installed
+
+all packages tends to be installed in /usr/local/Cellar/ and /usr/local/opt/
+```
+brew --prefix nodejs
+```
 
 #### Update 
 
 ```
 brew update
-```
-
-#### info
-
-```
-brew info kubernetes-helm
 ```
 
 #### link 
