@@ -1,6 +1,6 @@
 ## Angular notes
 
-###### A question mark
+#### A question mark
 
 A question mark after an identifier means that the parameter is optional. For example:
 
@@ -15,7 +15,7 @@ function stringify123(callback?: (num: number) => string) {
 ```
 <br/>
 
-######	 Characters ||
+####	Characters ||
 ```
 var title = title || "Error";
 ```
@@ -29,7 +29,7 @@ if (!title) {
 
 <br/>
 
-###### @ViewChild('fileInput')
+#### @ViewChild('fileInput')
 
 @ViewChild is used to associate an dom element to angular ElementRef. with ElementRef we can do things at html dom level.
 
@@ -60,7 +60,44 @@ In the template we use #fileInput to attach the DOM element to an angular @ViewC
 
 <br/>
 
-###### Characters [Form] validations
+
+#### @Pipe functions with |
+
+As the character mention a @pipe is a function that it can be put anywhere in the html and executed. 
+This is the syntax function() | pipe_function() . Where the pipe function can receive as parameter the result of function() .
+
+It will be called value inside the pipe function. 
+
+```
+<p>Super power boost: {{2 | exponentialStrength: 10}}</p> 
+
+```
+<br/>
+
+The pipe declaration <br/>
+
+```
+import { Pipe, PipeTransform } from '@angular/core';
+/*
+ * Raise the value exponentially
+ * Takes an exponent argument that defaults to 1.
+ * Usage:
+ *   value | exponentialStrength:exponent
+ * Example:
+ *   {{ 2 | exponentialStrength:10 }}
+ *   formats to: 1024
+*/
+@Pipe({name: 'exponentialStrength'})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent?: number): number {
+    return Math.pow(value, isNaN(exponent) ? 1 : exponent);
+  }
+}
+```
+
+<br/>
+
+#### Characters [Form] validations
 
 ```
 export class FormControlDemoComponent {
