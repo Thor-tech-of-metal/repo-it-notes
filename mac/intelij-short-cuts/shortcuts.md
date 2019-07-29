@@ -1,6 +1,7 @@
 #### Navigation
 
 *  Find class / file : cmd + shift + O
+*  Find everything: double-click the big shift on the right
 *  Find a text content in path: cmd + shift + F
 *  Go to a line: cmd + L 
 *  Navigation open files: cmd + [  or cmd + ] 
