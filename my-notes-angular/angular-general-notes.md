@@ -1,5 +1,22 @@
 ## Angular notes
 
+#### @Injectable any @Injectable Component then can be used by other components
+```
+@Injectable({ providedIn: 'root' })
+export class MessageService { ...... } 
+```
+<br/>
+**For instance: MessageService will be injected in the constructor.**
+<br/> <br/>
+
+```
+export class AppComponent implements OnDestroy {
+    
+    constructor(private messageService: MessageService) { }
+}
+```
+<br/>
+
 #### A question mark
 
 A question mark after an identifier means that the parameter is optional. For example:
@@ -95,6 +112,21 @@ export class ExponentialStrengthPipe implements PipeTransform {
 }
 ```
 
+<br/>
+
+#### The use of type 
+
+We can create types
+```
+
+type Post = { title: string, content: string };
+```
+
+We can create instances of the types using of()
+```
+of( {title: 'Simulating HTTP Requsts', content: 'This is off the hook!!'})
+```
+<br/>
 <br/>
 
 #### Characters [Form] validations
