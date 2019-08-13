@@ -114,6 +114,7 @@ pipe offers the following benefits:
 * It makes the RxJS library more tree-shakeable
 * It makes it easier to write and use third-party operators (since you don’t have to worry about patching Observable.prototype).
 
+A delay () can make the Observable pipes to wait to complete the executions.
 ```
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>Simulating HTTP Requests Using RxJs Delay</h1>`;
