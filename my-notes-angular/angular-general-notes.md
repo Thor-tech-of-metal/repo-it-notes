@@ -33,6 +33,35 @@ export class AppComponent implements OnDestroy {
 ```
 <br/>
 
+#### The use of type 
+
+We can create types
+```
+
+type Post = { title: string, content: string };
+```
+
+We can create instances of the types using of()
+```
+of( {title: 'Simulating HTTP Requsts', content: 'This is off the hook!!'})
+```
+<br/>
+
+#### How to define const values in a class
+
+static readonly DOCUMENT_URL
+
+```
+class WriteDocumentFieldDefinitions {
+  static readonly DOCUMENT_URL = 'document_url';
+  static readonly DOCUMENT_BINARY_URL = 'document_binary_url';
+  static readonly DOCUMENT_FILENAME = 'document_filename';
+  static readonly UPLOAD_ERROR_FILE_REQUIRED = 'File required';
+  static readonly UPLOAD_ERROR_NOT_AVAILABLE = 'Document upload facility is not available at the moment';
+}
+```
+
+
 #### A question mark
 
 A question mark after an identifier means that the parameter is optional. For example:
@@ -128,21 +157,6 @@ export class ExponentialStrengthPipe implements PipeTransform {
 }
 ```
 
-<br/>
-
-#### The use of type 
-
-We can create types
-```
-
-type Post = { title: string, content: string };
-```
-
-We can create instances of the types using of()
-```
-of( {title: 'Simulating HTTP Requsts', content: 'This is off the hook!!'})
-```
-<br/>
 <br/>
 
 #### Characters [Form] validations
