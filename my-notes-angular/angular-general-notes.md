@@ -1,6 +1,22 @@
 ## Angular notes
 
+#### @Component 
+
+```
+@Component is a decorator function that specifies the Angular metadata for the component.
+  selector— the component's CSS element selector
+  templateUrl— the location of the component's template file.
+  styleUrls— the location of the component's private CSS styles.
+```
+#### export class
+
+export class : This is for make it visible so other component can import it.
+
+
 #### @Injectable any @Injectable Component then can be used by other components
+
+providedIn: 'root':  allows the services to be injected as singleton.
+
 ```
 @Injectable({ providedIn: 'root' })
 export class MessageService { ...... } 
