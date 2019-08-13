@@ -1,7 +1,6 @@
 ## Observable & Subject
 
-
-The way to communicate between components is to use an **Observable and a Subject**  (which is a type of observable).
+Observable: asynchronous stream of data that our components can use.  Observable is one of the key classes in the RxJS library. The way to communicate between components is to use an **Observable and a Subject**  (which is a type of observable).
 There are two methods that we're interested in: **Observable.subscribe() and Subject.next()**.
 
 
@@ -96,6 +95,26 @@ export class HomeComponent {
 pipe() and map()  can be used to manipulate data before completing the Observable. pipe() also receive delay()
 
 ```
+of(1,2,3).map(x => x + 1).filter(x => x > 2);
+```
+
+and turn it into this: 
+
+```
+of(1,2,3).pipe(
+  map(x => x + 1),
+  filter(x => x > 2)
+);
+```
+
+Same output, same concept (composing operators), different syntax.
+pipe offers the following benefits:
+
+* It cleans up Observable.prototype by removing operators
+* It makes the RxJS library more tree-shakeable
+* It makes it easier to write and use third-party operators (since you don’t have to worry about patching Observable.prototype).
+
+```
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>Simulating HTTP Requests Using RxJs Delay</h1>`;
 
@@ -117,3 +136,5 @@ post.subscribe( post =>{
     }
   );
 ```
+
+
