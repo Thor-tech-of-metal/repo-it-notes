@@ -19,8 +19,10 @@ ng g c home // output
 
 ng generate service data
 ```
-
-
+### Check your ng version 
+```
+ng version 
+```
 ###  Run ng serve
 ```
 ng serve -o

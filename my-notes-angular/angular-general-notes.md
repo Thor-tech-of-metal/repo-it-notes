@@ -1,6 +1,22 @@
 ## Angular notes
 
+#### @Component 
+
+```
+@Component is a decorator function that specifies the Angular metadata for the component.
+  selector— the component's CSS element selector
+  templateUrl— the location of the component's template file.
+  styleUrls— the location of the component's private CSS styles.
+```
+#### export class
+
+export class : This is for make it visible so other component can import it.
+
+
 #### @Injectable any @Injectable Component then can be used by other components
+
+providedIn: 'root':  allows the services to be injected as singleton.
+
 ```
 @Injectable({ providedIn: 'root' })
 export class MessageService { ...... } 
@@ -16,6 +32,35 @@ export class AppComponent implements OnDestroy {
 }
 ```
 <br/>
+
+#### The use of type 
+
+We can create types
+```
+
+type Post = { title: string, content: string };
+```
+
+We can create instances of the types using of()
+```
+of( {title: 'Simulating HTTP Requsts', content: 'This is off the hook!!'})
+```
+<br/>
+
+#### How to define const values in a class
+
+static readonly DOCUMENT_URL
+
+```
+class WriteDocumentFieldDefinitions {
+  static readonly DOCUMENT_URL = 'document_url';
+  static readonly DOCUMENT_BINARY_URL = 'document_binary_url';
+  static readonly DOCUMENT_FILENAME = 'document_filename';
+  static readonly UPLOAD_ERROR_FILE_REQUIRED = 'File required';
+  static readonly UPLOAD_ERROR_NOT_AVAILABLE = 'Document upload facility is not available at the moment';
+}
+```
+
 
 #### A question mark
 
@@ -112,21 +157,6 @@ export class ExponentialStrengthPipe implements PipeTransform {
 }
 ```
 
-<br/>
-
-#### The use of type 
-
-We can create types
-```
-
-type Post = { title: string, content: string };
-```
-
-We can create instances of the types using of()
-```
-of( {title: 'Simulating HTTP Requsts', content: 'This is off the hook!!'})
-```
-<br/>
 <br/>
 
 #### Characters [Form] validations
