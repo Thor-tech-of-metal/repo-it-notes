@@ -180,6 +180,19 @@ if (!title) {
 }
 ```
 
+
+#### Key values Pairs
+
+```
+let caseValueComponentId = 'pepe';
+
+const keyValue = {
+  document_url: 'value1',
+  'document_binary_url': 'value2',
+  [this.caseValueComponentId]: 'value3'
+}
+```
+The result will be a key-value pair like this. [(document_url,value1),(document_binary_url,value2 ).(pepe,value3)]
 <br/>
 
 #### @ViewChild('fileInput')
