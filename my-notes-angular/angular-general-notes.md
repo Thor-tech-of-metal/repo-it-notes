@@ -62,9 +62,9 @@ class WriteDocumentFieldDefinitions {
 ```
 
 
-#### A question mark
+#### Functions parameters examples
 
-A question mark after an identifier means that the parameter is optional. For example:
+* A question mark after an identifier means that the parameter is optional. For example:
 
 ```
 function stringify123(callback?: (num: number) => string) {
@@ -75,7 +75,24 @@ function stringify123(callback?: (num: number) => string) {
   return String(num);
 }
 ```
-<br/>
+
+```
+function buildName(firstName = "Will", lastName: string) {
+    return firstName + " " + lastName;
+}
+```
+
+* ...restOfName: string[])
+```
+function buildName(firstName: string, ...restOfName: string[]) {
+    return firstName + " " + restOfName.join(" ");
+}
+
+let buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
+
+// employeeName will be "Joseph Samuel Lucas MacKinzie"
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+```
 
 ####	Characters ||
 ```
