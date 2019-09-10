@@ -92,7 +92,7 @@ Person.prototype.name = function() {
   return this.firstName + " " + this.lastName;
 };
 ```
-
+https://tylermcginnis.com/beginners-guide-to-javascript-prototype/
 
 #### Modules
 
