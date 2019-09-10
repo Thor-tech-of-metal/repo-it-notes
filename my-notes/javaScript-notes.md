@@ -94,7 +94,7 @@ Person.prototype.name = function() {
 ```
 
 
-#### modules
+#### Modules
 
 We can export code as modules  using module.exports = hasAnAttribute
 
