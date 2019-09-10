@@ -123,7 +123,3 @@ if( hasAnAttribute(result,'access_token')) {
   return 'toto';
 }
 ```
-
-https://www.smart-words.org/quotes-sayings/english-idioms-commonly-used.pdf
-
-https://tylermcginnis.com/beginners-guide-to-javascript-prototype/
