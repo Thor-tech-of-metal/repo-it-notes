@@ -73,6 +73,6 @@ gradle bootRun
 
 #### Building locally your docker image.
 
-
+```
 ./gradlew clean build buildDocker --stacktrace --info
-
+```
