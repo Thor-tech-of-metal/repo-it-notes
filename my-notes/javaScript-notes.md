@@ -1,11 +1,12 @@
 
 #### "==" and "===" operators
 
-
+```
 0==false   // true, because false is equivalent of 0
 0===false  // false, because both operands are of different type
 2=="2"     // true, auto type coercion, string converted into number
 2==="2"    // false, since both operands are not of same type
+```
 
 *)  !== operator is strict non equality operator, which will take type into consideration while comparing two variables or two values.
 
