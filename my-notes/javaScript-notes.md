@@ -123,3 +123,9 @@ if( hasAnAttribute(result,'access_token')) {
   return 'toto';
 }
 ```
+
+TO READ 
+
+https://javascript.programmingpedia.net/en/tutorial/4052/unit-testing-javascript
+
+
