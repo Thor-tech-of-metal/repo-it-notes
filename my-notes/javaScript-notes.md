@@ -129,3 +129,4 @@ TO READ
 https://javascript.programmingpedia.net/en/tutorial/4052/unit-testing-javascript
 
 
+https://flaviocopes.com/javascript-functional-programming/
