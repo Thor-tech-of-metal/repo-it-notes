@@ -126,7 +126,11 @@ if( hasAnAttribute(result,'access_token')) {
 
 TO READ 
 
-https://javascript.programmingpedia.net/en/tutorial/4052/unit-testing-javascript
-
 
 https://flaviocopes.com/javascript-functional-programming/
+
+https://www.freecodecamp.org/news/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276/
+
+
+https://javascript.programmingpedia.net/en/tutorial/4052/unit-testing-javascript
+
