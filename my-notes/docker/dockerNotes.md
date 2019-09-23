@@ -103,6 +103,10 @@ docker run -d --net example --name container1 [imageName]:[imagineVersion]
 docker run -d --net example --name container2 [imageName]:[imagineVersion]
 ```
  
+ 3) Show networks.
+ ```
+ docker network ls 
+ ```
 
 Docker Images commands 
 ========================
