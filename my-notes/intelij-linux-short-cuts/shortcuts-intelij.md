@@ -1,3 +1,8 @@
+#### Import and Export Intelij key map settings
+*  File --> export settings --> chose key maps . It will create a zip file 
+*  File --> import settings --> chose  the created zip file 
+
+
 #### Navigation
 
 *  Find class / file : CTRL + SHIFT + T
