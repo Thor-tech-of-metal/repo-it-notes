@@ -19,7 +19,7 @@ In VM we do not  have that. Every imagine is able to run in the container becuas
 
 **FROM :** Dockerfile must start with a `FROM` instruction. The FROM instruction specifies the Base Image from which you are building
 
-**ENTRYPOINT ["/bin/sh","/entrypoint.sh"] :**  This is the path directory [/bin/sh] where the imagine is pointing to and the file [entrypoint.sh] to be executed.
+**ENTRYPOINT ["/bin/sh","/entrypoint.sh"] :**  This is the path directory [/bin/sh] where the imagine is pointing to and the file [entrypoint.sh] to be cecuted.
 
 **VOLUME /tmp :** This is the file system of the imagine it is defined in memory.
 A key point to be aware of here is that anything after the VOLUME instruction in a Dockerfile will not be able to make changes to that volume e.g:
@@ -68,6 +68,8 @@ for instance:
 or  with entry point /bin/bash 
 
 `docker exec -it  [CONTAINDER_ID]  bash /bin/bash `
+`docker exec -it  [CONTAINDER_ID] /bin/sh`
+`docker exec -it  [CONTAINDER_ID] ls /etc`
 
 #### See the container logs using docker logs
 
