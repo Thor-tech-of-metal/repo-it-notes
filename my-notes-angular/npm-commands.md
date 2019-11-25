@@ -44,4 +44,18 @@ npm ls @angular/compiler-cli
 npm audit --force
 ```
 
+### print transitive dependecies
+```
+npm list 
+```
 
+### Evaluate transitive dependecies 
+
+install npm-remote-ls
+```
+npm install npm-remote-ls -g
+```
+use npm-remote-ls to print transitive dependecies of sha@1.2.4
+```
+npm-remote-ls sha@1.2.4
+```

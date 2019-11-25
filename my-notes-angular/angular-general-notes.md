@@ -62,9 +62,9 @@ class WriteDocumentFieldDefinitions {
 ```
 
 
-#### A question mark
+#### Functions parameters examples
 
-A question mark after an identifier means that the parameter is optional. For example:
+* A question mark after an identifier means that the parameter is optional. For example:
 
 ```
 function stringify123(callback?: (num: number) => string) {
@@ -75,7 +75,98 @@ function stringify123(callback?: (num: number) => string) {
   return String(num);
 }
 ```
-<br/>
+
+```
+function buildName(firstName = "Will", lastName: string) {
+    return firstName + " " + lastName;
+}
+```
+
+* ...restOfName: string[])
+```
+function buildName(firstName: string, ...restOfName: string[]) {
+    return firstName + " " + restOfName.join(" ");
+}
+
+let buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
+
+// employeeName will be "Joseph Samuel Lucas MacKinzie"
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+```
+
+* Anonymous function
+```
+let myAdd = function(x, y) { return x + y; };
+
+const filterFx = function (el) { return el != null; }
+
+let myAdd2 = function(x: number, y: number): number { return x + y; };
+```
+
+####	Scopes
+
+
+*  This scope can change if it inside a function scope. Make sure `this` is unusable in this standalone function.  Make sure `this` is unusable in this standalone function
+
+```
+function f(this: void) {
+    // make sure `this` is unusable in this standalone function
+}
+
+// Bad this !!!!!
+class Handler {
+    info: string;
+    onClickBad(this: Handler, e: Event) {
+        // oops, used `this` here. using this callback would crash at runtime
+        this.info = e.message;  <--- NO !
+    }
+}
+// Good this 
+
+class Handler {
+    info: string;
+    onClickGood(this: void, e: Event) {
+        // can't use `this` here because it's of type void!
+        console.log('clicked!');
+    }
+}
+let h = new Handler();
+uiElement.addClickListener(h.onClickGood);
+
+```
+* We can define an scope and assing it to a variable. let deck: Deck = { .. } . Then access to functions declared inside the scope.
+
+* This can also refer to the function internal scope.  let cardPicker = deck.createCardPicker();
+
+```
+interface Card {
+    suit: string;
+    card: number;
+}
+interface Deck {
+    suits: string[];
+    cards: number[];
+    createCardPicker(this: Deck): () => Card;
+}
+let deck: Deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    cards: Array(52),
+    // NOTE: The function now explicitly specifies that its callee must be of type Deck
+    createCardPicker: function(this: Deck) {
+        return () => {
+            let pickedCard = Math.floor(Math.random() * 52);
+            let pickedSuit = Math.floor(pickedCard / 13);
+
+            return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+        }
+    }
+}
+
+let cardPicker = deck.createCardPicker();
+let pickedCard = cardPicker();
+
+alert("card: " + pickedCard.card + " of " + pickedCard.suit);
+```
 
 ####	Characters ||
 ```
@@ -89,6 +180,19 @@ if (!title) {
 }
 ```
 
+
+#### Key values Pairs
+
+```
+let caseValueComponentId = 'pepe';
+
+const keyValue = {
+  document_url: 'value1',
+  'document_binary_url': 'value2',
+  [this.caseValueComponentId]: 'value3'
+}
+```
+The result will be a key-value pair like this. [(document_url,value1),(document_binary_url,value2 ).(pepe,value3)]
 <br/>
 
 #### @ViewChild('fileInput')
