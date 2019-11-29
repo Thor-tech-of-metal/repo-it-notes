@@ -30,4 +30,6 @@ git config --list
 ```
 
 
+https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html
 
+https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
