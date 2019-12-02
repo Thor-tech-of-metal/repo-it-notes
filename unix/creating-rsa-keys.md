@@ -30,6 +30,7 @@ ls -a ~/.ssh
 ssh-keygen
 ```
 --> File name: bastion-reform
+
 --> phrase: kanakldnaodbaojdbao
 
 result: ~/.ssh there are your RSA keys public and private. For instance  bastion-reform		bastion-reform.pub . private key, it has not a file extensions.
