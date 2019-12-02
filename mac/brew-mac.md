@@ -67,6 +67,11 @@ brew --prefix nodejs
 ```
 brew update
 ```
+#### Update and upgrade
+
+```
+brew update && brew upgrade azure-cli
+```
 
 #### link 
 
