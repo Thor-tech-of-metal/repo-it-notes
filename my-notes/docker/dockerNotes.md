@@ -215,3 +215,12 @@ Docker compose
 #### Start one service
 
 `docker-compose up  db`
+
+Docker tricks
+=============
+
+I want to connect from a docker container to a physical computer which is running the docker container.
+
+The host has a changing IP address (or none if you have no network access). From 18.03 onwards our recommendation is to connect to the special DNS name host.docker.internal, which resolves to the internal IP address used by the host. This is for development purpose and will not work in a production environment outside of Docker Desktop for Mac.
+
+http://host.docker.internal:5555/
