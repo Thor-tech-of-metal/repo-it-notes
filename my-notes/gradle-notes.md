@@ -68,7 +68,7 @@ gradle bootRun
 #### check dependency security
 
 ```
-/gradlew clean  -DdependencyCheck.failBuild=true  -Dcve.check.validforhours=24 -Danalyzer.retirejs.enabled=false dependencyCheckAnalyze --info
+./gradlew clean  -DdependencyCheck.failBuild=true  -Dcve.check.validforhours=24 -Danalyzer.retirejs.enabled=false dependencyCheckAnalyze --info
 ````
 
 #### Building locally your docker image.
