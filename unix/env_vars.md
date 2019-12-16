@@ -2,6 +2,10 @@
 ```
 export  TEST_URL=http://localhost:5555
 ```
+# Concatenate values 
+```
+export PATH=$PATH:~/bin
+```
 
 # Printing one value 
 ```
