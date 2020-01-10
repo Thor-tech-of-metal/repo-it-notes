@@ -67,8 +67,21 @@ kubectl --context eu-west-1a-nonprod -n LTA-dev get services
 ```
 *) describe a particular service
 ```cpp
-kubectl --context eu-west-1a-nonprod -n LTA-dev describe service feedback
+kubectl --context eu-west-1a-nonprod -n LTA-dev describe service feedbackService
 ```
+
+Get ingress command
+====================
+
+*) get all ingress running.
+```cpp
+kubectl --context eu-west-1a-nonprod -n LTA-dev get ingress
+```
+*) describe a particular ingress
+```cpp
+kubectl --context eu-west-1a-nonprod -n LTA-dev describe ingress feedbackIngress
+```
+
 
 watch events
 =============
