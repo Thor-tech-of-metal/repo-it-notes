@@ -32,7 +32,7 @@
 * Open project settings: cmd + ,
 * Open Module settings: cmd + :
 
-####  Code analise
+####  Code analise intellij ultimate
 
 * Setup your analise level. Settings--> Editor--> inspection, in the search add "Duplication",
   Then go to the section that you wish to update  for instance java  and click the duplication level you wish to add.
