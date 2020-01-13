@@ -1,0 +1,95 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2019-02-04T16:11:48Z"
+  generateName: one-eyed-minion-the-beast-bd7574466-
+  labels:
+    k8s-app: one-eyed-minion-the-beast
+    pod-template-hash: "683130022"
+  name: one-eyed-minion-the-beast-bd7574466-qgfnt
+  namespace: default
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: one-eyed-minion-the-beast-bd7574466
+    uid: 9310cb3d-2897-11e9-ba41-ce5ea56bb5d6
+  resourceVersion: "487589"
+  selfLink: /api/v1/namespaces/default/pods/one-eyed-minion-the-beast-bd7574466-qgfnt
+  uid: 93195ed4-2897-11e9-ba41-ce5ea56bb5d6
+spec:
+  containers:
+  - env:
+    - name: KUBERNETES_PORT_443_TCP_ADDR
+      value: superclues-sptingbootresour-b68a27-d5213ac1.hcp.eastus.azmk8s.io
+    - name: KUBERNETES_PORT
+      value: tcp://superclues-sptingbootresour-b68a27-d5213ac1.hcp.eastus.azmk8s.io:443
+    - name: KUBERNETES_PORT_443_TCP
+      value: tcp://superclues-sptingbootresour-b68a27-d5213ac1.hcp.eastus.azmk8s.io:443
+    - name: KUBERNETES_SERVICE_HOST
+      value: superclues-sptingbootresour-b68a27-d5213ac1.hcp.eastus.azmk8s.io
+    image: sptingbootregistry.azurecr.io/gs-spring-boot-docker:latest
+    imagePullPolicy: Always
+    name: one-eyed-minion-the-beast
+    resources: {}
+    securityContext:
+      privileged: false
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-x6nvn
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  imagePullSecrets:
+  - name: sptingbootregistry
+  nodeName: aks-nodepool1-17975921-0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-x6nvn
+    secret:
+      defaultMode: 420
+      secretName: default-token-x6nvn
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2019-02-04T16:11:48Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2019-02-04T16:11:51Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2019-02-04T16:11:48Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://37ea5c6f3be92841a43bd75c259d5ac985f3f98039b51ac431690ad90a091d16
+    image: sptingbootregistry.azurecr.io/gs-spring-boot-docker:latest
+    imageID: docker-pullable://sptingbootregistry.azurecr.io/gs-spring-boot-docker@sha256:13f1bbdaef4bbf9d254759eacae287ec3641415c172ba30202892115ba048218
+    lastState: {}
+    name: one-eyed-minion-the-beast
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: "2019-02-04T16:11:50Z"
+  phase: Running
+  qosClass: BestEffort
+  startTime: "2019-02-04T16:11:48Z"

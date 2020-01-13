@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2019-02-04T16:11:48Z"
+  labels:
+    k8s-app: one-eyed-minion-the-beast
+  name: one-eyed-minion-the-beast
+  namespace: default
+  resourceVersion: "487565"
+  selfLink: /api/v1/namespaces/default/services/one-eyed-minion-the-beast
+  uid: 931313a0-2897-11e9-ba41-ce5ea56bb5d6
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: tcp-80-8080-lb7p4
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    k8s-app: one-eyed-minion-the-beast
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

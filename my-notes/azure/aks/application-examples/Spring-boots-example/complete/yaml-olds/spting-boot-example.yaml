@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: one-eyed-minion
+  namespace: default
+  labels:
+    k8s-app: one-eyed-minion
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: one-eyed-minion
+      namespace: default
+      labels:
+        k8s-app: one-eyed-minion
+    spec:
+      containers:
+        - name: one-eyed-minion
+          image: sptingbootregistry.azurecr.io/gs-spring-boot-docker:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8080
+          env:
+          - name: JAVA_OPTS
+            value: -Xmx64m -Xms64m
+          - name: SPRING_APPLICATION_NAME
+            value: "one-eyed-minion"
+      imagePullSecrets:
+          - name: sptingbootregistry
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: one-eyed-minion-entrypoint
+  namespace: default
+  labels:
+    k8s-app: one-eyed-minion
+spec:
+  selector:
+    k8s-app: one-eyed-minion
+    app: one-eyed-minion
+  ports:
+  - name: tcp-80-8080-xtcpg
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30055
+  clusterIP: 10.0.37.27
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
