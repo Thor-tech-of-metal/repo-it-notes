@@ -15,9 +15,10 @@ cd ~/
 
 vi .bash_profile
 ```
-2) add the following line 
+2) Add the following line 
 
 ```
+export DATA_STORE_DB_HOST="localhost"
 ```
 
 #### set up your env vars Zsh
@@ -31,7 +32,12 @@ cd ~/
 
 vi .zshrc
 ```
-2) add the following line 
+2) Add the following line 
+
+```
+export DATA_STORE_DB_HOST="localhost"
+```
+
 
 #### print all env vars 
 
