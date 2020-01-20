@@ -1,6 +1,6 @@
 
-The case
-========
+#### The case
+
 
 A normal kubernetes *.yml file  has the following sections 
 
@@ -15,8 +15,8 @@ https://github.com/jaegertracing/jaeger-kubernetes/blob/master/production-elasti
 - apiVersion: v1
   kind: Service
 
-Helm
-====
+#### Helm
+
 
 * Helm is a package manager for Kubernetes that allows developers and operators to more easily package,
 configure, and deploy applications and services onto Kubernetes clusters.
@@ -25,24 +25,24 @@ configure, and deploy applications and services onto Kubernetes clusters.
 * Helm provides templates *.yaml files for all of the "kind:" sections. for instance we have deployment.yaml and serivice.yaml files.
 Helm perform replace values action in all helms files. Values are defined in  values.yaml. Values can be overwritten using another files.
 
-Helm chart
-==========
+#### Helm chart
+
 
 A chart is a collection of files that describes a related set of Kubernetes resources.
 Helm reserves use of the charts/ and templates/
 
 
-Compile helm  and see all replaced values
-===============================
+#### Compile helm  and see all replaced values
+
 
 `helm template --output-dir test helm --values helm/values.yaml --set az=rameshh
 `
-Values
-======
+#### Values
+
 values.yaml: here are defined all common values. Then this values can be overwritten in another  environment file for instance dev-values.yaml
 
-configmap.yaml
-===============
+#### configmap.yaml
+
 * Here we add al files that needs to be added in the volume defined in deployment.yaml volumeMounts: mountPath: /etc/config
 
 In the configmap.yaml there is a "data:" section related to mountPath: /etc/config.
@@ -69,20 +69,20 @@ data:
 
 
 ```
-deployment.yaml
-===============
+
+#### deployment.yaml
 
 Here is where we can define the pod in details such us replicas, volumeMounts and others such is imagePullPolicy: :latest etc
 deployment.yaml uses the values which come from values.yaml and [ENVIROMENT]-values.yaml which can overwrite values.yaml
 
 
-serivice.yaml
-==============
+#### serivice.yaml
+
 This file describe the service itself such us serivice name, ports loadBalancerInternal.
 
 
-roles.yaml
-==========
+#### roles.yaml
+
 Here we defines which actions can be executed  to  the pod from tiller api for instance.
 
 what is the roles.yaml
@@ -95,15 +95,18 @@ rules:
 ```
 
 
-  Domains
-  =======
-  Domain : dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
+#### Product chart
 
-  The domain is defined in service.yaml
+It is a helm chart that contains all microservices charts and defines how to install the whole applications
+
+#### Domains
+  
+Domain : dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
+
+The domain is defined in service.yaml
 
 ```c
   external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.dnsName }}.{{ .Values.az }}.{{ .Values.aurora.domainName }}
-
 ```
   where:
   * Values.app.dnsName come from  dev-values.yaml . dnsName: dev-deviceservice-LTA
@@ -115,12 +118,15 @@ The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
   [dns] [context] [aurora domain]
 
 
-         helm --install --set az=eu-west-${availabilityZone}.${prodOrNonProd},app.image.tag=${gitLongCommit}
+ ```json
+  helm --install --set az=eu-west-${availabilityZone}.${prodOrNonProd},app.image.tag=${gitLongCommit}
+``` 
 
 
-  yaml if then print
-  ==================
-
+#### yaml if then print
+  ```json
   {{- if .Values.app.firewall.loadBalancerInternal }}
       service.beta.kubernetes.io/aws-load-balancer-internal: '0.0.0.0/0'
   {{- end }}
+
+```

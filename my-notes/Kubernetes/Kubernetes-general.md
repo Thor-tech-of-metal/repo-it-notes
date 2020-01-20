@@ -98,12 +98,3 @@ metadata:
       failureThreshold: 1
       successThreshold: 1
 ```
-
-
-
-General
-========
-* Kubernetes always check the pod health 
-* Kubernates will automatically resurrect killed Pods 
-* Kuberntes keeps restarting pods.
-* Controllers take care of Pod scaling and healing
