@@ -29,7 +29,7 @@ git status
 * Changes not staged for commit: The second change is unstaged and not ready to commit.
 
 
-###Branch commands
+### Branch commands
 
 
 * See all local branches 
@@ -58,7 +58,7 @@ git checkout -b PRE_REBASE 04e2ab5
 ```
 
 
-###Commits commands
+### Commits commands
 
 * How to commit a new file 
 
@@ -106,7 +106,7 @@ git commit -a
  git commit --amend
 ```
 
-###Log commits messages
+### Log commits messages
 
 * print log tree
 ```
