@@ -5,6 +5,15 @@
 `az login`
 
 
+#### az aks get-credentials
+
+In the azure portal you can list all ASK services . Home--> AKS Serices . In there you can see a table with:
+--resource-group   --name node name   --subscription. These vlaues are going to be used in the az aks get credentials.
+
+```
+az aks get-credentials --resource-group XX-00-rg --name XXX-00-aks --subscription DCD-CFTAPPS-XXX --overwrite
+```
+
 #### Resource group
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure.
