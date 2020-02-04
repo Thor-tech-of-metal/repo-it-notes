@@ -37,7 +37,11 @@ Application ID: 8b373a77-1aae-49f4-80bc-f77b9b1ad871
 This application id has Contributor privileges on the “Tesco Sandpit Early Access” subscription.
 It can be used by multiple teams / team members for pipelines in this subscription as and where required.
 
+#### Get an existing service principal
 
+```
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
+```
 
 
 #### az aks get-credentials
