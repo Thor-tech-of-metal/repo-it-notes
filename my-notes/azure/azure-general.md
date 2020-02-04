@@ -5,6 +5,41 @@
 `az login`
 
 
+
+#### Create a create service principals
+
+An Azure service principal is an identity created for applications, hosted services, and any resource. This identity is used  to access Azure resources. 
+This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and 
+at which level. 
+
+```
+az ad sp create-for-rbac --skip-assignment
+```
+
+response: with appId and password
+```json
+
+{
+  "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
+  "displayName": "azure-cli-2018-09-25-21-10-19",
+  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "password": "e763725a-5eee-40e8-a466-dc88d980f415",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+}
+
+```
+
+#### Example of a service principals for us:
+
+pass: D67OyqNwxQwQZl/WtWy9Zdk0PqvpgES7dnh0kpAy/2A=
+Application ID: 8b373a77-1aae-49f4-80bc-f77b9b1ad871
+
+This application id has Contributor privileges on the “Tesco Sandpit Early Access” subscription.
+It can be used by multiple teams / team members for pipelines in this subscription as and where required.
+
+
+
+
 #### az aks get-credentials
 
 In the azure portal you can list all ASK services . Home--> AKS Serices . In there you can see a table with:
@@ -37,37 +72,6 @@ A subscription trusts Azure AD to authenticate users, services, and devices.
 Multiple subscriptions can trust the same Azure AD directory. Each subscription can only trust a single directory.
 
 
-
-#### Create a create service principals
-
-An Azure service principal is an identity created for applications, hosted services, and automated tools to access Azure resources. 
-This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and 
-at which level. 
-
-```
-az ad sp create-for-rbac --skip-assignment
-```
-
-response: with appId and password
-```json
-
-{
-  "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
-  "password": "e763725a-5eee-40e8-a466-dc88d980f415",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
-}
-
-```
-
-#### Example of a service principals for us:
-
-pass: D67OyqNwxQwQZl/WtWy9Zdk0PqvpgES7dnh0kpAy/2A=
-Application ID: 8b373a77-1aae-49f4-80bc-f77b9b1ad871
-
-This application id has Contributor privileges on the “Tesco Sandpit Early Access” subscription.
-It can be used by multiple teams / team members for pipelines in this subscription as and where required.
 
 
 #### Azure Key Vault (AKV)
