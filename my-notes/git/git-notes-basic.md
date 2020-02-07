@@ -221,6 +221,13 @@ git rebase  --skip
 git rebase  --abort
 ```
 
+
+### Reset
+
+How to undo git added files 
+```
+git reset my-file.txt
+```
 ### Tricks
 
 * How to revert file changes to local branch version.
