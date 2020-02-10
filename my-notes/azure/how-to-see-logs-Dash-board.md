@@ -32,13 +32,15 @@ Instrumentation Key 64f7ac38-53a2-44db-9dc6-384081b686c5
 ### How to see logs errors
 
 
-1 chose your resource group ( make sure to have all Subscription selected. )
+1 Go to inisghts--> chose failures --> see all top exceptions. [ See enclosed image.](./see-errors-exceptions.png) . 
 
-2 go to settings -->  Application Insights
+2 Click the number next to the top Exception, the one in the count colum. 
 
-3 chose view application "data-store-api-aat - Application Insights"
+3 See the logs of this exception type.
 
-4 chose --> Failures --> chose one particular error and then chose --> Drill into... see logs
+4 Chose one particular error log. In the  "see sample exception" section. It will bring details of one particular error and the request id . operation id. [ See enclosed image.](./see-one-particular-error-with-operation-id.png) 
+
+
 
 ### Query from the longs
 
