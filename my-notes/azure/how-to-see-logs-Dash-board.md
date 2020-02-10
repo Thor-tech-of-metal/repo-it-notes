@@ -61,6 +61,13 @@ ContainerLog
 
 ```
 
+How to query from the longs for  request operation_Id . Every reaquest has a unique id which is called operation_Id.
+
+```
+requests
+| where operation_Id =='b2d24ccef3ea43038b64edcfedb00b19'
+| limit 10
+````
 
 ### Images group
 
