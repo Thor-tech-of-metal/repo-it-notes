@@ -10,7 +10,7 @@ We need to have selected all subscriptions.     [ See enclosed image.](./Checl-a
 * Resource grup
 * App Services (VM)
 * Application insight
-* Images group
+* Container registry for docker images.
 
 
 ### Application insight
