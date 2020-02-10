@@ -1,7 +1,7 @@
 ### Subscription
 
 My user has many subscription.  All searches are liked to the subscriptions visibility. Every time that we look for a resource (Azure Obejct such us insight, resource group, AKS cluster etc  )
-We need to have selected all subscriptions.  See enclosed image.
+We need to have selected all subscriptions.     [ See enclosed image.](./Checl-all-subcriptions-for-my-user.png) . 
 
 
 ### Azure Obejcts that I can see from the dashboard
