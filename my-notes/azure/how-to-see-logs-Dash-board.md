@@ -1,5 +1,20 @@
-Application insight
-===================
+### Subscription
+
+My user has many subscription.  All searches are liked to the subscriptions visibility. Every time that we look for a resource (Azure Obejct such us insight, resource group, AKS cluster etc  )
+We need to have selected all subscriptions.  See enclosed image.
+
+
+### Azure Obejcts that I can see from the dashboard
+
+* AKS clusters 
+* Resource grup
+* App Services (VM)
+* Application insight
+* Images group
+
+
+### Application insight
+
 
 you can see all insight for a resource or cluester.
 
@@ -14,8 +29,8 @@ Instrumentation Key 64f7ac38-53a2-44db-9dc6-384081b686c5
 
 
 
-How to see logs errors
-=======================
+### How to see logs errors
+
 
 1 chose your resource group ( make sure to have all Subscription selected. )
 
@@ -25,8 +40,8 @@ How to see logs errors
 
 4 chose --> Failures --> chose one particular error and then chose --> Drill into... see logs
 
-Query from the longs
-====
+### Query from the longs
+
 
 How to query from the longs for NoHttpResponseException
 ```
@@ -47,9 +62,7 @@ ContainerLog
 ```
 
 
-Images group
-============
-
+### Images group
 
 1) go to All resources --> search for "hmctspublic" --> chose repositories --> search  "ccd/data-store" --> click --> search "pr-xxx" Chose the latest one.
 
@@ -59,8 +72,5 @@ find my images: 1) check in your PR the images number 2) Go to azure and find it
 
 
 
-Subscription
-============
-My user has many subscription. These ones are going to be used to see resources in the  group. hence in the search all subscription as to clicked.
 
 
