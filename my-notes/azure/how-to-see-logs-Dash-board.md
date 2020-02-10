@@ -43,7 +43,7 @@ Instrumentation Key 64f7ac38-53a2-44db-9dc6-384081b686c5
 ### Query from the longs
 
 
-How to query from the longs for NoHttpResponseException
+1 How to query from the longs for NoHttpResponseException
 ```
 let startDateTime = datetime('2020-02-06T13:30:00.000Z');
 let endDateTime = datetime('2020-02-06T14:40:00.000Z');
@@ -61,7 +61,7 @@ ContainerLog
 
 ```
 
-How to query from the longs for  request operation_Id . Every reaquest has a unique id which is called operation_Id.
+2 How to query from the longs for  request operation_Id . Every reaquest has a unique id which is called operation_Id.
 
 ```
 requests
