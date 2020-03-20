@@ -13,6 +13,12 @@ gradle clean build  --info
 ./gradlew clean build -x test --info
 ```
 
+#### Build and  execute one particular test
+```
+./gradlew test --tests uk.gov.hmcts.ccd.domain.service.callbacks.CallbackServiceWireMockTest
+```
+
+
 #### Build and force to build all files
 ```
 ./gradlew clean build --info --rerun-tasks
