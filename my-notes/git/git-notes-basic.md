@@ -46,6 +46,7 @@ git checkout -b myLoalBranch  origin/develop
 ```
 
 * It will create a new branch from a specific commit point.
+ 
  1 get the commit point 
  ```text
  git reflog  
@@ -153,7 +154,11 @@ git merge origin/develop
 git pull origin RDM-5398-BASED-RC1+MV
 ```
 
+### Merging code in inteliJ 
 
+Watch this video, it is good.
+
+https://www.youtube.com/watch?v=RxunYSzMNKM
 
 ###  git Stash
 
