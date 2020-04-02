@@ -65,6 +65,10 @@ Change gradle.properties in stub project add
 
 org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
 
+#### Make gradle not use deamon thread  and resolve posible memory issues in old VM
+```
+./gradlew clean --no-daemon build 
+```
 
 #### Start spring servers
 ```
