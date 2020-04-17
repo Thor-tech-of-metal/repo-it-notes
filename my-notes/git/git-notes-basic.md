@@ -38,7 +38,7 @@ git status
 git branch
 ```
 
-### List remote Branches commands
+* List remote Branches commands
 ```
 git branch -r
 ```
