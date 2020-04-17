@@ -38,6 +38,10 @@ git status
 git branch
 ```
 
+### List remote Branches commands
+```
+git branch -r
+```
 
 * Build a new branch based on a remote branch
 
