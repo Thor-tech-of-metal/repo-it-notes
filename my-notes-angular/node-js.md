@@ -23,6 +23,13 @@ node -v
 npm install 
 ```
 
+### Generates package-lock.json
+
+```
+npm install --package-lock
+```
+
+
 ### Update to latest packaged 
 
 1) (force) clear you npm cache
@@ -35,12 +42,12 @@ sudo npm install -g n
 ```
 3) to the current stable version
 ```
-sudo n stable upgrade 
+sudo npm stable upgrade 
 ```
 
 ### Update to particular verson 12.14.1
 ```
-sudo n 12.14.1
+sudo npm 12.14.1
 ```
 
 ### Development server
