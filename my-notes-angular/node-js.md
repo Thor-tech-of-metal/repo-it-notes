@@ -22,7 +22,29 @@ node -v
 ```
 npm install 
 ```
+
+### Update to latest packaged 
+
+1) (force) clear you npm cache
+```
+sudo npm cache clean -f 
+```
+2) install n (this might take a while)
+```
+sudo npm install -g n 
+```
+3) to the current stable version
+```
+sudo n stable upgrade 
+```
+
+### Update to particular verson 12.14.1
+```
+sudo n 12.14.1
+```
+
 ### Development server
 ```
 npm start
 ```
+
