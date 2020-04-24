@@ -14,7 +14,7 @@ yarn install
 
 ## Important files 
 
-package.json
+package.json this is the file where the whole angular project is described, dependecies version and modules. 
 
 
 package-lock.json
