@@ -4,6 +4,15 @@
 Mac can use bash or Zsh
 
 
+#### set up  entries in the PATH
+
+1) Add the value between ":" for instance :/my/dir/bin:
+
+```
+export PATH=$HOME/bin:$HOME/.nvm:/my/dir/bin:/usr/local/bin:$PATH
+```
+2) close the termial and open another one 
+
 #### set up your env vars bash
 
 Mac uses bash shell, so the environment variables can be added to the .bash_profile file, for the current user. 
@@ -20,6 +29,7 @@ vi .bash_profile
 ```
 export DATA_STORE_DB_HOST="localhost"
 ```
+3)close the termial and open another one 
 
 #### set up your env vars Zsh
 
@@ -37,7 +47,7 @@ vi .zshrc
 ```
 export DATA_STORE_DB_HOST="localhost"
 ```
-
+3)close the termial and open another one
 
 #### print all env vars 
 
