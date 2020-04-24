@@ -38,4 +38,16 @@ Force it !!
 ```
 yarn install -f 
 ```
+3) Build a yarn  
+```
+yarn build
+```
+4) Build a yarn module defined as script in package.json 
+```
+yarn build:esm
+```
 
+3) start the server
+```
+yarn start
+```
