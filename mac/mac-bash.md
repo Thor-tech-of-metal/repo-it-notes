@@ -13,6 +13,8 @@ export PATH=$HOME/bin:$HOME/.nvm:/my/dir/bin:/usr/local/bin:$PATH
 ```
 2) Close the termial and open another one 
 
+NOTE: sometimes it does not work because the /my/dir/bin has not execution permissions.
+
 #### set up your env vars bash
 
 Mac uses bash shell, so the environment variables can be added to the .bash_profile file, for the current user. 
