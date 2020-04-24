@@ -59,27 +59,27 @@ npm start
 Use nvm and install it . https://github.com/nvm-sh/nvm#installing-and-updating 
 
 
-*) List remote versions
+* List remote versions
 ```
 nvm ls-remote
 ```
 
-*) install a particular version 
+* Install a particular version 
 ```
 nvm install v12.14.1
 ```
 
-*) uninstall 
+* Uninstall 
 ```
 nvm uninstall 13.6.0
 ```
 
-*)  List local version
+* List local version
 ```
 nvm ls
 ```
 
-*) Use a local version
+* Use a local version
 ```
 nvm use 12.14.1
 ```
