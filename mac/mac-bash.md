@@ -11,7 +11,7 @@ Mac can use bash or Zsh
 ```
 export PATH=$HOME/bin:$HOME/.nvm:/my/dir/bin:/usr/local/bin:$PATH
 ```
-2) close the termial and open another one 
+2) Close the termial and open another one 
 
 #### set up your env vars bash
 
@@ -29,7 +29,7 @@ vi .bash_profile
 ```
 export DATA_STORE_DB_HOST="localhost"
 ```
-3)close the termial and open another one 
+3) Close the termial and open another one 
 
 #### set up your env vars Zsh
 
@@ -47,7 +47,7 @@ vi .zshrc
 ```
 export DATA_STORE_DB_HOST="localhost"
 ```
-3)close the termial and open another one
+3) Close the termial and open another one
 
 #### print all env vars 
 
