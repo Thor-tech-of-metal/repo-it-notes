@@ -54,7 +54,7 @@ sudo npm 12.14.1
 ```
 npm start
 ```
-### Run diferent version of node  server
+### Run diferent versions of node  server
 
 Use nvm and install it . https://github.com/nvm-sh/nvm#installing-and-updating 
 
