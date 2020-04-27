@@ -24,7 +24,7 @@ sudo npm install -g n
 
 Install Nodejs  latest
 ```
-sudo n stable 
+sudo npm stable 
 ```
 Setup Binary Link 
 ```
