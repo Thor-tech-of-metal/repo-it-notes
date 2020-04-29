@@ -64,3 +64,8 @@ yarn build:esm
 ```
 yarn start
 ```
+
+4) start the server in DEBUG mode.
+```
+NODE_ENV=dev DEBUG='ccd-case-activity-api:*' yarn start
+```
