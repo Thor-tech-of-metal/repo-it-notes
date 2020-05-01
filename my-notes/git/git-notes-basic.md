@@ -160,6 +160,8 @@ git pull origin RDM-5398-BASED-RC1+MV
 
 ### Merging code in inteliJ 
 
+* go to CVS--> Git--> Pull --> select the branch that you wish to pull from and enjoy the 3 windows merge view!!!
+
 Watch this video, it is good.
 
 https://www.youtube.com/watch?v=RxunYSzMNKM
