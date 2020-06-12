@@ -1,10 +1,8 @@
 
-#### Azure commands
+#### Azure commands examples
 
 
 `az login`
-
-
 
 #### Create a create service principals
 

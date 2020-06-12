@@ -7,9 +7,6 @@ General
 * Controllers take care of Pod scaling and healing
 * You cannot connect to a Pod directly given that it keeps changing its ips address.
 
-
-
-
 **Pod**: It has a docker container which runs the images. The pods can be replicated. they run inside a  (azure node) or (azure availability zone)
 
 **Service**: The services defines de internal load balance or networking to access all internal pods to an (azure node) or (azure availability zone)
