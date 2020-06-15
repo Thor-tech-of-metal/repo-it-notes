@@ -28,6 +28,17 @@
 ```
 git config --list
 ```
+###  Change git configuration repo configuration 
+
+
+```
+git config --global --edit
+```
+
+```
+git config --global user.name "USER_USER"
+```
+
 
 
 https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html
