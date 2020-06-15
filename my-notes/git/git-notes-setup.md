@@ -1,3 +1,26 @@
+###  General 
+
+In git we can use HTTPS or SSH.  
+
+a) HTTP uses personal tokens, thes ones are created in your git account.
+
+b) SSH public and privete keys.  These are created per computer under you local (/Users//.ssh/XXX). Then we need to add in git hub the public key.
+
+
+###  Create SSH in git for MAC
+
+1 create the keys : 
+
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+or  
+https://github.com/Thor-tech-of-metal/repo-it-notes/blob/master/unix/creating-rsa-keys.md
+
+2) Add the new keys in to the github account.
+
+https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+
 
 ### git clone
 
@@ -30,7 +53,6 @@ git config --list
 ```
 ###  Change git configuration repo configuration 
 
-
 ```
 git config --global --edit
 ```
@@ -39,8 +61,17 @@ git config --global --edit
 git config --global user.name "USER_USER"
 ```
 
-###  Create SSH in git 
 
-https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html
+###  Change repo remote 
+1) see remote 
+```
+git remote -v
+> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+> origin  https://github.com/USERNAME/REPOSITORY.git (push)
 
-https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+```
+2)  change remote 
+
+```
+$ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
