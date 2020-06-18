@@ -124,6 +124,8 @@ Docker Images commands
 
 output: Successfully built 60c5987c1294 ---> this is the imagine id
 
+Remember docker build takes a directory path where the Dockerfile is. It does not take a filepath
+
 #### Rename a image and tag it
 
 where 967840b69584 is the number obtained after the build
