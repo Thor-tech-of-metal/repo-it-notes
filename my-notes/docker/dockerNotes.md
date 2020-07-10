@@ -168,7 +168,7 @@ docker rmi [docker-image-id]
 
 `docker rmi $(docker images -q)`
 
-#### Stop a container by image id or tagName
+#### delete a container by image id or tagName
 
 `docker rm $(docker stop $(docker ps -a -q --filter ancestor= [imagineID or tagName]  --format="{{.ID}}"))`
 
