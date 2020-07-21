@@ -33,6 +33,10 @@ brew cask info java11
 brew cask install java11
 ```
 
+### all about java SDK and brew
+
+http://kabiliravi.com/index.php/software/programming/my-java-tutorial/install-java/install-java-on-mac/
+
 ### Java 8 or any SDK nor supported by brew 
 
 * you need to download it from oracle. 
