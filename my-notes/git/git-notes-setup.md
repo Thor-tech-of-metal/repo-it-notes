@@ -21,6 +21,22 @@ https://github.com/Thor-tech-of-metal/repo-it-notes/blob/master/unix/creating-rs
 https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
 
+### Change remote to use ssh
+
+for instance  befta-fw.git was not using ssh and we would like to move ssh . Assuming all keys have been uploaded in git. 
+
+1  see current settings.
+```
+git config --list
+```
+
+result remote.origin.url=https://github.com/hmcts/befta-fw.git
+
+2 change to ssh 
+```
+git remote set-url origin git@github.com:hmcts/befta-fw.git
+```
+
 
 ### git clone
 
