@@ -16,9 +16,18 @@
 \w, \W  --> ANY ONE word/non-word character. For ASCII, word characters are [a-zA-Z0-9_]
 \s, \S  --> ANY ONE space/non-space character. For ASCII, whitespace characters are [ \n\r\t\f]
 
+\S.{1,} --> One or any number of space/non-space character
+
 ^.* --> Start of string followed by zero or more of any character (except line break)
 
 .*$ --> Zero or more of any character (except line break) followed by end of string
+
+[abc]	any of a, b, or c
+[^abc]	not a, b, or c
+[a-g]	character between a & g
+
+^abc$	start / end of the string
+
 ```
 
 #### Combinations of 1232-4562-7890-7890 or 1232456278907890
@@ -33,4 +42,14 @@ Then we use or |
 
 ```
 (?:^[0-9]{16}$|^\d{4}-\d{4}-\d{4}-\d{4}$)
+```
+
+#### Combinations of ${tobsssss.tobssss} or ${tobdddddd.tdddddob}:[rdd]
+
+${tobdddddd.tdddddob} -->. ^\${\S.{1,}.\S.{1,}\}$
+
+${tobdddddd.tdddddob}:[rdd] --> ^\${\S.{1,}.\S.{1,}\}:\[\S{1,}\]$
+
+```
+^\${\S.{1,}.\S.{1,}\}$|^\${\S.{1,}.\S.{1,}\}:\[\S{1,}\]$
 ```
