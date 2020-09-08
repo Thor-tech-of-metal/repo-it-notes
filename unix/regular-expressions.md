@@ -38,7 +38,7 @@ https://www.regextester.com/94189
 
 1232-4562-7890-7890 this math with (^\d{4}-\d{4}-\d{4}-\d{4}$)
 
-Then we use or |
+Then we use OR |
 
 ```
 (?:^[0-9]{16}$|^\d{4}-\d{4}-\d{4}-\d{4}$)
@@ -47,7 +47,7 @@ Then we use or |
 #### Combinations of ${tobsssss.tobssss} or ${tobdddddd.tdddddob}:[rdd]
 
 ${tobdddddd.tdddddob} -->. ^\${\S.{1,}.\S.{1,}\}$
-
+OR |
 ${tobdddddd.tdddddob}:[rdd] --> ^\${\S.{1,}.\S.{1,}\}:\[\S{1,}\]$
 
 ```
