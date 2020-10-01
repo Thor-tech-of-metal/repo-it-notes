@@ -78,7 +78,7 @@ git config --global user.name "USER_USER"
 ```
 
 
-###  Change repo remote 
+###  Change repo remote from https security mechanism to RSA key
 1) see remote 
 ```
 git remote -v
@@ -91,3 +91,4 @@ git remote -v
 ```
 $ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
+ or simply edit .giit/config file.
