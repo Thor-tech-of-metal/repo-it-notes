@@ -130,3 +130,11 @@ The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
   {{- end }}
 
 ```
+
+#### Helm Commands 
+
+1) delete pods 
+
+```
+helm uninstall -n ccd ccd-data-store-api-pr-601
+```
