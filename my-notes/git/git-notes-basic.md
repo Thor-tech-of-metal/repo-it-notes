@@ -49,6 +49,11 @@ git branch -r
 git checkout -b myLoalBranch  origin/develop
 ```
 
+* Build a new branch base on the current branch. When the current branch is RDM-9939 
+```
+git branch RDM-9939-backUp
+```
+
 * It will create a new branch from a specific commit point.
  
  1 get the commit point 
