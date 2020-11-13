@@ -149,6 +149,16 @@ Connect to mysql machine
 2) mysql -h mysql.cx.aurora.tescocloud.com -u LTA-dev -p
 
 
+Tunnel pod port to a local port to connect to a DB
+===================================================
+
+*) Tunnel the pod port to an external port where is 5432 the pod port and 5333 the tunnel port.
+
+```
+kubectl -n ccd port-forward db-pod-name-1194-postgresql-0 5333:5432
+````
+
+
 Deployments
 =======
 
