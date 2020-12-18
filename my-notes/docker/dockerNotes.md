@@ -187,6 +187,11 @@ for instance:
 
 `docker push  [IMAGE-NAME]`
 
+#### backup images and load them
+
+`docker save -o idam-api-stable.tar hmctspublic.azurecr.io/idam/api:stable`
+
+`docker load < idam-api-stable.tar`
 
 Docker general commands 
 ========================
