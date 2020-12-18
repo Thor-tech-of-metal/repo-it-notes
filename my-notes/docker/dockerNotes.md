@@ -110,6 +110,16 @@ docker run -d --net example --name container2 [imageName]:[imagineVersion]
  docker network ls 
  ```
 
+4) Connect from my docker container to the outside (my computer localhots)
+
+Inside docker localhost refers to the contaiiner, so to refere to the compuer localhost simply use:
+
+```
+http://host.docker.internal:4451 instead of http://localhost:4451
+```
+
+
+
 Docker Images commands 
 ========================
 
