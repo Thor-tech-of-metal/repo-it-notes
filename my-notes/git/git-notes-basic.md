@@ -1,4 +1,8 @@
+### Git clone
 
+```
+git clone HTTPS_URL
+```
 
 ### Git status
 List which files are staged, unstaged, and untracked. It shows files to be added and files to be commit-ed.
