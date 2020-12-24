@@ -221,9 +221,15 @@ Docker compose
 
 `docker-compose ps`
 
-#### Docker compose stop server
+#### Docker compose up server
+
+```
+docker-compose -f compose/elasticsearch.yml up -d
+```
+or 
 
 `docker-compose up`
+
 
 #### Docker compose stop server
 
