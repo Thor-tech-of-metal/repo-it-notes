@@ -96,3 +96,17 @@ gradle bootRun
 ```
 ./gradlew clean build buildDocker --stacktrace --info
 ```
+
+
+
+#### Add module compile dependecies 
+
+```
+dependencies {
+    compile project(':app-insights')
+    compile project(':rest-api')
+    compile project(':excel-importer')
+    
+    testCompile project(":app-insights").sourceSets.main.output
+} 
+```
