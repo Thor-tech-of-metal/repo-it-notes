@@ -86,7 +86,19 @@ git remote -v
 > origin  https://github.com/USERNAME/REPOSITORY.git (push)
 
 ```
-2)  change remote 
+2)  Change remote, 
+
+Remote URL has this format 
+```
+git@github.com:hmcts/something-store-api.git
+```
+Local has this format:
+
+```
+https://github.com/hmcts/something-store-api.git
+```
+
+Change using set 
 
 ```
 $ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
