@@ -239,6 +239,15 @@ or
 
 `docker-compose up  db`
 
+
+#### Intall Vi in docker 
+```
+`docker exec -it  [CONTAINDER_ID]  bash  `
+```
+from the container do the following 
+https://www.configserverfirewall.com/docker/install-text-editor/
+
+
 Docker tricks
 =============
 
