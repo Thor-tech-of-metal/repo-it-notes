@@ -26,7 +26,7 @@
 * colum selection mode : cmd + shift + 8
 
 ####  Generate code
-* surround with : select the code and cmd + option + t
+* It generated if/try/catch and others. Surround with : select the code and cmd + option + t
 
 #### Windows
 * Open project settings: cmd + ,
