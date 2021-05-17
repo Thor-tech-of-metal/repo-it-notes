@@ -12,5 +12,6 @@ chmod -R 777 MY_DIR
 
 *) netstat -ap tcp | grep -i "listen"
 
-In mac 
+In mac
+
 *) sudo lsof -PiTCP -sTCP:LISTEN | grep 4452
