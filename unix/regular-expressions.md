@@ -30,8 +30,9 @@
 
 ```
 
-#### * + ? () {}
+#### characters * + ? () {}
 
+```
 abc*        matches a string that has ab followed by zero or more c 
 abc+        matches a string that has ab followed by one or more c
 abc?        matches a string that has ab followed by zero or one c
@@ -41,6 +42,7 @@ abc{2,5}    matches a string that has ab followed by 2 up to 5 c
 
 a(bc)*      matches a string that has a followed by zero or more copies of the sequence bc
 a(bc){2,5}  matches a string that has a followed by 2 up to 5 copies of the sequence bc
+```
 
 
 #### Combinations of 1232-4562-7890-7890 or 1232456278907890
