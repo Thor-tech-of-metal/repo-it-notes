@@ -10,8 +10,8 @@
 \d{4} --> any 4 digits
 
 ^, $ -->  start-of-line and end-of-line respectively. E.g., ^[0-9]$ matches a numeric string.
+. (dot) -->  ANY character except newline. Same as [^\n]
 
-. (dot) -->  ANY ONE character except newline. Same as [^\n]
 \d, \D  --> ANY ONE digit/non-digit character. Digits are [0-9]
 \w, \W  --> ANY ONE word/non-word character. For ASCII, word characters are [a-zA-Z0-9_]
 \s, \S  --> ANY ONE space/non-space character. For ASCII, whitespace characters are [ \n\r\t\f]
@@ -29,6 +29,19 @@
 ^abc$	start / end of the string
 
 ```
+
+#### * + ? () {}
+
+abc*        matches a string that has ab followed by zero or more c 
+abc+        matches a string that has ab followed by one or more c
+abc?        matches a string that has ab followed by zero or one c
+abc{2}      matches a string that has ab followed by 2 c
+abc{2,}     matches a string that has ab followed by 2 or more c
+abc{2,5}    matches a string that has ab followed by 2 up to 5 c
+
+a(bc)*      matches a string that has a followed by zero or more copies of the sequence bc
+a(bc){2,5}  matches a string that has a followed by 2 up to 5 copies of the sequence bc
+
 
 #### Combinations of 1232-4562-7890-7890 or 1232456278907890
 
