@@ -23,3 +23,8 @@ printenv
  ```
  ~/.bash_profile
  ```
+ OR
+ 
+```
+ ~/.zshrc
+ ```
