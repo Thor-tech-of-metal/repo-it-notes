@@ -110,3 +110,28 @@ dependencies {
     testCompile project(":app-insights").sourceSets.main.output
 } 
 ```
+
+#### Gradle wrapper 
+
+There are two different Gradle applications in your system.
+
+* The system-wide Gradle : This application is invoked by gradle (arguments).
+```
+gradle
+```
+
+* The gradle-wrapper:  The gradle-wrapper is specific to every project and can only be invoked inside the project's directory, using the command. I uses all information in the gradle/wrapper directoty to pull an specific version of gradle and its local settings in the **gradle-wrapper**.properties 
+for instance: distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
+
+
+```
+./gradlew (arguments).
+
+```
+
+Generate specific gradle wrapper version, for instance 4.1
+```
+gradle wrapper 4.1 
+
+```
+
