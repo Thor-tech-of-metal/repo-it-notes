@@ -27,6 +27,16 @@ chmod -R 777 MY_DIR
 mkdir myDir
 ```
 
+#### Find a file 
+
+```
+find /dir/to/search -name "file-to-search" -print
+````
+
+```
+$ find . -name '*.pl'
+```
+
 #### mv - change the name of a directory
 Type mv followed by the current name of a directory and the new name of the directory.
 
