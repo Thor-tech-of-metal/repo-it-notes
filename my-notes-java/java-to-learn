@@ -2,7 +2,10 @@ Java to study
 =============
 
 
-isBlank() vs isEmpty()
+
+
+* Java 11. isBlank() vs isEmpty()
+```
 public class Main 
 {
     public static void main(String[] args) 
@@ -14,3 +17,4 @@ public class Main
         System.out.println( "  ".isEmpty() );       //false
     }
 }
+````
