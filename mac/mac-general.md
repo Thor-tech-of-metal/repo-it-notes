@@ -2,8 +2,10 @@
 
 *  System Preferences --> advanced -->  TCP/IP read router or IP.
 
-* command line: ifconfig | grep "inet " | grep -v 127.0.0.1
-
+* command line: 
+```
+ifconfig | grep "inet " | grep -v 127.0.0.1
+```
 
 #### How to  find process using a port
 ```
