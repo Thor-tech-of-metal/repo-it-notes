@@ -25,3 +25,12 @@ public class Main
     }
 }
 ````
+
+List 
+=====
+
+* Quick notation from Arrays
+```
+import java.util.Arrays;
+Arrays.asList("serviceName")
+```
