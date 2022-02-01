@@ -133,7 +133,14 @@ The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
 
 #### Helm Commands 
 
-* List all for namespace 
+
+*  List all available releases across all namespaces:
+
+```
+helm list --all-namespaces
+```
+
+List all releases in a specific namespace:
 
 ```
 helm list --all -q --namespace ccd
