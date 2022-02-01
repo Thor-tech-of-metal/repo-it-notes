@@ -133,8 +133,14 @@ The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
 
 #### Helm Commands 
 
-1) delete pods 
+* Install  pods 
 
 ```
-helm uninstall -n ccd ccd-data-store-api-pr-601
+helm install [app-name] [chart] --namespace [namespace]
+```
+
+* delete pods 
+
+```
+helm uninstall -n [namespace] [pod_name_from_get_pods_command]
 ```
