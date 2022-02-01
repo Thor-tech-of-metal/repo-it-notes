@@ -133,6 +133,13 @@ The following dev-deviceservice-LTA.eu-west-1a.nonprod.aurora.tescocloud.com
 
 #### Helm Commands 
 
+* List all for namespace 
+
+```
+helm list --all -q --namespace ccd
+``
+
+
 * Install  pods 
 
 ```
