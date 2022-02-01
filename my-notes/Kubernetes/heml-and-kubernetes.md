@@ -144,3 +144,19 @@ helm install [app-name] [chart] --namespace [namespace]
 ```
 helm uninstall -n [namespace] [pod_name_from_get_pods_command]
 ```
+
+* Upgrade 
+
+```
+helm upgrade [release] [chart]
+```
+
+* Upgrade to a version
+```
+helm upgrade [release] [chart] --version [version-number]
+```
+
+Roll back a release:
+```
+helm rollback [release] [revision]
+```
