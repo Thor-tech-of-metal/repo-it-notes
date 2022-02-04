@@ -2,13 +2,35 @@ Java to study
 =============
 
 
-
 * Remove a optional using Map
 
 final var idsOptional = Optional.of(Arrays.of("1","2"));
 final var jurisdictions = idsOptional
                             .map(ids -> jurisdictionService.getAll(ids))
                             .orElseGet(jurisdictionService::getAll);
+
+
+* optional  get  optional value or throw an error using orElseThrow 
+
+val  caseType = definitionDataItem.getString(ColumnName.CASE_TYPE_ID);
+
+val caseTypeEntityOptional = parseContext.getCaseTypes()
+  .stream()
+  .filter(caseTypeEntity -> caseTypeEntity.getReference().equals(caseType))
+  .findAny();
+
+ 
+////// code A
+if (caseTypeEntityOptional.isPresent()) {
+  CaseTypeLiteEntity caseTypeLiteEntity = toCaseTypeLiteEntity(caseTypeEntityOptional.get());
+  categoriesEntity.setCaseType(caseTypeLiteEntity);
+} else {
+  throw new InvalidImportException();
+}
+
+///// code B that remplace A
+val caseTypeLiteEntity  = toCaseTypeLiteEntity(caseTypeEntityOptional.orElseThrow(InvalidImportException::new));
+
 
 
 * Java 11. isBlank() vs isEmpty()
