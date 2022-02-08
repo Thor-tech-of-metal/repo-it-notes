@@ -56,3 +56,27 @@ List
 import java.util.Arrays;
 Arrays.asList("serviceName")
 ```
+
+
+List to Maps
+============
+
+*   Collectors.toMap
+```
+public Map<String, String> listToMap(List<Book> books) {
+    return books.stream().collect(Collectors.toMap(Book::getIsbn, Book::getName));
+}
+```
+
+* Using pairs com.microsoft.applicationinsights.boot.dependencies.apachecommons.lang3.tuple;
+  
+```
+private Map<String, String> createCaseTypeCategoryIdPair(List<DefinitionDataItem> categoryItems) {
+
+  return categoryItems.stream().map(p->
+    Pair.of(p.getString(ColumnName.CASE_TYPE_ID), p.getString(ColumnName.CATEGORY_ID)))
+    .collect(Collectors.toMap(Pair::getKey,Pair::getValue));
+
+}
+```
+
