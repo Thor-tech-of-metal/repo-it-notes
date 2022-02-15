@@ -134,4 +134,7 @@ Generate specific gradle wrapper version, for instance 4.1
 gradle wrapper 4.1 
 
 ```
+```
+gradle wrapper --gradle-version 4.1
+```
 
