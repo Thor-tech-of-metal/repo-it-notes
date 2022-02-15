@@ -129,12 +129,12 @@ for instance: distributionUrl=https\://services.gradle.org/distributions/gradle-
 
 ```
 
-Generate specific gradle wrapper version, for instance 4.1
-```
-gradle wrapper 4.1 
+Generate specific gradle wrapper version, for instance 5.1.1
 
+for instance 5.1.1
 ```
-```
-gradle wrapper --gradle-version 4.1
+gradle --version
+gradle wrapper --gradle-version=5.1.1  
+
 ```
 
