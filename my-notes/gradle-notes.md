@@ -120,7 +120,7 @@ There are two different Gradle applications in your system.
 gradle
 ```
 
-* The gradle-wrapper:  The gradle-wrapper is specific to every project and can only be invoked inside the project's directory, using the command. I uses all information in the gradle/wrapper directoty to pull an specific version of gradle and its local settings in the **gradle-wrapper**.properties 
+* The gradle-wrapper:  The gradle-wrapper is specific to every project and can only be invoked inside the project's directory, using the command. It uses all information in the gradle/wrapper directoty to pull an specific version of gradle and its local settings in the **gradle-wrapper**.properties 
 for instance: distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
 
 
