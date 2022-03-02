@@ -253,12 +253,12 @@ Docker  volumes commands
 
 #### List all volumes
 ```
-` docker volume list
+docker volume list
 ```
 
 #### Delete all volumes
 ```
-` docker volume rm hello
+docker volume rm hello
 ```
 
 
