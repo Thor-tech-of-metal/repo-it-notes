@@ -248,6 +248,21 @@ from the container do the following
 https://www.configserverfirewall.com/docker/install-text-editor/
 
 
+Docker  volumes commands 
+========================
+
+#### List all volumes
+```
+` docker volume list
+```
+
+#### Delete all volumes
+```
+` docker volume rm hello
+```
+
+
+
 Docker tricks
 =============
 
