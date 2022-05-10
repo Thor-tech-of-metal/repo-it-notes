@@ -80,3 +80,11 @@ private Map<String, String> createCaseTypeCategoryIdPair(List<DefinitionDataItem
 }
 ```
 
+Java with  lombok inmutable if 
+=============================
+
+val newEntity = currentUser.isCurrentRole()
+            ? dictionaryMapper.modelToEntityWithTranslationUploadEntity(currentPhrase, currentUser)
+            : dictionaryMapper.modelToEntityWithoutTranslationPhrase(currentPhrase);
+
+dictionaryRepository.save(newEntity);
