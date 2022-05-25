@@ -56,3 +56,8 @@ export DATA_STORE_DB_HOST="localhost"
 ```
 printenv
 ```
+
+#### Find port in use 
+```
+sudo lsof -PiTCP -sTCP:LISTEN | grep 4650
+```
