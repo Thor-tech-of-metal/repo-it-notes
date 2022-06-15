@@ -80,11 +80,41 @@ private Map<String, String> createCaseTypeCategoryIdPair(List<DefinitionDataItem
 }
 ```
 
-Java with  lombok inmutable if 
-=============================
 
-val newEntity = currentUser.isCurrentRole()
-            ? dictionaryMapper.modelToEntityWithTranslationUploadEntity(currentPhrase, currentUser)
-            : dictionaryMapper.modelToEntityWithoutTranslationPhrase(currentPhrase);
+Example of Optional get or error
+================================
+```
+Optional<HearingResponseEntity> hearingResponse = hearingEntity.getHearingResponseForLatestRequest();
+return getLowestDate(hearingResponse.orElseThrow(() -> new BadRequestException("some error"))));
 
-dictionaryRepository.save(newEntity);
+public LocalDate getLowestDate(HearingResponseEntity hearingResponse) {
+  //something
+}
+```
+
+Inmutable initialization with lombok
+======================================
+
+```
+Optional<TranslationUploadEntity> translationUploadEntity = hasAnyTranslations(dictionaryRequest)
+            ? Optional.of(new TranslationUploadEntity())
+            : Optional.empty();
+```
+
+```
+val newEntity = isManageTranslationRole
+           ? dictionaryMapper.modelToEntityWithTranslationUploadEntity(currentPhrase, currentUserId)
+           : dictionaryMapper.modelToEntityWithoutTranslationPhrase(currentPhrase);
+       dictionaryRepository.save(newEntity);
+
+
+ where
+ Optional<TranslationUploadEntity> modelToEntityWithTranslationUploadEntity(){
+    Optional.of(new TranslationUploadEntity())
+ }
+
+ Optional<TranslationUploadEntity> modelToEntityWithoutTranslationPhrase(){
+    Optional.empty();
+ }
+
+```
