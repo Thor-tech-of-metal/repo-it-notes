@@ -189,6 +189,12 @@ for instance:
 
 `docker pull cassandra`
 
+#### Pull an image from private images repo
+
+`
+docker image  pull hmctspublic.azurecr.io/am/role-assignment-service
+`
+
 #### Login in a docker image registry
 
 `docker login -u SptingBootExampleRegistry -p "FfLG1BJwj8PL=lszQJBXZ+A43BWtt/lD" [SERVER_URL]`
