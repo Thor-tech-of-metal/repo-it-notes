@@ -61,3 +61,7 @@ printenv
 ```
 sudo lsof -PiTCP -sTCP:LISTEN | grep 4650
 ```
+
+#### Change the default schema
+
+https://github.com/ohmyzsh/ohmyzsh
