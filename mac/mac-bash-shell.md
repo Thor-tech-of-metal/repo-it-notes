@@ -3,6 +3,17 @@
 ## Envs
 Mac can use bash or Zsh
 
+## Set up Zsh
+
+Make sure that your terminal start with /bin/zsh/ , Open the Terminal, go to preferences and add in shells open with: "/bin/zsh/" 
+
+#### Change the default schema
+
+install ohmyzsh
+
+https://github.com/ohmyzsh/ohmyzsh
+
+
 
 #### set up  entries in the PATH
 
@@ -62,6 +73,3 @@ printenv
 sudo lsof -PiTCP -sTCP:LISTEN | grep 4650
 ```
 
-#### Change the default schema
-
-https://github.com/ohmyzsh/ohmyzsh
