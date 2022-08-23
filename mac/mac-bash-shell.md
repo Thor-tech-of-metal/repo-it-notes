@@ -14,17 +14,24 @@ install ohmyzsh
 https://github.com/ohmyzsh/ohmyzsh
 
 
+#### set up your env vars Zsh
 
-#### set up  entries in the PATH
+Mac uses bash shell, so the environment variables can be added to the .zshrc file, for the current user. 
+The path to this file can be found using the command
 
-1) Add the value between ":" for instance :/my/dir/bin:
+1) Edit your .zshrc
+```
+cd ~/
+
+vi .zshrc
+```
+2) Add the following line 
 
 ```
-export PATH=$HOME/bin:$HOME/.nvm:/my/dir/bin:/usr/local/bin:$PATH
+export DATA_STORE_DB_HOST="localhost"
 ```
-2) Close the termial and open another one 
+3) Close the termial and open another one
 
-NOTE: sometimes it does not work because the /my/dir/bin has not execution permissions.
 
 #### set up your env vars bash
 
@@ -44,23 +51,26 @@ export DATA_STORE_DB_HOST="localhost"
 ```
 3) Close the termial and open another one 
 
-#### set up your env vars Zsh
 
-Mac uses bash shell, so the environment variables can be added to the .zshrc file, for the current user. 
-The path to this file can be found using the command
+#### set up  entries in the PATH 
 
-1) Edit your .zshrc
+0) cd  edit .bash_profile. or  .zshrc
 ```
 cd ~/
+vi  .bash_profile. 
+or 
+vi  .zshrc
+```
 
-vi .zshrc
-```
-2) Add the following line 
+1) Add the value between ":" for instance :/my/dir/bin:
 
 ```
-export DATA_STORE_DB_HOST="localhost"
+export PATH=$HOME/bin:$HOME/.nvm:/my/dir/bin:/usr/local/bin:$PATH
 ```
-3) Close the termial and open another one
+2) Close the termial and open another one 
+
+NOTE: sometimes it does not work because the /my/dir/bin has not execution permissions.
+
 
 #### print all env vars 
 
