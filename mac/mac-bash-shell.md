@@ -3,7 +3,8 @@
 ## Envs
 Mac can use bash or Zsh
 
-## Set up Zsh
+
+#### Set up Zsh
 
 Make sure that your terminal start with /bin/zsh/ , Open the Terminal, go to preferences and add in shells open with: "/bin/zsh/" 
 
