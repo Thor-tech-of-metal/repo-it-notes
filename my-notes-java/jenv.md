@@ -18,7 +18,6 @@ export JENV_ROOT=/usr/local/var/jenv
 
 ```
 jenv add /Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
-jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/
 ```
 
 #### How to run jenv 
