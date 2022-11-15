@@ -2,6 +2,7 @@
 ```
 export  TEST_URL=http://localhost:5555
 ```
+
 # Concatenate values 
 ```
 export PATH=$PATH:~/bin
@@ -16,6 +17,13 @@ echo $TEST_URL
 ```
 printenv
 ```
+
+# Unset a var. 
+```
+unset CACHE_TYPE
+```
+
+
 
 # Notes for mac 
  you can define all user var env in .bash_profile file 
