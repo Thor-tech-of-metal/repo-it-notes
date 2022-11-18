@@ -213,21 +213,37 @@ kubectl --context eu-west-1c-prod -n LTA get pod
 Cron jobs
 ===========
 
-1) get all jibs 
+*) get all jobs instances 
 ```cpp
-kubectl -n ccd get job
+kubectl -n ccd get jobs
+```
+
+*) get a job instance myCron
+```cpp
+kubectl -n ccd get job myCron
 ```
 
 
-2) get all crons 
+*) get all crons 
 ```cpp
 kubectl -n ccd get cronjob 
 ```
 
-3) describe crons 
+*) get my cron
+```cpp
+kubectl -n ccd get cronjob myCron
+```
+
+
+*) describe crons myCron
 ```cpp
 
-kubectl -n ccd describe cronjob  [ccd-next-hearing-date-updater]
+kubectl -n ccd describe cronjob  myCron
+```
+
+*) watch all jobs
+```
+kubectl get jobs --watch
 ```
 
 
