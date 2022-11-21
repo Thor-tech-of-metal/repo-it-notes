@@ -213,6 +213,8 @@ kubectl --context eu-west-1c-prod -n LTA get pod
 Cron jobs
 ===========
 
+We have cron and cron jobs instances. 
+
 *) get all jobs instances 
 ```cpp
 kubectl -n ccd get jobs
