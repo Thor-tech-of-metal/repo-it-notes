@@ -9,6 +9,11 @@ npm start
 ```
 
 
+### Installl a module specific version
+```
+npm install -g @angular/cli@7.1.4 
+```
+
 ### Upgrade Node.Js Fedora
 ```
 node -v 
