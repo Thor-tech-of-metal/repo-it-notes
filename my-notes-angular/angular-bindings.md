@@ -1,4 +1,3 @@
-
 ###### Binding
 
 In Angular, it can be called the automatic synchronization of the data and the view.
@@ -10,9 +9,9 @@ export class PropertybindingComponent implements OnInit {
   title:string="Hello from component.";
 }
 ```
-<br/> 
+<br/>
 
-###### 1) {{ expression }}  or property interpolation 
+###### 1) {{ expression }}  or property interpolation
 
 These are the interpolation brackets which can be used to directly evaluate the expression and insert them into the HTML.
 **This is  used to display content from the model only.**
@@ -25,9 +24,9 @@ These are the interpolation brackets which can be used to directly evaluate the 
 
 <br/>
 
-###### 2) () (parenthesis) 
+###### 2) () (parenthesis)
 
-These are used for the events which are raised from the elements. Like DoubleClick. The () is then followed by =  method in the component. 
+These are used for the events which are raised from the elements. Like DoubleClick. The () is then followed by =  method in the component.
 
 ```
 <element (event)="method()"></element>
@@ -40,7 +39,7 @@ The square brackets set the value from the component to the HTML element/DOM pro
 In Angular, there are 3 types of bindings:
 
 
-*  **Property Binding:** Property binding means we pass the data from the component class and set the value to the given element in the view. 
+*  **Property Binding:** Property binding means we pass the data from the component class and set the value to the given element in the view.
 
 ```
 <img [src]="imagepath" width="300px" height="150px" alt="image not found">
@@ -56,17 +55,17 @@ Using "bind-" Prefix Before Element Property
 ```
 <br/>
 
-**We can use interpolation when value we are using from the component is a string. 
+**We can use interpolation when value we are using from the component is a string.
 Otherwise, we must use the other two methods in order to do the property binding.**
 
 <br/>
 
 * **Event Binding:**
 
-These are the two ways to handle event binding. 
+These are the two ways to handle event binding.
 
   1)  (): Wrap the event in parentheses and assign the method from the component.
-  
+
   2)  on-: Append on- before the event and assign the method from the component which will be called.
 
 
@@ -91,11 +90,11 @@ password <input type="password" #txtpassword><br>
 
 Email  <input type="Email" #txtEmail><br>
 
-1) (): Wrap 
+1) (): Wrap
 
 <button(click)="SendData(txtUserName.value,txtpassword.value,txtEmail.value)">  </button>
 
-2)  on-: Append on- before the event 
+2)  on-: Append on- before the event
 
 <button on-click="SendData(txtUserName.value,txtpassword.value,txtEmail.value)">Click to send Data</button>
 
@@ -110,22 +109,22 @@ Use the ng-bind directive, which will bind the innerHTML of the element to the s
 Data binding in AngularJS is the synchronization between the model and the view.
 
 ```
-<p ng-bind="firstname"></p> 
+<p ng-bind="firstname"></p>
 ```
 
 Use the ng-model directive to bind data from the model to the view on HTML controls.
 
 ```
- <input ng-model="firstname"> 
+ <input ng-model="firstname">
 ```
- 
+
 * **Two-Way Binding:**
 
 ```
- ([……]) 
- The html element with the [(ngModel)]="componentAttribute"  will constantly update the model. 
- 
-``` 
+ ([……])
+ The html element with the [(ngModel)]="componentAttribute"  will constantly update the model.
+
+```
 
  This allows for a continuous sync between the presentation and the View layer of the application.
  ```
@@ -136,8 +135,5 @@ Use the ng-model directive to bind data from the model to the view on HTML contr
 This constantly change: {{showoutput}}
 
 </p>
- 
+
  ```
- 
- 
-  
