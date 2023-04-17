@@ -40,6 +40,7 @@ git remote set-url origin git@github.com:hmcts/befta-fw.git
 
 ###  Troubleshooting 
 
+* Issue 1 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -59,6 +60,15 @@ fatal: Could not read from remote repository.
 
 ```
 ssh-keygen -R github.com
+```
+
+* Issue 2
+The authenticity of host 'github.com (140.82.121.3)' can't be established.
+
+* Solution 2
+
+```
+ssh-keygen -R 140.82.121.3
 ```
 
 ### git clone
