@@ -138,3 +138,14 @@ gradle wrapper --gradle-version=5.1.1
 
 ```
 
+* Common error 
+```
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+```
+It means that your wrapper is a diferent version of the current gradle or vice versa and there are some deprecated features. 
+Compare your local gradel with the gradle wrapper. 
+
+```
+ gradle --version 
+ ./gradlew wrapper --version;
+```
