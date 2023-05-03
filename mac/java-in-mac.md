@@ -1,4 +1,16 @@
-#### install latest java 
+#### install java manually 
+
+In mac all java SDK are located on /Library/Java/JavaVirtualMachines/
+
+1) download your SDK from https://www.openlogic.com/openjdk-downloads
+2) unzip the file in /Library/Java/JavaVirtualMachines/
+3) make sure to follow the directories conventions for insatnce for openjdk 11 openjdk-11.0.18.jdk/Contents/Home
+4) add it using jenv 
+```
+jenv add  /Library/Java/JavaVirtualMachines/openjdk-11.0.18.jdk/Contents/Home
+```
+
+#### install latest java using brew
 
 ```
 brew cask install java
