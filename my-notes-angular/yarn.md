@@ -6,8 +6,6 @@ yarn-audit-known-issues // --> this is the file will all CVS resolutions and oth
 yarn-error.log  // --> build errors 
 ```
 
-
-
 ### yarn to find deprecated dependencies
 ```
 yarn audit
