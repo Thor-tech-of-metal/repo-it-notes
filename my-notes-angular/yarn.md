@@ -55,6 +55,16 @@ or use npm
 ```
 yarn npm audit --recursive --environment production
 ```
+
+Cves can be fixed using resolutions section in the package . json
+```
+},
+"resolutions": {
+  ..
+  "cookiejar": "2.1.4",
+  "qs": "6.7.3"
+}
+```
 ### yarn to fix deprecated dependencies and add them in to the yarn-audit-known-issues file.
 yarn-audit-known-issues this file has all already known dependencies issues
 
