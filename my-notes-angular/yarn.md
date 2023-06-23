@@ -51,3 +51,11 @@ yarn install
 ```
 yarn audit
 ```
+
+
+### yarn to fix deprecated dependencies and add them in to the yarn-audit-known-issues file.
+yarn-audit-known-issues this file has all already known dependencies issues
+
+```
+yarn npm audit --recursive --environment production --json > yarn-audit-known-issues
+```
