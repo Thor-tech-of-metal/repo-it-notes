@@ -3,10 +3,32 @@
  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+
+#### brew instalation path 
+
+All brew inslation ended up in this location
+
+```
+/usr/local/Cellar/gradle/5.5/libexec/bin/gradle
+```
+
+
+#### Brew short cuts instlations 
+
+brew creates short cuts in /usr/local/bin/ for each instalation for instance for gradle it creates  /usr/local/bin/gradle file 
+This file points to /usr/local/Cellar/gradle/5.5/libexec/bin/gradle
+
+this file looks like this:
+```
+#!/bin/bash
+JAVA_HOME="${JAVA_HOME:-$(/usr/libexec/java_home)}" exec "/usr/local/Cellar/gradle/5.5/libexec/bin/gradle" "$@"
+```
+
+
 #### install 
 
 ```
-brew install  kubernetes-helm
+brew install kubernetes-helm
 ```
 
 #### see all programs installed by brew
@@ -18,6 +40,13 @@ brew list
 ```
  brew uninstall yarn  
 ```
+
+#### remove
+
+```
+brew uninstall --ignore-dependencies kubernetes-helm
+```
+
 
 #### info about a program
 
@@ -32,33 +61,16 @@ all packages tends to be installed in /usr/local/Cellar/ and /usr/local/opt/
 brew --prefix nodejs
 ```
 
-
-#### install from cask repository
-
-```
-brew cask install java
-```
-
-#### install a particular version
+#### Get possible packages in 
 
 ```
-brew search "java11" --casks
+brew search gradle
 ```
-or 
-```
-brew cask info java11
-```
+output -- > gradle homebrew/versions/gradle@7
 
-Install java11
-
+#### Install a specific package
 ```
-brew install "java11"
-```
-
-#### remove
-
-```
-brew uninstall --ignore-dependencies kubernetes-helm
+brew install homebrew/versions/gradle@7 
 ```
 
 #### versions 
@@ -66,14 +78,6 @@ brew uninstall --ignore-dependencies kubernetes-helm
 ```
 brew versions kubernetes-helm
 ```
-
-#### search in cask repository
-
-```
-brew cask info java
-```
-
-
 
 #### Update 
 
@@ -100,5 +104,41 @@ brew link --overwrite node
 ```
 brew unlink node
 ```
+
+
+
+#### install from cask repository
+
+```
+brew cask install java
+```
+
+#### install a particular version
+
+```
+brew search "java11" --casks
+```
+or 
+```
+brew cask info java11
+```
+
+Install java11
+
+```
+brew install "java11"
+```
+
+
+
+#### search in cask repository
+
+```
+brew cask info java
+```
+
+
+
+
 
 
