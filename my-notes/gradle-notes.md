@@ -51,12 +51,12 @@ gradle clean  api:clean build --info
 #### Print dependencies tree compile
 
 ```
-./gradlew  dependencies --configuration compile
+./gradlew  dependencies
 ```
 
 #### Print dependencies
 ```
-./gradlew  dependencies --configuration compile
+./gradlew  dependencies
 ```
 
 #### Gradle properties
