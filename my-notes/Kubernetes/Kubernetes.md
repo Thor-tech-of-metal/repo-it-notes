@@ -90,6 +90,11 @@ watch events
 kubectl --context eu-west-1a-nonprod -n LTA-dev get events --watch
 ```
 
+*) get a pod more information for a namespace, all event for a pod.
+```
+kubectl get event -n fees-pay  --field-selector involvedObject.name=ccpay-payment-api-int
+```
+
 *) Delete a particular service
 ```cpp
 kubectl --context eu-west-1a-nonprod -n LTA-dev  delete service feedback
