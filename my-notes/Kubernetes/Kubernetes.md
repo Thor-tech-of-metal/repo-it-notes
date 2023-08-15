@@ -195,6 +195,42 @@ kubectl config get-contexts
 kubectl --context eu-west-1a-nonprod get namespaces
 ```
 
+Get secrets
+============
+
+*) Get all secrets 
+```
+kubectl get secret -n fees-pay
+```
+
+OUTPUT  
+```
+NAME                                                 TYPE                 DATA   AGE
+fees-pay-sb-preview                                  Opaque               2      26d
+sh.helm.release.v1.ccpay-bubble-frontend-pr-801.v1   helm.sh/release.v1   1      23h
+```
+
+*) Describe one particular secret
+```
+kubectl describe secret fees-pay-sb-preview 
+```
+
+*) Show all secrets 
+```
+kubectl get secret fees-pay-sb-preview  -o yaml
+```
+
+*) Decode one secret 
+```
+echo "Ikvd3MubmV0LztTaGFyZWRBY2Nlc3NLZXlOYW1lPVJvb3RNYW5hZ2VTaGFyZWRBY2Nlc3NLZXk7U2hhcmVkQWNjZXNzS2V5PVBqMUtTUVQwUllWbDNCVGpyWUl4UHg3eExWeWFsdCtxditBU2JPYjRWc289Ig==" | base64 --decode
+```
+
+*) Decode one secret by json value 
+```
+kubectl get secret fees-pay-sb-preview -o jsonpath="{.data.connectionString}" | base64 --decode
+```
+
+
 
 Create a mysql clientId based on a deployed pod
 =========================
