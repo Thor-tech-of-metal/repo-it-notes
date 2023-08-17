@@ -41,6 +41,16 @@ yarn -v
 yarn install 
 ```
 
+### Add a package and modify package.json
+```
+yarn add "express@^4.15.4"
+```
+
+### See all possible ways to run yarn according the package.json
+```
+yarn run 
+```
+
 
 ###  beautiful view 
 ```
