@@ -56,6 +56,23 @@ yarn run
 ```
  yarn set version berry
 ```
+
+###  clean cache and modules
+
+```
+rm -rf node_modiles/
+rm package-lock.json
+rm yarn.lock
+```
+or 
+```
+yarn cache clean
+```
+###  set my yarn version
+```
+yarn set version 3.6.2 
+```
+
  
 ### yarn to find deprecated dependencies
 ```
