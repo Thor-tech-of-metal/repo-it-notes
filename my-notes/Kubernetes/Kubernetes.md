@@ -200,7 +200,7 @@ Get secrets
 
 *) Get all secrets 
 ```
-kubectl get secret -n fees-pay
+kubectl get secret -n myNameSpace
 ```
 
 OUTPUT  
@@ -212,12 +212,12 @@ sh.helm.release.v1.ccpay-bubble-frontend-pr-801.v1   helm.sh/release.v1   1     
 
 *) Describe one particular secret
 ```
-kubectl describe secret fees-pay-sb-preview 
+kubectl describe secret myNameSpace-sb-preview 
 ```
 
 *) Show all secrets 
 ```
-kubectl get secret fees-pay-sb-preview  -o yaml
+kubectl get secret myNameSpace-sb-preview  -o yaml
 ```
 
 *) Decode one secret 
@@ -227,7 +227,7 @@ echo "Ikvd3MubmV0LztTaGFyZWRBY2Nlc3NLZXlOYW1lPVJvb3RNYW5hZ2VTaGFyZWRBY2Nlc3NLZXk
 
 *) Decode one secret by json value 
 ```
-kubectl get secret fees-pay-sb-preview -o jsonpath="{.data.connectionString}" | base64 --decode
+kubectl get secret myNameSpace-sb-preview -o jsonpath="{.data.connectionString}" | base64 --decode
 ```
 
 
