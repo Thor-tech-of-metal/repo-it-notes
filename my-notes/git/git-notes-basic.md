@@ -91,6 +91,11 @@ git add myFiles.txt
 git commit -m 'my hola mundo changes'
 ```
 
+### Empty Commits
+```
+git commit --allow-empty -m "Triggering build"
+```
+
 * Show files in a commit.
 
 ```
