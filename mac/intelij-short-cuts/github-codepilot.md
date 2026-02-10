@@ -2,10 +2,11 @@
 
 *  Copilot: Accept Next Edit Suggestion	⇥ --> Tab
 *  Copilot: Disable Completions	and Copilot: Enable completions : command + option + shift + O
-*  Copilot: Open Chat	control + Arrow up + C
-*  Copilot: Open Inline Chat	+ Arrow up + I
+*  Copilot: Open Chat:	control + shift + C
+*  Copilot: Open Inline Chat: control + shift + I
 
 #### Tricks 
+* In the code you can use copilot inline chat,  control + shift + I
 * In the agent use "#" to add a file in the context, it will bring all files from the project to be added
 
 
