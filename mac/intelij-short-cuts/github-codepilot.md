@@ -11,13 +11,14 @@
 
 
 #### Agent commands 
-/clear — Clear or restart the conversation [docs.github.com]
-/delete — Delete a conversation [docs.github.com]
-/new — Start a new chat session [docs.github.com]
-/rename — Rename a conversation
-/explain — Explain selected code [dev.to]
-/fix — Suggest a fix for problems in the selected code [dev.to]
-/tests — Generate unit tests for selected code [dev.to]
-/help — Show Copilot help and basics
+
+* /clear — Clear or restart the conversation [docs.github.com]
+* /delete — Delete a conversation [docs.github.com]
+* /new — Start a new chat session [docs.github.com]
+* /rename — Rename a conversation
+* /explain — Explain selected code [dev.to]
+* /fix — Suggest a fix for problems in the selected code [dev.to]
+* /tests — Generate unit tests for selected code [dev.to]
+* /help — Show Copilot help and basics
 
   
