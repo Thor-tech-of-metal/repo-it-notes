@@ -21,4 +21,6 @@
 * /tests — Generate unit tests for selected code [dev.to]
 * /help — Show Copilot help and basics
 
-  
+
+
+  https://www.youtube.com/watch?v=3w2df18ns-8&t=265s
