@@ -9,12 +9,17 @@ b) SSH public and privete keys.  These are created per computer under you local 
 
 ###  Create SSH in git for MAC
 
-1)  create the RSA keys : 
-My tutorial: https://github.com/Thor-tech-of-metal/repo-it-notes/blob/master/unix/creating-rsa-keys.md
-or 
-github: https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+1)  create the RSA keys :
 
-3) Add the new keys in to the github account.
+``` 
+https://github.com/Thor-tech-of-metal/repo-it-notes/blob/master/unix/creating-rsa-keys.md
+```
+or use (both links are for the same)
+```
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+```
+
+2) Add the new keys in to the github account.
 
 https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
