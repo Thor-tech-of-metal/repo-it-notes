@@ -3,7 +3,7 @@
 # Concepts
 
 *  All rsa keys are stored in ~/.ssh
-*  In  ~/.ssh there are your RSA keys public and private. For instance  bastion-reform		bastion-reform.pub
+*  In  ~/.ssh there are your RSA keys public and private. For instance:  bastion-reform	bastion-reform.pub
 *  id_rsa:  this is the private key that should live in my computer.
 *  id_rsa.pub : this is the public key that should be copied to the server which I wish to connect.
 *  you need to have the agent running to be able to use the keys.  Always make sure that your keys have been picked by the agent.
@@ -18,66 +18,121 @@ Every time you connect to a server a key is generated from the server.  ~/.ssh/
 
 more info:  https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html#SetupanSSHkey-ssh1
 
-# Steps for user TRose1
 
-### 0  Make sure that there is not another key in user/TRose1/.ssh
-```
-ls -a ~/.ssh
-```
+# 🔐 Create a New RSA SSH Key and Add It to GitHub
 
-### 1 Create the key in user/TRose1/.ssh
-```
-ssh-keygen
-```
---> File name: bastion-reform
+This guide works on **macOS, Linux, and Windows (Git Bash or WSL)**.
 
---> phrase: kanakldnaodbaojdbao
+---
 
-result: ~/.ssh there are your RSA keys public and private. For instance  bastion-reform		bastion-reform.pub . private key, it has not a file extensions.
+## ✅ 1. Check for Existing SSH Keys (Optional)
 
-### 2 Start the agent to load the keys
-
-a) check if the agent is running:
-```
-ps -e | grep [s]sh-agent
+```bash
+ls -al ~/.ssh
 ```
 
-b) if it is not running start it.
-```
-ssh-agent /bin/bash
+If you already see files like `id_rsa` and `id_rsa.pub`, you may reuse them or create a new one with a different name.
+
+---
+
+## ✅ 2. Generate a New RSA SSH Key
+
+Run the following command (replace the email with the one linked to your GitHub account):
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-### 3 Load your new identity into the ssh-agent management program using the ssh-add command. Use private key, it has not a file extensions.
+When prompted:
+
+- **File location**  
+  Press **Enter** to accept the default  
+  or specify a custom name, e.g.:
+  ```bash
+  ~/.ssh/id_rsa_github
+  ```
+
+- **Passphrase (recommended)**  
+  Enter one or press Enter to skip
+
+---
+
+## ✅ 3. Start the SSH Agent
+
+```bash
+eval "$(ssh-agent -s)"
 ```
+
+---
+
+## ✅ 4. Add the SSH Key to the Agent
+
+If you used the default key name:
+
+```bash
 ssh-add ~/.ssh/id_rsa
-````
-
-or mac
-
-```
-ssh-add -K ~/.ssh/<private_key_file>
-```
---> phrase
-
-result : Identity added: /Users/skynet/.ssh/bastion-reform (/Users/skynet/.ssh/bastion-reform)
-
-### 4 Use the ssh-add command to list the keys that the agent is managing.
-```
- ssh-add -l
 ```
 
-###  5 Copy the keys the clipboard
+If you used a custom name:
+
+```bash
+ssh-add ~/.ssh/id_rsa_github
 ```
-cat ~/.ssh/bastion-reform.pub
+
+---
+
+## ✅ 5. Copy the Public Key
+
+```bash
+cat ~/.ssh/id_rsa.pub
 ```
-or in Mac
+
+Or (macOS):
+
+```bash
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+Copy the **entire output**, starting with:
 
 ```
-pbcopy < ~/.ssh/bastion-reform.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ...
 ```
-Now you can add the public key to git hub or anything.
 
+---
 
+## ✅ 6. Add the SSH Key to GitHub
+
+1. Go to **GitHub → Settings**
+2. Open **SSH and GPG keys**
+3. Click **New SSH key**
+4. Fill in:
+   - **Title**: e.g. `Work Laptop`
+   - **Key**: paste the public key
+5. Click **Add SSH key**
+
+🔗 Direct link:  
+https://github.com/settings/ssh/new
+
+---
+
+## ✅ 7. Test the Connection
+
+```bash
+ssh -T git@github.com
+```
+
+Expected message:
+
+```text
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+---
+
+## 🎉 Done!
+
+Your new **RSA SSH key** is now configured and ready to use with GitHub.
 
 # How to check if the key was added
 
