@@ -18,4 +18,5 @@
 2. On the right-hand side, select Copilot agent. The little could next to codpilot face.  
 3. Write your prompt with commands 1,2,3 ... Click Ok 
 4. That might create a PR the changes
+5. A repo can have many agents running at the same time.
 ``
