@@ -10,3 +10,12 @@
 ## How to bring visual studio 
 1. Open the pull request or branch , open a file
 2. press . 
+
+
+## How to create an angent that perform a task in a repo
+
+1. Open the repo
+2. On the right-hand side, select Copilot agent. The little could next to codpilot face.  
+3. Write your prompt with commands 1,2,3 ... Click Ok 
+4. That might create a PR the changes
+``
