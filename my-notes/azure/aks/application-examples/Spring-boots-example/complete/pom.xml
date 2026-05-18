@@ -84,6 +84,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- CVE-2026-33117 fix: applicationinsights-spring-boot-starter 2.6.4 is discontinued and vulnerable;
+             replaced by applicationinsights-web 3.7.8+. applicationinsights-web 2.6.4 upgraded to 3.7.8. -->
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>applicationinsights-web</artifactId>
+            <version>3.7.8</version>
+        </dependency>
+        <!-- CVE-2026-33117 fix: azure-security-keyvault-secrets upgraded from vulnerable 4.1.1 to 4.10.6. -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-secrets</artifactId>
+            <version>4.10.6</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
