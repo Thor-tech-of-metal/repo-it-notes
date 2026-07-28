@@ -1,7 +1,3 @@
-# Delegate to Coding Agent – Functionality Explained
-
-## Overview
-
 **Delegate to Coding Agent** allows you to assign a software development task to an autonomous AI coding agent rather than working through a traditional chat-based interaction. The agent can analyze a codebase, make changes, and prepare those changes for review in a pull request.
 
 ---
