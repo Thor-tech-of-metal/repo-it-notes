@@ -18,12 +18,13 @@
 - **Agent** → "Take the task and work through it."
 
 
-
+## Agent
 **Delegate to Coding Agent** allows you to assign a software development task to an autonomous AI coding agent rather than working through a traditional chat-based interaction. The agent can analyze a codebase, make changes, and prepare those changes for review in a pull request.
 
 ---
 
-## How It Works
+## 
+**How it works**
 
 When you delegate a task, the Coding Agent:
 
@@ -37,8 +38,10 @@ When you delegate a task, the Coding Agent:
 
 ---
 
+## MCP 
 **Model Context Protocol (MCP)** is an open protocol that enables AI assistants, such as GitHub Copilot, to securely connect to external tools, services, databases, APIs, and knowledge sources through a standardized interface.
-## Why MCP Exists
+
+# Why MCP Exists
 
 Without MCP, every AI tool would require custom integrations for:
 
@@ -48,7 +51,7 @@ Without MCP, every AI tool would require custom integrations for:
 - Source control systems
 - APIs and services
 
-### MCP Server
+**MCP Server**
 
 A service that exposes resources and capabilities.
 
@@ -60,3 +63,7 @@ Examples:
 - Databases
 - Local file systems
 - Custom enterprise applications
+
+
+## Agent Customization
+Agent Customization in GitHub Copilot for IntelliJ enables teams to create reusable AI assistants tailored to their development workflows.
