@@ -9,7 +9,12 @@ In VS Code, a project is essentially a **folder**:
 ## 2. Workspace = Closest equivalent to IntelliJ projects
 
 VS Code’s closest match to an IntelliJ project is a **Workspace**.
-The only way to have a settings per project is by creating a workspace
+
+The only way to have a settings per project is by creating a workspace with a 1 or more folders.
+File--> save as workspace that will create a workspace file 
+File--> Open folder inside the created workspace
+
+https://www.youtube.com/watch?v=k6mJwIQ6lO8
 
 A workspace:
 
