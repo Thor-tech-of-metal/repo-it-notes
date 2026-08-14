@@ -12,7 +12,7 @@ VS Code’s closest match to an IntelliJ project is a **Workspace**.
 
 The only way to have a settings per project is by creating a workspace with a 1 or more folders.
 File--> save as workspace that will create a workspace file 
-File--> Open folder inside the created workspace
+File--> add folder to   workspace
 
 https://www.youtube.com/watch?v=k6mJwIQ6lO8
 
