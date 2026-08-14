@@ -1,5 +1,7 @@
 # Angular Remote Debugging Setup
 
+You will see the debug in your VS and Chrome developer mode 
+
 1. **Add remote debugging to your app and enable source maps**
 
 Add this to `angular.json`:
