@@ -51,7 +51,12 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") 
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // CVE-2026-33117 fix: applicationinsights-spring-boot-starter 2.6.4 is discontinued and vulnerable;
+    // replaced by applicationinsights-web 3.7.8+ (safe). applicationinsights-web 2.6.4 upgraded to 3.7.8.
+    compile("com.microsoft.azure:applicationinsights-web:3.7.8")
+    // CVE-2026-33117 fix: azure-security-keyvault-secrets upgraded from vulnerable 4.1.1 to 4.10.6.
+    compile("com.azure:azure-security-keyvault-secrets:4.10.6")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
