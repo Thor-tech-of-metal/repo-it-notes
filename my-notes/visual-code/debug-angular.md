@@ -47,5 +47,30 @@ or
 src/
 ```
 
+# Node JS only Remote Debugging Setup
+
+1. **Add remote debugging to your node app and enable source maps**
+   You need to enable source maps !! 
+
+Add this to `angular.json`:
+
+```json
+"build": {
+  "options": {
+    "sourceMap": true
+  }
+}
+```
+or open package.json and add "--enable-source-maps" 
+```
+"scripts": {
+    "start": "node server.js",
+    "start:angular-dev": "ng serve --proxy-config proxy.conf.json",
+    "start:express-dev": "cross-env NODE_ENV=development nodemon --enable-source-maps --inspect start.js", <---- here 
+  
+```
+2.  **Go to the Debug view and launch Node**
+3.  **It will read you package.json and select the start that you want to use for instance, start:angular-dev**
+
 More info look this video 
 https://www.youtube.com/watch?v=XHEnQM_NieU
