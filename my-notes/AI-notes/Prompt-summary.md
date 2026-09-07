@@ -60,4 +60,5 @@ Specifies the writing style or communication tone.
 2. **Task**
 3. **Input** (data)
 4. **Examples** to obtain better results
-5. **Testing Examples**
+5. **Output Format**
+6. **Testing Examples**
